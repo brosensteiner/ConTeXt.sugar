@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<action-recipes>
+
+    <snippet id="actions.snippets.context.sectioning.startpart" category="actions.snippets.context/actions.snippets.context.sectioning">
+        <title>start new part</title>
+        <text>\\startpart[title={${1:placeholder}},
+               bookmark={${2:$1}},
+               list={${3:$1}},
+               marking={${4:$1}},
+               reference={${5:$1}}
+        	  ]
+        		  
+$6
+        
+\\stoppart</text>
+        <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+        <text-trigger>par</text-trigger>
+    </snippet>
+    
+    <snippet id="actions.snippets.context.sectioning.startchapter" category="actions.snippets.context/actions.snippets.context.sectioning">
+            <title>start new chapter</title>
+            <text>\\startchapter[title={${1:placeholder}},
+                   bookmark={${2:$1}},
+                   list={${3:$1}},
+                   marking={${4:$1}},
+                   reference={${5:$1}}
+                  ]
+            		  
+$6
+            
+\\stopchapter</text>
+            <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+            <text-trigger>cha</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.sectioning.startsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                <title>start new section</title>
+                <text>\\startsection[title={${1:placeholder}},
+              bookmark={${2:$1}},
+              list={${3:$1}},
+              marking={${4:$1}},
+              reference={${5:$1}}
+             ]
+                		  
+$6
+                
+\\stopsection</text>
+                <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                <text-trigger>sec</text-trigger>
+            </snippet>
+        
+        <snippet id="actions.snippets.context.sectioning.startsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                <title>start new subsection</title>
+                <text>\\startsubsection[title={${1:placeholder}},
+				 bookmark={${2:$1}},
+				 list={${3:$1}},
+				 marking={${4:$1}},
+				 reference={${5:$1}}
+			    ]
+                		  
+$6
+                
+\\stopsubsection</text>
+                <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                <text-trigger>ssec</text-trigger>
+            </snippet>
+        
+        <snippet id="actions.snippets.context.sectioning.startsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                <title>start new subsubsection</title>
+                <text>\\startsubsubsection[title={${1:placeholder}},
+                               bookmark={${2:$1}},
+                               list={${3:$1}},
+                               marking={${4:$1}},
+                               reference={${5:$1}}
+                	          ]
+                		  
+$6
+                
+\\stopsubsubsection</text>
+                <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                <text-trigger>sssec</text-trigger>
+            </snippet>
+        
+        <snippet id="actions.snippets.context.sectioning.startsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                <title>start new subsubsubsection</title>
+                <text>\\startsubsubsubsection[title={${1:placeholder}},
+                                     bookmark={${2:$1}},
+                                     list={${3:$1}},
+                                     marking={${4:$1}},
+                                     reference={${5:$1}}
+                	                ]
+                		  
+$6
+                
+\\stopsubsubsubsection</text>
+                <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                <text-trigger>ssssec</text-trigger>
+            </snippet>
+        
+        <snippet id="actions.snippets.context.sectioning.startsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                <title>start new subsubsubsubsection</title>
+                <text>\\startsubsubsubsubsection[title={${1:placeholder}},
+                                           bookmark={${2:$1}},
+                                           list={${3:$1}},
+                                           marking={${4:$1}},
+                                           reference={${5:$1}}
+                	                      ]
+                		  
+$6
+                
+\\stopsubsubsubsubsection</text>
+                <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                <text-trigger>sssssec</text-trigger>
+            </snippet>
+            
+            <snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                            <title>start new subsubsubsubsubsection</title>
+                            <text>\\startsubsubsubsubsubsection[title={${1:placeholder}},
+                                                          bookmark={${2:$1}},
+                                                          list={${3:$1}},
+                                                          marking={${4:$1}},
+                                                          reference={${5:$1}}
+                            	                         ]
+                            		  
+$6
+                            
+\\stopsubsubsubsubsubsection</text>
+                            <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                            <text-trigger>ssssssec</text-trigger>
+                        </snippet>
+                        
+                        <snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                                        <title>start new subsubsubsubsubsubsection</title>
+                                        <text>\\startsubsubsubsubsubsubsection[title={${1:placeholder}},
+                                                                         bookmark={${2:$1}},
+                                                                         list={${3:$1}},
+                                                                         marking={${4:$1}},
+                                                                         reference={${5:$1}}
+                                        	                            ]
+                                        		  
+$6
+                                        
+\\stopsubsubsubsubsubsubsection</text>
+                                        <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                                        <text-trigger>sssssssec</text-trigger>
+                                    </snippet>
+                                    
+                                    <snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
+                                                                            <title>start new subsubsubsubsubsubsubsection</title>
+                                                                            <text>\\startsubsubsubsubsubsubsubsection[title={${1:placeholder}},
+                                                                                                             bookmark={${2:$1}},
+                                                                                                             list={${3:$1}},
+                                                                                                             marking={${4:$1}},
+                                                                                                             reference={${5:$1}}
+                                                                            	                            ]
+                                                                            		  
+$6
+                                                                            
+\\stopsubsubsubsubsubsubsubsection</text>
+                                                                            <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+                                                                            <text-trigger>ssssssssec</text-trigger>
+                                                                        </snippet>
+        
+    
+
+</action-recipes>

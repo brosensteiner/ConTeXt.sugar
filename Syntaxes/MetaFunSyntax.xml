@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<syntax name="source.MetaFun">
+    <zones>
+    
+        <zone name="delimiter.balanced.parentheses_and_braces.metafun">
+            <starts-with>
+                <expression>(\()|(\[)</expression>
+                <capture number="1" name="punctuation.open.parenthesis.metafun"/>
+                <capture number="2" name="punctuation.open.brace.metafun"/>
+            </starts-with>
+            <ends-with>
+                <expression>(\))|(\])</expression>
+                <capture number="1" name="punctuation.close.parenthesis.metafun"/>
+                <capture number="2" name="punctuation.close.brace.metafun"/>
+            </ends-with>
+            <subzones>
+                <zone name="delimiter.balanced.quotes.metafun">
+                    <starts-with>
+                        <expression>(?&lt;!\\)(")</expression>
+                        <capture number="1" name="string.quoted.double.metafun"/>
+                    </starts-with>
+                    <ends-with>
+                        <expression>(?&lt;!\\)(")</expression>
+                        <capture number="1" name="string.quoted.double.metafun"/>
+                    </ends-with>
+                    <subzones>
+                        <include syntax="language-root.tex.context"/>
+                    </subzones>
+                </zone>
+                <zone name="constant.character.comma.metafun">
+                    <expression>,</expression>
+                </zone>
+                <include collection="Units"/>
+                <include syntax="language-root.tex.context"/>
+                <include syntax="source.MetaFun"/>
+            </subzones>
+        </zone>
+        
+        <zone name="keyword.path.connector.metafun">
+            <expression>(--(-)?|\.\.(\.)?)</expression>
+        </zone>
+        
+        <zone name="keyword.path.controller.metafun">
+            <expression>\b(controls|tension|atleast|curl|up|left|right|down|dir|origin|softjoin|((str|z))[0-9]+?)\b</expression>
+        </zone>
+        
+        <zone name="support.function.label.metafun">
+            <expression>\b((?:textext|(?:(?:free)?dot)?label)(?:\.(?:lft|rt|top|bot|ulft|urt|llft|lrt|raw|origin))?)\b</expression>
+            <capture number="1" name="keyword.pseudoprocedure.metafun"/>
+        </zone>
+        
+        <zone name="meta.support.function.define.metafun">
+            <starts-with>
+                <expression>(\b(?:var|primary|secondary|tertary)?def\b)\s+([\w_\?!]+)\s*(@#)?</expression>
+                <capture number="1" name="storage.definition.metafun"/>
+                <capture number="2" name="keyword.operator.defined.context"/>
+                <capture number="3" name="entity.definition.special.metafun"/>
+            </starts-with>
+            <ends-with>
+                <expression>\b(enddef)\b\s*(;)</expression>
+                <capture number="1" name="storage.definition.metafun"/>
+                <capture number="2" name="keyword.other.metafun"/>
+            </ends-with>
+            <subzones>
+                <zone name="meta.parametertype.metafun">
+                    <starts-with>
+                        <expression>(\()?\s*(expr|suffix|text)\b</expression>
+                        <capture number="1" name="keyword.operator.parentheses.metafun"/>
+                        <capture number="2" name="keyword.parametertype.metafun"/>
+                    </starts-with>
+                    <ends-with>
+                        <expression>(\))?\s*(=)</expression>
+                        <capture number="1" name="keyword.operator.parentheses.metafun"/>
+                        <capture number="2" name="keyword.binops.metafun"/>
+                    </ends-with>
+                    <subzones>
+                        <zone name="constant.character.comma.metafun">
+                            <expression>,</expression>
+                        </zone>
+                    </subzones>
+                </zone>
+                <include collection="Units"/>
+                <include syntax="source.MetaFun"/>
+                <include syntax="language-root.tex.context"/>
+            </subzones>
+        </zone>
+        
+        <zone name="keyword.onpath.metafun">
+            <expression>\b(of|along|on)\b</expression>
+        </zone>
+        
+        <zone name="keyword.other.metafun">
+            <expression>(;|:=|:|\bto\b)</expression>
+        </zone>
+        
+        <zone name="keyword.path_transform_constants.metafun">
+            <expression>\b((quarter|half|full)circle|unitsquare|identity)\b</expression>
+        </zone>
+        
+        <zone name="keyword.color_constants.metafun">
+            <expression>\b(black|white|yellow|red|green|blue|background)\b</expression>
+        </zone>
+        
+        <zone name="keyword.pseudoprocedure.metafun">
+            <expression>\b((left|right)path|draw(line|point|control|label|origin|bound|path)?options|saveoptions|resetdrawoptions|label|labels|dotlabels|freelabel|freedotlabel|remapcolor|cmyk|spotcolor|multitonecolor|transparent|reset(colormap|(cmyk|spot)colors)|recolor|(linear|circular)_shade|set_(circular|linear)_vector|shadecolor|externalfigure|hyper(link|path)|loadfigure|(re)?graphictext|(reset)?graphictextdirective|graphictextformat)\b</expression>
+        </zone>
+        
+        <zone name="keyword.command.metafun">
+            <expression>\b(clip|interim|let|newinternal|pickup|randomseed|setbounds|shipout|special|mpxbreak|show(variable|token|dependencies)?)\b</expression>
+        </zone>
+        <zone name="keyword.binops.metafun">
+            <expression>(\+|-|\*|/|\*\*|\+\+|\+-\+|&amp;|\&lt;(=)?|\>(=)?|=)|\b(and|dotprod|div|infont|mod|or|intersection(point|times)|cut(after|before|ends))\b</expression>
+        </zone>
+        
+        <zone name="keyword.pseudofunction.metafun">
+            <expression>\b(leftrightpath|min|max|incr|decr|dashpattern|interpath|buildcycle|thelabel|thefreelabel|anglebetween|(point|left|center|right)arrow|paired|tripled|remappedcolor|(pre)?define(d)?(circular|linear)_shade|scantokens)\b</expression>
+        </zone>
+        
+        <zone name="keyword.drawing.metafun">
+            <expression>\b(normal(fill|draw)|fill|unfill|refill|draw(point(s)?|control(points|lines)|pointlabels|boundingbox|(x|y)?ticks|wholepath)?|undraw|redraw|filldraw|drawfill|unfilldraw|drawarrow|drawdblarrow|cutdraw|reversefill|outlinefill|with(draw|fill)color|visualized(draw|fill)|(visualize|naturalize)paths)\b</expression>
+        </zone>
+        
+        <zone name="keyword.addtocommand.metafun">
+            <starts-with>
+                <expression>\b(addto)\b</expression>
+                <capture number="1" name="keyword.addto.metafun"/>
+            </starts-with>
+            <ends-with>
+                <expression>\b(also|contour|doublepath)\b</expression>
+                <capture number="1" name="keyword.addto.metafun"/>
+            </ends-with>
+        </zone>
+        
+        <zone name="keyword.drawingoptions.metafun">
+            <expression>\b(with(color|pen|shade)|dashed)\b</expression>
+        </zone>
+        
+        <zone name="keyword.internalvariable.metafun">
+            <expression>\b(defaultcolormodel|currentpicture|ahangle|ahlength|bboxmargin|charcode|day|defaultpen|defaultscale|labeloffset|linecap|linejoin|miterlimit|month|pausing|prologues|showstopping|time|loggingall|tracing(all|none|output|capsules|choices|commands|equations|lostcharstracingmacros|online|restorestracingspecs|stats|titlestruecorners)|warningcheck|year|shadefactor)\b</expression>
+        </zone>
+        
+        <zone name="keyword.ofoperator.metafun">
+            <expression>\b(arctime|direction(time|point)?|penoffset|point|(post|pre)control|sub(path|string))\b</expression>
+        </zone>
+        
+        <zone name="keyword.transform.metafun">
+            <expression>\b(rotated|scaled(cmyk|cmykasrgb|rgbascmyk|rgb|gray)?|shifted|slanted|transformed|(x|y|z|xy)scaled|reflectedabout|rotatedaround|(x|y|xy)sized|(left|right|top|bottom|outer|inner)?enlarged|randomized|cornered|smoothed|sqeezed|superellipsed|randomshifted|interpolated|uncolored|softened|laddered|crossed|(ll|ul|ur|lr)moved)\b</expression>
+        </zone>
+        
+        <zone name="keyword.nullaryop.metafun">
+            <expression>\b(false|normaldeviate|nullpicture|nullpen|pencircle|true|whatever)\b</expression>
+        </zone>
+        
+        <zone name="keyword.unaryop.metafun">
+            <expression>\b(abs|acos|acosh|angle|arclength|ASCII|asin|asinh|atan|bbox|bluepart|bot|(left|right|top|bottom)boundary|bounded|boundingbox|ceiling|center|char|clipped|condition|cosd|cos|cosh|cot|cotd|cycle|dashpart|decimal|ddecimal|dddecimal|dir|exp|filled|floor|fontpart|fontsize|grayed|greenpart|hex|(inner|outer)boundingbox|inv|invcos|inverse|inverted|invsin|known|length|lft|llcorner|ln|log|lrcorner|makepath|makepen|mexp|mlog|not|oct|odd|pathpart|penpart|redpart|reverse|round|rt|simplified|sin|sind|sinh|sqr|sqrt|stroked|tan|tand|textpart|textual|top|ulcorner|uniformdeviate|unitvector|unknown|unspiked|urcorner|xpart|xxpart|xypart|ypart|yxpart|yypart)\b</expression>
+        </zone>
+        
+        <zone name="keyword.datatype.metafun">
+            <expression>\b((new)?(boolean|color|numeric|pair|path|pen|picture|string|transform))\b</expression>
+        </zone>
+        
+        <zone name="keyword.control.metafun">
+            <expression>\b((end)?for(suffixes)?|within|else(if)?|(exit)?if|fi|forever|upto|until|downto|step|(begin|end)group|save)\b</expression>
+        </zone>
+        
+        <zone name="keyword.macro.metafun">
+            <expression>\b(context_tool|context_page|(OnRight|OnOdd)Page|InPageBody|PageStateAvailable|(Real)?PageNumber|NOfPages|(Print)?Paper(Height|Width)|(Top|Bottom|Back|Cut)Space|Makeup(Height|Width)|Top(Height|Distance)|Header(Height|Distance)|Text(Height|Width)|Footer(Distance|Height)|Bottom(Distance|Height)|Left(Edge(Width|Distance)|Margin(Width|Distance))|Right(Margin(Distance|Width)|Edge(Distance|Width))|(Inner|Outer)(Margin|Edge)(Distance|Width)|Page(Offset|Depth)|Layout(Columns|ColumnDistance|ColumnWidth)|(H|V)step|(H|V)size|(Left|Right)(Margin|Edge)Separator|(Top|Bottom|Footer|Header)Separator|(SavedText|NOfSavedText|Text|NOfText)Columns)\b</expression>
+        </zone>
+        
+        <zone name="keyword.macro.metafun">
+            <expression>\b(Overlay(Width|Height|Depth|Color|LineWidth|LineColor|Box)|BaseLineSkip|(Real|Last)?PageNumber|EmWidth|ExHeight|Current(Width|Height)|(Baseline|Top)Skip|Strut(Height|Depth)|BodyFontSize|LineHeight|(Start|Stop)?Page|(Set|Bound)PageAreas|SwapPageState)\b</expression>
+        </zone>
+        
+        <zone name="keyword.macro.metafun">
+            <expression>\b(box_found|initialize_box_pos|freeze_box|initialize_box|initialize_area|do_initialize_area|set_par_line_height|initialize_par|initialize_area_par|do_initialize_par|relocate_multipars|multi_par_at_top|simplify_multi_pars|save_multipar|prepare_multi_pars|snapped_multi_pos|set_multipar|top_multi_par|multi_par_tsc|estimated_par_lines|estimated_multi_par_height|left_top_hang|right_top_hang|x_left_top_hang|x_right_top_hang|left_bottom_hang|right_bottom_hang|x_left_bottom_hang|x_right_bottom_hang|test_multipar|draw_box|draw_par|do_show_par|show_par|sort_multi_pars|collapse_multi_pars|draw_multi_pars|draw_multi_pars|show_multi_pars|do_draw_par|baseline_grid|graphic_grid|anchor_box|ResetSyncTasks|SyncBox|SetSyncColor|SetSyncThreshold|TheSyncColor|TheSyncThreshold|PrepareSyncTasks|SyncTask|FlushSyncTasks|ProcessSyncTask|)\b</expression>
+        </zone>
+        
+        <zone name="keyword.macro.metafun">
+            <expression>\b(TextArea(WH|H|W|XY|Y|X)|Inside(SomeSaved|Some|Saved)?TextArea|(Reset(Local)?|Register(Local)?)TextArea|Field|Location|(Save|Reset)TextAreas|Area|position_anchor_bar)\b</expression>
+        </zone>
+        
+        <zone name="keyword.macro.metafun">
+            <expression>\b(register)\b</expression>
+        </zone>
+        
+        <zone name="meta.scope.tex.metafun">
+            <starts-with>
+                <expression>\b(btex|verbatimtex)\b</expression>
+                <capture number="1" name="support.function.tex.metafun"/>
+            </starts-with>
+            <ends-with>
+                <expression>\b(etex)\b</expression>
+                <capture number="1" name="support.function.tex.metafun"/>
+            </ends-with>
+            <subzones>
+                <include syntax="language-root.tex.context"/>
+            </subzones>
+        </zone>
+        
+        <zone name="constant.numeric.metafun">
+            <expression>(?&lt;![a-zA-Z_])(-|\+)?\s*[0-9]+(\.[0-9]+)?</expression>
+        </zone>
+        
+    </zones>
+    
+</syntax>

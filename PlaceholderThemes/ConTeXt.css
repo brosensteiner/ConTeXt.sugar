@@ -1,0 +1,285 @@
+/*
+    @theme ConTeXt Placeholder
+    @placeholder language-root.tex.context
+    @author Bernhard Rosensteiner <brosensteiner@gmail.com>
+*/
+
+@base {
+    color: #000000;
+    background-color: rgba(253, 255, 253, 0.94);
+    insertion-point-color: #000000;
+    selection-background-color: default;
+    current-line-background-color: #fff8dd;
+}
+
+key-name,
+support-function,
+support,
+punctuation,
+keyword {
+	spell-check: disabled;
+}
+
+delimiter.balanced.bracket > keyword.other.misc,
+delimiter.balanced > support.variable.define + keyword.other.tex,
+support + delimiter.balanced keyword.unit.tex,
+support.function + context.keyword.other.tex,
+context.support.function.general + delimiter.balanced.bracket context.keyword.unit.tex,
+context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex,
+context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex.
+context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.unit.tex,
+context.keyword.zone.skip-keyword > keyword.unit.tex,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
+context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
+context.support.function.general.kern + context.keyword.zone.unit > context.keyword.unit.tex {
+	color: #800080;
+	font-weight: bold;
+}
+
+context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.to-spread-keyword.tex {
+	color: #9DD748;
+}
+
+context.support.function.general.box + keyword.zone.to-spread-keyword > context.constant-numeric.tex {
+	color: #7653c1;
+	background-color: #f3f2ff;
+}
+
+
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword {
+	color: #9DD748;
+}
+
+context.keyword.zone.skip-keyword > constant-numeric.tex,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric.tex,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric.tex {
+	color: #7653c1;
+	background-color: #f3f2ff;
+}
+
+context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword {
+	color: #9DD748;
+}
+context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.normal.number {
+	color: #7653c1;
+	background-color: #f3f2ff;
+}
+context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.constant-numeric.tex {
+	color: #7653c1;
+	background-color: #f3f2ff;
+}
+
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword
+ {
+        color: #9DD748;
+}
+
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
+context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
+context.support.function.general.kern + context.keyword.zone.unit > context.constant-numeric.tex
+ {
+        color: #7653c1;
+        background-color: #f3f2ff;
+}
+
+context.support.function + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
+
+context.support.function + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+
+context.support.function + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma {
+	color: #FF0000;
+	font-weight: normal;
+}
+
+context.support.function.general + delimiter.balanced.bracket context.constant-numeric.tex,
+context.support.function.general ~ delimiter.balanced.bracket context.constant-numeric.tex {
+	color: #7653c1;
+	background-color: #f3f2ff;
+}
+
+context.punctuation.com.begin {
+	color: #A1A1A1;
+}
+
+escape,
+escapes,
+escaped {
+	color: #996600;
+}
+
+support.function {
+	color: #1867F6;
+}
+
+context.support.function.start,
+ context.support.function.stop {
+	color: #9DD748;
+	font-weight: bold;
+}
+
+structural.float,
+structural.float + bracket.level0,
+structural.float + bracket.level0 + bracket.level0,
+structural.float + bracket.level0 + brace.level0,
+structural.float + bracket.level0 + brace.level0 + brace.level0,
+structural.float + bracket.level0 + bracket.level0 + brace.level0,
+structural.float + bracket.level0 + bracket.level0 + brace.level0 + brace.level0,  {
+	background-color: #d1ebb0;
+}
+
+context.string.begin.math,
+context.string.end.math {
+	color: #800080;
+	font-weight: bold;
+}
+
+structural.container.document structural.document {
+	background-color: #f3f2ff;
+	font-weight: bold;
+}
+
+support.function.defined {
+	color: #2BD500;
+	font-weight: bold;
+}
+
+context.structural.container.document > support.variable.define {
+	color: rgb(0, 0, 0);
+	font-weight: normal;
+}
+
+support.variable.define {
+	color: #B10004;
+	font-weight: bold;
+}
+
+delimiter.it-em-sl-cg-hw :not(bracket,brace,keyword,support) {
+	font-style: italic;
+}
+delimiter.bf-sc-ss :not(bracket,brace,keyword,support) {
+	font-weight: bold;
+	font-variant: small-caps;
+}
+delimiter.bi :not(bracket,brace,keyword,support) {
+	font-style: italic;
+	font-weight: bold;
+}
+
+context.support.function + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+
+context.support.function + context.comment + delimiter.balanced.bracket > context.key-name,
+
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
+
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
+context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
+context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
+
+context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name {
+	color: #15A8F9;
+}
+
+structural.container.document context.container.environment.table {
+	background-color: rgba(160, 160, 160, 0.1);
+}
+structural.container.document context.container.environment.table support.function.table.cell {
+	background-color: rgba(160, 160, 160, 0.7);
+}
+structural.container.document context.container.environment.table support.function.table.row {
+	background-color: rgba(100, 100, 100, 0.7);
+}
+structural.container.document context.container.environment.table > support.function.start.table + context.delimiter.balanced.bracket > context.keyword.other.table {
+	color: #FF0000;
+}
+
+support.function.general.tex.ifelse,
+level0 {
+	color: #e90000;
+}
+level1 {
+	color: #BF2603;
+}
+level2 {
+	color: #F25B05;
+}
+level3 {
+	color: #F25B05;
+}
+level4 {
+	color: #F29E05;
+}
+level5 {
+	color: #565766;
+}
+level6 {
+	color: #8058BD;
+}
+level7 {
+	color: #827EBC;
+}
+level8 {
+	color: #9491AA;
+}
+
+punctuation.brace,
+punctuation.bracket,
+punctuation.parenthesis {
+	font-weight: normal;
+	color: #F29E05;
+}
+
+support.function.text {
+	color: #ffffff;
+	font-weight:bold;
+	background-color: #f3f2ff;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<action-categories>
+
+	<category id="actions.snippets.context" show="sub">
+		<title>ConTeXt</title>
+	</category>
+	
+	<!-- Closing Braces and Brackets -->
+	<category id="actions.snippets.context.autopairing" show="sub">
+		<title>AutoPairing</title>
+	</category>
+	
+	<!-- Sectioning -->
+	<category id="actions.snippets.context.sectioning" show="sub">
+		<title>Sectioning</title>
+	</category>
+	
+	<!-- Emphasize -->
+	<category id="actions.snippets.context.emphasize" show="sub">
+		<title>Emphasize</title>
+	</category>
+	
+	<!-- General Commands -->
+	<category id="actions.snippets.context.generalcommands" show="inline separated">
+	</category>
+
+	<!-- Update ConTeXt Minimals -->
+	<category id="actions.snippets.context.update" show="sub">
+		<title>Update Minimals</title>
+	</category>
+	
+	<!-- Typesetting -->
+	<category id="actions.snippets.context.typesetMKIV">
+		<title>Typesett and View (MKIV)</title>
+	</category>
+
+</action-categories>

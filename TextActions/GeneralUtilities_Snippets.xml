@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<action-recipes>
+        
+        <!-- start/stop environments -->
+        <snippet id="actions.snippets.context.startstop" category="tools.Snippets">
+            <title>start/stop environment</title>
+            <text>
+\\start${1:text}
+
+$0
+
+\\stop${1/(\w*)(.*\n*)*/$1/}</text>
+            <syntax-context>language-root.tex.context, language-root.tex.context *</syntax-context>
+            <text-trigger>env</text-trigger>
+        </snippet>
+        
+        <!--  define -->
+        <snippet id="actions.snippets.context.define" category="tools.Snippets">
+            <title>new definition</title>
+            <text>\\def\\${1:newmacro}\{$2\}
+$3</text>
+            <syntax-context>language-root.tex.context, language-root.tex.context *</syntax-context>
+            <text-trigger>def</text-trigger>
+        </snippet>
+
+</action-recipes>

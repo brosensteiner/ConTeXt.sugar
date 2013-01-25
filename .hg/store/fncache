@@ -1,0 +1,30 @@
+data/PlaceholderThemes/ConTeXt.css.i
+data/TextActions/Categories.xml.i
+data/Languages.xml.i
+data/ConTeXt Sugar.esproj/user.Bernhard.espressostorage.i
+data/Syntaxes/MetaFunSyntax.xml.i
+data/Scripts/Typeset_MKIV.sh.i
+data/ConTeXt Sugar.esproj/Project.espressostorage.i
+data/ConTeXt Sugar.esproj/user.Bernhard.ProjectGlyph.png.i
+data/SyntaxInjections/ConTeXt_Injections.xml.i
+data/Support/Scripts/purge_all.sh.i
+data/TextActions/Autopair_Snippets.xml.i
+data/Syntaxes/ConTeXtSyntax.xml.i
+data/Scripts/purge_all.sh.i
+data/CodeSenseProviders/ConTeXt.xml.i
+data/Syntaxes/LuaTeXSyntax.xml.i
+data/SyntaxInjections/ConTeXtInjections.xml.i
+data/TextActions/Emphasize_Snippets.xml.i
+data/Support/Scripts/Typeset_MKIV.sh.i
+data/ContextualSettings/Comments.xml.i
+data/TextActions/Typeset_MKIV_and_Skim.xml.i
+data/TextActions/Table_Snippets.xml.i
+data/Syntaxes/TeXMathSyntax.xml.i
+data/.hgignore.i
+data/TextActions/purge_all.xml.i
+data/TextActions/GeneralUtilities_Snippets.xml.i
+data/ConTeXt Sugar.esproj/user.brosensteiner.espressostorage.i
+data/TextActions/Sectioning_Snippets.xml.i
+data/Itemizers/ConTeXt.xml.i
+data/CodeSenseLibraries/ConTeXt.xml.i
+data/Syntaxes/CommentsSyntax.xml.i

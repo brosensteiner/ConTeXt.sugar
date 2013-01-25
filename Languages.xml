@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description ConTeXt.sugar for MacRabbit´s Espresso
+@author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
+@copyright 	 The MIT License
+
+Copyright (c) 2010 Bernhard Rosensteiner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<settings>
+
+    <language id="com.rosensteiner.ConTeXt">
+ 
+        <syntax-name>language-root.tex.context</syntax-name>
+        
+        <name>ConTeXt</name>
+        
+        <detectors>
+            <extension>tex</extension>
+            <extension>bbl</extension>
+            <extension>mkvi</extension>
+            <extension>mkiv</extension>
+            <extension>mkii</extension>
+            <extension>lfg</extension>
+            <extension>nls</extension>
+            <match-content lines="20">\\mainlanguage|\\starttext|\\setup\w*|\\define\w*|\\unprotect|\\registerctxluafile|\\writestatus</match-content> 
+        </detectors>
+
+		<default-extension>tex</default-extension>
+
+        <meta>
+        
+        	<name>ConTeXt</name>
+        	<description>ConTeXt a Macro Programming Language based on TeX by Pragma ADE</description>
+        	<author>Bernhard Rosensteiner</author>
+			<identifier>context.luatex.metafun</identifier>
+			<version status="preview">0.2</version>
+			<download format="svn">http://bitbucket.org/bernhard/context.sugar</download>
+               
+        </meta>
+        
+     </language>
+         
+</settings> 

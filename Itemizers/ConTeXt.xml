@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<itemizer>
+
+	<recipe name="container.document">
+	
+		<start-selector>support.function.start.text:capture(name)</start-selector>
+		<end-selector>support.function.stop.text</end-selector>
+		
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+		
+	</recipe>
+	
+	
+	<recipe name="structural.sections">
+	
+		<class>ESXMLItem</class>
+		<selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + context.delimiter.balanced.bracket.level0 + context.delimiter.balanced.brace.level0:capture(name)</selector>
+		
+	</recipe>
+	
+	<recipe name="structural.sections">
+	
+		<class>ESXMLItem</class>
+		<selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + context.delimiter.balanced.brace.level0:capture(name)</selector>
+		
+	</recipe>
+	
+	
+	<recipe name="container.startsections">
+		
+		<class>ESXMLItem</class>
+		<start-selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + delimiter.balanced.bracket:has-child(value-name:has-child(context.InValue.subzone:capture(name)))</start-selector>
+		<end-selector>context.structural.document.support.function.stop.section</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+		
+	</recipe>
+	 
+	<recipe name="container.environment">
+	
+		<class>ESXMLItem</class>
+		<start-selector>context.support.function.start.environment:capture(name)</start-selector>
+		<end-selector>context.support.function.stop.environment</end-selector>
+		<subrecipes>
+			<include recipe="container.environment"/>
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	
+	<recipe name="container.float.figure">
+	
+		<class>ESXMLItem</class>
+		<start-selector>structural.float.figure:capture(name)</start-selector>
+		<end-selector>structural.float.figure + bracket.level0 + bracket.level0 + brace.level0 + brace.level0</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	
+	<recipe name="container.table">
+	
+		<class>ESXMLItem</class>
+		<start-selector>language-root.tex.context > support.function.general.starttable.begin:capture(name)</start-selector>
+		<end-selector>language-root.tex.context > support.function.general.starttable.end</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	
+	<recipe name="container.combination">
+	
+		<class>ESXMLItem</class>
+		<start-selector>language-root.tex.context > support.function.combination.begin:capture(name)</start-selector>
+		<end-selector>language-root.tex.context > support.function.combination.end</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	
+	<recipe name="container.startstop">
+	
+		<class>ESXMLItem</class>
+		<start-selector>language-root.tex.context > support.function.start.environment:capture(name)</start-selector>
+		<end-selector>language-root.tex.context > support.function.stop.environment</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	
+<!--comment-->
+	<recipe name="context.comment">
+		<class>ESCommentItem</class>
+		<selector>comment</selector>
+	</recipe>
+	
+	
+	<recipe name="container.support.function.define">
+	
+		<selector>context.support.function.define > support.function.defined:capture(name)</selector>
+				
+	</recipe>
+	
+	
+</itemizer>
+
+

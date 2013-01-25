@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<codesense>
+
+	<provider>
+        <selector>key-name:capture(name) + value-name > punctuation.separator,key-name:capture(name) + value-name > InValue</selector>
+        <completions>com.context.value-name.${name}</completions>
+        <complete-match>[a-zA-Z@!\?\\]*</complete-match>
+        <require-suffix>\s*,|\s*\]|\s*$</require-suffix>
+    </provider>
+    
+
+    <provider>
+        <selector>context.support.function.general:capture(name) + delimiter.balanced.bracket > *</selector>
+        <completions>com.context.key-name.${name}</completions>
+        <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+    </provider>
+    
+    <provider>
+        <selector>context.support.function.general:capture(name) + delimiter.balanced.bracket + delimiter.balanced.bracket > *</selector>
+        <completions>com.context.key-name.${name}</completions>
+        <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+    </provider>
+    
+</codesense> 

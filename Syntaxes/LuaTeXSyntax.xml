@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--special things which differentiate LuaTeX from Lua go here:-->
+
+<syntax name="source.LuaTeX">
+
+	<zones>
+		
+		<include collection="Tables"/>
+        <include collection="Lua-ConTeXt-Functions"/>
+        <include syntax="language-root.lua"/>
+        
+	</zones>
+		
+	
+	<library>
+	
+		<collection name="Lua-ConTeXt-Functions">
+		   	<zone name="lua.container.library-function.call.format">            <starts-with>
+		   	        <expression>(context)\s*(\()</expression>
+		   	        <capture number="1" name="lua.function-call"/>
+		   	        <capture number="2" name="lua.punctuation.open-parenthesis"/>
+		   	    </starts-with>
+		   	    <ends-with>
+		   	        <expression>\)</expression>
+		   	        <capture number="0" name="lua.punctuation.close-parenthesis"/>
+		   	    </ends-with>
+		   	    <subzones name="lua.function-argument.format">
+		   	    	<include collection="Functionargument-format" />
+		   	    	<include syntax="source.LuaTeX"/>
+		   	    	<include syntax="source.Lua"/>
+		   	    </subzones>
+		   	</zone>
+		</collection>
+		
+		<collection name="Tables">
+		
+			<zone name="lua.table.constructor">
+			    <starts-with>
+			        <expression>\{</expression>
+			        <capture number="0" name="lua.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="lua.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    
+			    	<zone name="lua.table.separator">
+			        	<expression>,|;</expression>
+			    	</zone>
+			    	
+			    	<zone name="context.comment.line">
+			    	    <expression>(%)(?:\s?(.*)$\n?)</expression>
+			    	    <capture number="1" name="context.punctuation.comment.begin"/>
+			    	    <capture number="2" name="context.content_of_a_comment"/>     
+			    	</zone>
+			    	
+			    	<include syntax="source.LuaTeX" />
+			    	<include syntax="source.Lua" />
+			    	
+			    </subzones>
+			</zone>
+		
+		</collection>
+		
+		<collection name="Functionargument-format">
+		   	<zone name="lua.string.quoted.double.format">
+		   		<starts-with>
+		   			<expression>(?&lt;=\()\s*(?:(")|('))</expression>
+		   			<capture number="1" name="lua.punctuation.doublequote.string.quoted.begin.format"/>
+		   			<capture number="2" name="lua.punctuation.singlequote.string.quoted.begin.format"/>
+		   		</starts-with>
+		   		<ends-with>
+		   			<expression>(?:(")|('))</expression>
+		   			<capture number="1" name="lua.punctuation.doublequote.string.quoted.end.format"/>
+		   			<capture number="2" name="lua.punctuation.singlequote.string.quoted.end.format"/>
+				</ends-with>
+		   		<subzones>
+		  			<zone name="lua.keyword.character-class.string-format">
+		   				<expression>%(-|\+|#|0|[[:space:]])?(\d+)?(\.\d+)?[cdEefgGiouxXqs]</expression>
+		   				<capture number="1" name="lua.keyword.additional.string-format-flags"/>
+		   				<capture number="2" name="lua.keyword.additional.string-format-width"/>
+		   				<capture number="3" name="lua.keyword.additional.string-format-precision"/>
+		  			</zone>
+		  			<include collection="Additional"/>
+		   		</subzones> 
+		   	</zone>
+		</collection>
+		
+		<collection name="Additional"><!--some keywords which are only valid in designated functions, so they syntax highlighting will be made in Lua.css, and in stings: see string zones-->
+		        
+		        	<zone name="lua.keyword.additional.PEG">
+		        	    <expression>#|&amp;|!|/|&lt;-|->|=>|\{:[a-zA-Z0-9_]+:|\{(:|\~)?|(:|\~)?\}|\=[a-zA-Z0-9_]+</expression>
+		        	</zone> 
+		        	        
+		        	<zone name="lua.keyword.additional.io-read">
+		        		<expression>(?&lt;="|')(\*all|\*line|\*number|\*a|\*l|\*n)(?="|')</expression>
+		        	</zone>
+		        	<zone name="lua.keyword.additional.io-popen">
+		        		<expression>(?&lt;="|')(r|w)(?="|')</expression>
+		        	</zone>
+		        	
+		        	<zone name="lua.keyword.additional.io-open">
+		        		<expression>(?&lt;="|')(r|w|a)(\+|b)?(?="|')</expression>
+		        	</zone>
+		        	<zone name="lua.keyword.additional.file-setbuf">
+		        		<expression>(?&lt;="|')(no|full|line)(?="|')</expression>
+		        	</zone>
+		        	<zone name="lua.keyword.additional.file-seek">
+		        		<expression>(?&lt;="|')(set|cur|end)(?="|')</expression>
+		        	</zone>
+		        	<zone name="lua.keyword.additional.collectgarbage">
+		        		<expression>(?&lt;="|')(stop|restart|collect|count|step|setpause|setstepmul)(?="|')</expression>
+		        	</zone>
+		        	<zone name="lua.keyword.additional.metamethod.mode">
+		        		<expression>(?&lt;="|')(k|v|kv|vk)(?="|')</expression>
+		        	</zone>
+					<zone name="lua.keyword.character-class">
+						<expression>%([acdlpsuwxzbACDLPSUWXZ]|nl)</expression>
+					</zone>                    		    
+					<zone name="lua.keyword.additional.magic-character">
+						<expression>\(|\)|\.|%|\+|-|\*|\?|\[|\]|\^|\$</expression>
+					</zone>
+		
+		        </collection>
+		
+	</library>
+	
+</syntax>

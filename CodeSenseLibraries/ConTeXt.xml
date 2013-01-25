@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<codesense version="1.0">
+
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>\s*(\]|,)?</matched-suffix>
+				<transform-into>(?1::,$0)</transform-into>
+			</append-dynamic>
+			<confirm characters="," />
+		</behavior>
+	
+	<set name="com.context.key-name.\setupframed">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>((\s*)(\]|,))|\s*[^\],]?</matched-suffix>
+				<transform-into>(?1:=$0:=$1,$0)</transform-into>
+			</append-dynamic>
+			<confirm characters="=" />
+		</behavior>
+	
+        <completion string="height" />
+        <completion string="width" />
+		<completion string="autowidth" />
+		<completion string="offset" />
+		<completion string="location" />
+		<completion string="option" />
+		<completion string="strut" />
+		<completion string="align" />
+		<completion string="bottom" />
+		<completion string="top" />
+		<completion string="frame" />
+		<completion string="topframe" />
+		<completion string="bottomframe" />
+		<completion string="leftframe" />
+		<completion string="rightframe" />
+		<completion string="frameoffset" />
+		<completion string="framedepth" />
+		<completion string="framecorner" />
+		<completion string="frameradius" />
+		<completion string="framecolor" />
+		<completion string="background" />
+		<completion string="backgroundscreen" />
+		<completion string="backgroundcolor" />
+		<completion string="backgroundoffset" />
+		<completion string="backgrounddepth" />
+		<completion string="backgroundcorner" />
+		<completion string="backgroundradius" />
+		<completion string="depth" />
+		<completion string="corner" />
+		<completion string="radius" />
+		<completion string="empty" />
+		<completion string="foregroundcolor" />
+		<completion string="foregroundstyle" />
+		<completion string="rulethickness" />
+        
+    </set>
+    
+    <set name="com.context.value-name.color">
+    	<completion string="red" />          
+		<completion string="green" />         
+		<completion string="blue" />          
+		<completion string="cyan" />          
+		<completion string="magenta" />       
+		<completion string="yellow" />        
+		<completion string="white" /> 
+		<completion string="black" />          
+		<completion string="gray" />          
+		<completion string="darkred" />       
+		<completion string="middlered" />     
+		<completion string="lightred" />      
+		<completion string="darkgreen" />     
+		<completion string="middlegreen" />   
+		<completion string="lightgreen" />    
+		<completion string="darkblue" />      
+		<completion string="middleblue" />    
+		<completion string="lightblue" />     
+		<completion string="darkcyan" />      
+		<completion string="middlecyan" />    
+		<completion string="darkmagenta" />   
+		<completion string="middlemagenta" /> 
+		<completion string="darkyellow" />    
+		<completion string="middleyellow" />  
+		<completion string="darkgray" />      
+		<completion string="middlegray" />    
+		<completion string="lightgray" /> 
+    </set>
+
+	
+</codesense>

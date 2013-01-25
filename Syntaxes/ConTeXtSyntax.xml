@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<syntax name="language-root.tex.context">
+
+    <zones>
+        <include collection="Document"/>
+        <include collection="Define"/>
+        <include collection="Default_Order_of_Zones"/>
+        <include collection="NormalWord"/>
+    </zones>
+    
+    <library>
+    
+    	<collection name="NormalWord">
+    	
+    		<zone name="context.punctuation.separator.comma">
+    		    <expression>,</expression>
+    		</zone>
+    	
+			<zone name="context.normal.word">
+				<expression>[^\\\s\{\}\[\]\|0-9[[:punct:]]][^\s\{\}\[\]\|0-9[[:punct:]]]*</expression>
+			</zone>
+			
+			<zone name="context.normal.number">
+				<expression>(\+|\-)?([0-9]*(\.|,)?[0-9]+)</expression>
+			</zone>
+			
+    	</collection>
+    	
+        <collection name="Default_Order_of_Zones">
+        	<include collection="Comments"/>
+            <include collection="Sectioning"/>
+            <include collection="Emphasize"/>
+            <include collection="If_Else"/>
+            <include collection="BalancedBraces"/>
+            <include collection="Group"/>
+        	<include collection="BalancedBrackets"/>
+        	<include collection="BalancedParenthesis"/>
+            <include collection="Lua"/>
+            <include collection="Math"/>
+            <include collection="Environments"/>
+            <include collection="Math"/>
+            <include collection="Keywords"/>
+            <include collection="NormalWord"/>
+            <include collection="Csname"/>
+            <include collection="GeneralTeX"/>
+            <include collection="DefinedVariable"/>
+            <include collection="Escapecharacter"/>
+        </collection>
+                
+        <collection name="BalancedBrackets">
+            <zone name="context.delimiter.balanced.bracket.level0">
+                <starts-with>
+                    <expression>\[</expression>
+                    <capture number="0" name="context.punctuation-open-bracket.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\]</expression>
+                    <capture number="0" name="context.punctuation-close-bracket.level0"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Emphasize"/>
+                    <include collection="Between_Brackets"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="BalancedBraces">
+            <zone name="context.delimiter.balanced.brace.level0">
+                <starts-with>
+                    <expression>\{</expression>
+                    <capture number="0" name="context.punctuation-open-brace.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\}</expression>
+                    <capture number="0" name="context.punctuation-close-brace.level0"/>
+                </ends-with>
+                <subzones>
+					<include collection="Emphasize"/>
+					<include collection="BalancedBraces_array"/>
+                    <include collection="Between_Braces"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="If_Else">
+            <zone name="context.support.function.general.tex.ifelse">
+                <expression>\\if[A-Za-z_@!?:]*|\\fi\b|\\else\b|\\or\b</expression>
+            </zone>
+        </collection>
+                
+        <collection name="Group">
+            <zone name="context.punctuation-open-brace.level0">
+                <expression>(\\(begin|b)group)\b</expression>
+            </zone>
+            <zone name="context.punctuation-close-brace.level0">
+                <expression>(\\(end|e)group)\b</expression>
+            </zone>
+        </collection>
+        
+        <collection name="BalancedParenthesis">
+            <zone name="context.delimiter.balanced.parenthesis.level0">
+                <starts-with>
+                    <expression>(\\(?:num|dim|glue|mue)expr)\s*(\()</expression>
+                    <capture number="1" name="context.support.function.general"/>
+                    <capture number="2" name="context.punctuation.parenthesis.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="context.punctuation.parenthesis.level0"/>
+                </ends-with>
+                <subzones name="context.between.parenthesis">
+                    <include collection="Emphasize"/>
+					<include collection="BalancedParenthesis_array"/>
+                    <include collection="Between_Braces"/>
+                </subzones>
+            </zone>
+        </collection>        
+        
+        <collection name="BalancedBraces_array">
+            <include collection="Emphasize"/>
+            <zone name="context.delimiter.balanced.brace.level1">
+                <starts-with>
+                    <expression>\{</expression>
+                    <capture number="0" name="punctuation-open-brace.level1"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\}</expression>
+                    <capture number="0" name="punctuation-close-brace.level1"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Emphasize"/>
+                    <zone name="context.delimiter.balanced.brace.level2">
+                        <starts-with>
+                            <expression>\{</expression>
+                            <capture number="0" name="punctuation-open-brace.level2"/>
+                        </starts-with>
+                        <ends-with>
+                            <expression>\}</expression>
+                            <capture number="0" name="punctuation-close-brace.level2"/>
+                        </ends-with>
+                        <subzones>
+                            <include collection="Emphasize"/>
+                            <zone name="context.delimiter.balanced.brace.level3">
+                                <starts-with>
+                                    <expression>\{</expression>
+                                    <capture number="0" name="punctuation-open-brace.level3"/>
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\}</expression>
+                                    <capture number="0" name="punctuation-close-brace.level3"/>
+                                </ends-with>
+                                <subzones>
+                                    <include collection="Emphasize"/>
+                                    <zone name="context.delimiter.balanced.brace.level4">
+                                        <starts-with>
+                                            <expression>\{</expression>
+                                            <capture number="0" name="punctuation-open-brace.level4"/>
+                                        </starts-with>
+                                        <ends-with>
+                                            <expression>\}</expression>
+                                            <capture number="0" name="punctuation-close-brace.level4"/>
+                                        </ends-with>
+                                        <subzones>
+                                            <include collection="Emphasize"/>
+                                            <zone name="context.delimiter.balanced.brace.level5">
+                                                <starts-with>
+                                                    <expression>\{</expression>
+                                                    <capture number="0" name="punctuation-open-brace.level5"/>
+                                                </starts-with>
+                                                <ends-with>
+                                                    <expression>\}</expression>
+                                                    <capture number="0" name="punctuation-close-brace.level5"/>
+                                                </ends-with>
+                                                <subzones>
+                                                    <include collection="Emphasize"/>
+                                                    <zone name="context.delimiter.balanced.brace.level6">
+                                                        <starts-with>
+                                                            <expression>\{</expression>
+                                                            <capture number="0" name="punctuation-open-brace.level6"/>
+                                                        </starts-with>
+                                                        <ends-with>
+                                                            <expression>\}</expression>
+                                                            <capture number="0" name="punctuation-close-brace.level6"/>
+                                                        </ends-with>
+                                                        <subzones>
+                                                            <include collection="Emphasize"/>
+                                                            <zone name="context.delimiter.balanced.brace.level7">
+                                                                <starts-with>
+                                                                    <expression>\{</expression>
+                                                                    <capture number="0" name="punctuation-open-brace.level7"/>
+                                                                </starts-with>
+                                                                <ends-with>
+                                                                    <expression>\}</expression>
+                                                                    <capture number="0" name="punctuation-close-brace.level7"/>
+                                                                </ends-with>
+                                                                <subzones>
+                                                                    <include collection="Emphasize"/>
+                                                                    <zone name="context.delimiter.balanced.brace.level8">
+                                                                        <starts-with>
+                                                                            <expression>\{</expression>
+                                                                            <capture number="0" name="punctuation-open-brace.level8"/>
+                                                                        </starts-with>
+                                                                        <ends-with>
+                                                                            <expression>\}</expression>
+                                                                            <capture number="0" name="punctuation-close-brace.level8"/>
+                                                                        </ends-with>
+                                                                        <subzones>
+                                                                        	<include collection="Emphasize"/>
+                                                                            <include collection="Between_Braces"/>
+                                                                        </subzones>
+                                                                    </zone>
+                                                                    <include collection="Between_Braces"/>
+                                                                </subzones>
+                                                            </zone>
+                                                            <include collection="Between_Braces"/>
+                                                        </subzones>
+                                                    </zone>
+                                                    <include collection="Between_Braces"/>
+                                                </subzones>
+                                            </zone>
+                                            <include collection="Between_Braces"/>
+                                        </subzones>
+                                    </zone>
+                                    <include collection="Between_Braces"/>
+                                </subzones>
+                            </zone>
+                            <include collection="Between_Braces"/>
+                        </subzones>
+                    </zone>
+                    <include collection="Between_Braces"/>
+                </subzones>
+            </zone>
+        </collection>
+                
+        <collection name="BalancedParenthesis_array">
+            <include collection="Emphasize"/>
+                    <zone name="context.delimiter.balanced.parenthesis.level1">
+                        <starts-with>
+                            <expression>\(</expression>
+                            <capture number="0" name="context.punctuation-open-parenthesis.level1"/>
+                        </starts-with>
+                        <ends-with>
+                            <expression>\)</expression>
+                            <capture number="0" name="context.punctuation-close-parenthesis.level1"/>
+                        </ends-with>
+                        <subzones name="context.between.parenthesis">
+                            <zone name="context.delimiter.balanced.parenthesis.level2">
+                                <starts-with>
+                                    <expression>\(</expression>
+                                    <capture number="0" name="context.punctuation-open-parenthesis.level2"/>
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\)</expression>
+                                    <capture number="0" name="context.punctuation-close-parenthesis.level2"/>
+                                </ends-with>
+                                <subzones name="context.between.parenthesis">
+                                    <zone name="context.delimiter.balanced.parenthesis.level3">
+                                        <starts-with>
+                                            <expression>\(</expression>
+                                            <capture number="0" name="context.punctuation-open-parenthesis.level3"/>
+                                        </starts-with>
+                                        <ends-with>
+                                            <expression>\)</expression>
+                                            <capture number="0" name="context.punctuation-close-parenthesis.level3"/>
+                                        </ends-with>
+                                        <subzones name="context.between.parenthesis">
+                                            <zone name="context.delimiter.balanced.parenthesis.level4">
+                                                <starts-with>
+                                                    <expression>\(</expression>
+                                                    <capture number="0" name="context.punctuation-open-parenthesis.level4"/>
+                                                </starts-with>
+                                                <ends-with>
+                                                    <expression>\)</expression>
+                                                    <capture number="0" name="context.punctuation-close-parenthesis.level4"/>
+                                                </ends-with>
+                                                <subzones name="context.between.parenthesis">
+                                                    <zone name="context.delimiter.balanced.parenthesis.level5">
+                                                        <starts-with>
+                                                            <expression>\(</expression>
+                                                            <capture number="0" name="context.punctuation-open-parenthesis.level5"/>
+                                                        </starts-with>
+                                                        <ends-with>
+                                                            <expression>\)</expression>
+                                                            <capture number="0" name="context.punctuation-close-parenthesis.level5"/>
+                                                        </ends-with>
+                                                        <subzones name="context.between.parenthesis">
+                                                            <zone name="context.delimiter.balanced.parenthesis.level6">
+                                                                <starts-with>
+                                                                    <expression>\(</expression>
+                                                                    <capture number="0" name="context.punctuation-open-parenthesis.level6"/>
+                                                                </starts-with>
+                                                                <ends-with>
+                                                                    <expression>\)</expression>
+                                                                    <capture number="0" name="context.punctuation-close-parenthesis.level6"/>
+                                                                </ends-with>
+                                                                <subzones name="context.between.parenthesis">
+                                                                    <zone name="context.delimiter.balanced.parenthesis.level7">
+                                                                        <starts-with>
+                                                                            <expression>\(</expression>
+                                                                            <capture number="0" name="context.punctuation-open-parenthesis.level7"/>
+                                                                        </starts-with>
+                                                                        <ends-with>
+                                                                            <expression>\)</expression>
+                                                                            <capture number="0" name="context.punctuation-close-parenthesis.level7"/>
+                                                                        </ends-with>
+                                                                        <subzones name="context.between.parenthesis">
+                                                                            <zone name="context.delimiter.balanced.parenthesis.level8">
+                                                                                <starts-with>
+                                                                                    <expression>\(</expression>
+                                                                                    <capture number="0" name="context.punctuation-open-parenthesis.level8"/>
+                                                                                </starts-with>
+                                                                                <ends-with>
+                                                                                    <expression>\)</expression>
+                                                                                    <capture number="0" name="context.punctuation-close-parenthesis.level8"/>
+                                                                                </ends-with>
+                                                                                <subzones name="context.between.parenthesis">
+                                                                                    <include collection="Between_Braces"/>
+                                                                                </subzones>
+                                                                            </zone>
+                                                                            <include collection="Between_Braces"/>
+                                                                        </subzones>
+                                                                    </zone>
+                                                                    <include collection="Between_Braces"/>
+                                                                </subzones>
+                                                            </zone>
+                                                            <include collection="Between_Braces"/>
+                                                        </subzones>
+                                                    </zone>
+                                                    <include collection="Between_Braces"/>
+                                                </subzones>
+                                            </zone>
+                                            <include collection="Between_Braces"/>
+                                        </subzones>
+                                    </zone>
+                                    <include collection="Between_Braces"/>
+                                </subzones>
+                            </zone>
+                            <include collection="Between_Braces"/>
+                        </subzones>
+                    </zone>
+        </collection>
+        
+        <collection name="Between_Braces">
+        	<include collection="Comments"/>
+            <include collection="DefinedVariable"/>
+            <include collection="Define"/>
+            <include collection="Csname"/>
+            <include collection="Lua"/>
+            <include collection="EnvironmentHelper"/>
+            <include collection="Environments"/>
+            <include collection="Group"/>
+            <include collection="If_Else"/>
+            <include collection="Keywords"/>
+            <include collection="Default_Order_of_Zones"/>
+        </collection>
+        
+        <collection name="Between_Brackets">
+        	<include collection="Comments"/>
+            <include collection="DefinedVariable"/>
+            <include collection="Define"/>
+            <include collection="Lua"/>
+            <include collection="EnvironmentHelper"/>
+            <include collection="Keys"/>
+            <include collection="Values"/>
+            <include collection="Keywords"/>
+            <include collection="Default_Order_of_Zones"/>
+        </collection>
+        
+        <collection name="TableCells">
+            <zone name="context.container.table.cell">
+                <starts-with>
+                    <expression>\\(?:b(TD|TC|TH))\b</expression>
+                    <capture number="0" name="support.function.table.cell.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\(e(\1))\b</expression>
+                    <capture number="0" name="support.function.table.cell.end"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+         <collection name="TableRows">
+         
+            <zone name="context.support.function.table.row.end">
+                <expression>\\(HL|TB|NR|SR|FR|MR|LR|AR)\b</expression>
+            </zone>
+            
+            <zone name="context.support.function.table.cell.begin">
+                <expression>\\(NC|VL|NC|VL)\b</expression>
+            </zone>
+            
+            <zone name="context.container.table.row">
+            <starts-with>
+                    <expression>\\bTR\b</expression>
+                    <capture number="0" name="support.function.table.row.begin"/>
+            </starts-with>
+            <ends-with>
+                    <expression>\\eTR\b</expression>
+                    <capture number="0" name="support.function.table.row.end"/>
+            </ends-with>
+                <subzones>
+                    <include collection="TableCells"/>
+                </subzones>
+            </zone>
+            
+        </collection>
+        
+        <collection name="Comments">
+                  
+            <zone name="context.comment.line">
+                <expression>(%)(?:\s*(.+)$\n?)|(%)(?:\s*$\n?)</expression>
+                <capture number="1" name="context.punctuation.comment.begin"/>   
+            </zone>
+            
+        </collection>
+        
+        <collection name="CompleteSupport">
+            <zone name="context.support.function.complete">
+                <expression>\\complete\w+|\\placelistof\w+</expression>
+                <capture number="0" name="structural.document"/>
+            </zone>
+        </collection>
+        
+        <collection name="Escapecharacter">
+            <zone name="context.literal.escape.character">
+                <expression>\\[^0-9a-zA-Z@?!\[\]\(\)]</expression>
+            </zone>
+        </collection>
+        
+        <collection name="EscapecharacterDollar">
+            <zone name="context.literal.escape.character.dollar">
+                <expression>\\\$</expression>
+            </zone>
+        </collection>
+        
+        <collection name="Csname">
+            <zone name="context.container.support.function.csname">
+                <starts-with>
+                    <expression>\\csname\b</expression>
+                    <capture number="0" name="context.support.function.general.csname"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\endcsname\b</expression>
+                    <capture number="0" name="context.support.function.general.csname"/>
+                </ends-with>
+                <subzones name="context.support.function.defined.subzone">
+                    <include collection="DefinedVariable"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="Define">
+                	
+            <zone name="context.support.function.define">
+				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)([0-9])(\]))?\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])</expression>
+				<capture number="1" name="context.support.function.general.def"/>
+				<capture number="2" name="context.punctuation-open-bracket.level0"/>
+				<capture number="3" name="context.support.variable.define"/>
+				<capture number="4" name="context.punctuation-close-bracket.level0"/>
+				<capture number="5" name="context.support.function.defined"/>
+            </zone>
+            
+            <zone name="context.support.function.new">
+                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\b\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])?</expression>
+                <capture number="1" name="context.support.function.defined"/>
+            </zone>
+            
+            <zone name="context.support.function.let">
+                <expression>\\(?:future)?let\b\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])?</expression>
+                <capture number="1" name="context.support.function.defined"/>
+            </zone>
+            
+        </collection>
+        
+        <collection name="DefinedVariable">
+            <zone name="context.support.variable.define">
+                <expression>\#{1,9}[1-9]</expression>
+            </zone>
+        </collection>
+        
+        <collection name="Emphasize">
+            
+            <zone name="context.delimiter.bf-sc-ss">
+                <starts-with>
+                    <expression>(\{)\s*((\\bf|\\sc|\\ss)(a|b|c|d|e|f|x|xx)?)\b</expression>
+                    <capture number="1" name="punctuation-open-brace.level0"/>
+                    <capture number="2" name="context.support.function.general"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
+                    <capture number="1" name="punctuation-close-brace.level0"/>
+                </ends-with>
+                <subzones name="context.stylistic.typography.variant.bold">
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            
+            <zone name="context.delimiter.bi">
+                <starts-with>
+                    <expression>(\{)\s*((\\bi|\\bs)(a|b|c|d|e|f|x|xx)?)\b</expression>
+                    <capture number="2" name="context.support.function.general"/>
+                    <capture number="1" name="punctuation-open-brace.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
+                    <capture number="1" name="punctuation-close-brace.level0"/>
+                </ends-with>
+                <subzones name="context.stylistic.typography.variant.bolditalic">
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            
+            <zone name="context.delimiter.it-em-sl-cg-hw">
+                <starts-with>
+                    <expression>(\{)\s*((\\it|\\em|\\sl|\\cg|\\hw)(a|b|c|d|e|x|xx)?\b)</expression>
+                    <capture number="2" name="context.support.function.general"/>
+                    <capture number="1" name="punctuation-open-brace.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
+                    <capture number="1" name="punctuation-close-brace.level0"/>
+                </ends-with>
+                <subzones name="context.stylistic.typography.variant.italic">
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            <zone name="context.delimiter.underline">
+                <starts-with>
+                    <expression>(\\underline|\\underbar)\s*(\{)</expression>
+                    <capture number="1" name="context.support.function.general"/>
+                    <capture number="2" name="punctuation-open-brace.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
+                    <capture number="1" name="punctuation-close-brace.level0"/>
+                </ends-with>
+                <subzones name="context.stylistic.typography.variant.underline">
+                    <zone name="context.structural.document">
+                        <expression>(\\(?:stop)((part|title|chapter)|((?:sub)*)(section|subject)))</expression>
+                    </zone>
+                    <zone name="context.container.environment">
+                        <expression>(\\stop(\w+))</expression>
+                        <capture number="0" name="support.function.stop.environment"/>
+                    </zone>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="EnvironmentHelper">
+			<!--balanced delimiters
+			<zone name="context.punctuation-open-bracket.level0">
+				<expression>\[</expression>
+			</zone>
+			<zone name="context.punctuation-close-bracket.level0">
+				<expression>\]</expression>
+			</zone>-->
+        	<!--combination-->
+        	<zone name="context.support.function.general.tex">
+        	        <expression>\\start(float)?combination\b</expression>
+        	</zone>
+        	<zone name="context.support.function.general.tex">
+        	        <expression>\\stop(float)?combination\b</expression>
+        	</zone>
+        	<!--table-->
+        	<zone name="context.support.function.general.tex">
+        	        <expression>(\\bTABLE(head|foot|body|next)?)\b|(\\start(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
+        	</zone>
+        	<zone name="context.support.function.general.tex">
+        	        <expression>(\\eTABLE(head|foot|body|next)?)\b|(\\stop(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
+        	</zone>
+        	<!--general environment-->
+            <zone name="context.support.function.general.tex">
+                <expression>\\start\w*</expression>
+            </zone>
+            <zone name="context.support.function.general.tex">
+                <expression>\\stop\w*</expression>
+            </zone>
+            
+        </collection>
+        
+        <collection name="Environments">
+            <!--combination-->
+            <zone name="context.container.environment.combination">
+            	<starts-with>
+            		<expression>\\start(float)?combination\b</expression>
+            		<capture number="0" name="context.support.function.start.combination"/>
+            	</starts-with>
+            	<ends-with>
+            		<expression>\\stop\1combination\b</expression>
+            		<capture number="0" name="context.support.function.stop.combination"/>
+            	</ends-with>
+            	<subzones>
+            		<include collection="Define"/>
+            		<include collection="Default_Order_of_Zones"/>
+            	</subzones>
+            </zone>
+            
+            <zone name="context.structural.float.figure">
+                    <expression>(\\place(?:(\w*)?(figure|formula)(\w*)?|publications|content))</expression>
+                    <capture number="0" name="structural.document"/>
+                    <capture number="1" name="context.support.function.general"/>
+            </zone>
+            <zone name="context.structural.float.table">
+                    <expression>(\\place(?:(\w*)?(table)(\w*)?))</expression>
+                    <capture number="0" name="structural.document"/>
+                    <capture number="1" name="context.support.function.general"/>
+            </zone>
+            
+            <!--table-->
+            <zone name="context.container.environment.table">
+            	<starts-with>
+            		<expression>(?:\\bTABLE(head|foot|body|next)?)\b</expression>
+            		<capture number="0" name="context.support.function.start.table"/>
+            	</starts-with>
+            	<ends-with>
+            		<expression>\\eTABLE\1</expression>
+            		<capture number="0" name="context.support.function.stop.table"/>
+            	</ends-with>
+            	<subzones>
+            		<include collection="Define"/>
+            		<include collection="TableRows"/>
+            		<include collection="Default_Order_of_Zones"/>
+            	</subzones>
+            </zone>
+            <zone name="context.container.environment.table">
+            	<starts-with>
+            		<expression>(?:\\start(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
+            		<capture number="0" name="context.support.function.start.table"/>
+            	</starts-with>
+            	<ends-with>
+            		<expression>\\stop\1</expression>
+            		<capture number="0" name="context.support.function.stop.table"/>
+            	</ends-with>
+            	<subzones>
+            		<include collection="Define"/>
+            		<include collection="TableRows"/>
+            		<include collection="Default_Order_of_Zones"/>
+            	</subzones>
+            </zone>
+            <!--MetaFun-->
+            <zone name="context.container.injection.source-MetaFun">
+                <starts-with>
+                    <expression>(\\start(unique|reusable|use|static)?MP)(code|inclusions|extensions|initializations|definitions|drawing|run|clip|(position)?graphic|environment|page|figure)\b</expression>
+                    <capture number="0" name="context.support.function.start.metafun"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\stop\2MP\3\b</expression>
+                    <capture number="0" name="context.support.function.stop.metafun"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            <!--general environment-->
+			<zone name="context.container.environment">
+				<starts-with>
+					<expression>\\start(\w*)</expression>
+					<capture number="0" name="context.support.function.start.environment"/>
+				</starts-with>
+				<ends-with>
+					<expression>\\stop\1</expression>
+					<capture number="0" name="context.support.function.stop.environment"/>
+				</ends-with>
+				<subzones>
+					<include collection="Define"/>
+					<include collection="Default_Order_of_Zones"/>
+				</subzones>
+            </zone>
+            <!--protect/unprotect environment-->
+            <zone name="context.container.unprotect-protect">
+              <starts-with>
+                 <expression>\\unprotect\b</expression>
+                 <capture number="0" name="context.support.function.start.unprotect-protect"/>
+              </starts-with>
+              <ends-with>
+                 <expression>\\protect\b</expression>
+                 <capture number="0" name="context.support.function.stop.unprotect-protect"/>
+              </ends-with>
+              <subzones>
+                 <include collection="Define"/>
+                 <include collection="Default_Order_of_Zones"/>
+              </subzones>
+            </zone>
+
+        </collection>
+                
+        <collection name="Lua">
+            <zone name="context.container.injection.source.Lua">
+                <starts-with>
+                    <expression>(?:\\start((lua)(code|parameterset)|usercode))\b</expression>
+                    <capture number="0" name="context.support.function.start.lua"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\stop\1\b</expression>
+                    <capture number="0" name="context.support.function.stop.lua"/>
+                </ends-with>
+                <subzones>
+                	<include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            <zone name="context.container.injection.source.Lua">
+                <starts-with>
+                    <expression>((?:\\(?:ctx|direct|late)lua|\\ctxsprint|(?:luaescapestring))|\\ctxcommand|\\usercode)\s*(\{)</expression>
+                    <capture number="1" name="context.support.function.general.lua"/>
+                    <capture number="2" name="context.punctuation-open-bracket.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\}</expression>
+                    <capture number="0" name="context.punctuation-close-bracket.level0"/>
+                </ends-with>
+                <subzones>
+                	<include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="Document">
+            <zone name="context.structural.container.document">
+                <starts-with>
+                    <expression>\\start(text|component)\b</expression>
+                    <capture number="0" name="context.support.function.start.text"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\stop\1\b</expression>
+                    <capture number="0" name="context.support.function.stop.text"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Sectioning"/>
+                    <include collection="CompleteSupport"/>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="Math">
+			<zone name="context.string.math.textstyle">
+				<starts-with>
+					<expression>(\\(?:mathematics|inlinemath|math|inlinemathematics))\s*(\{)</expression>
+					<capture number="0" name="context.string.begin.math"/>
+				</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+				<capture number="0" name="context.string.end.math"/>
+			</ends-with>
+				<subzones>
+					<include syntax="EscapecharacterDollar"/>
+					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="Default_Order_of_Zones"/>
+				</subzones>
+			</zone>
+			<zone name="context.string.math.displaystyle">
+				<starts-with>
+					<expression>(\\(?:displaymath|displaymathematics|automathematics))\s*(\{)</expression>
+					<capture number="0" name="context.string.begin.math"/>
+				</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+				<capture number="0" name="context.string.end.math"/>
+			</ends-with>
+				<subzones>
+					<include syntax="EscapecharacterDollar"/>
+					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="Default_Order_of_Zones"/>
+				</subzones>
+			</zone>
+			<zone name="context.string.math.displaystyle">
+				<starts-with>
+					<expression>\\startformula</expression>
+					<capture number="0" name="context.string.begin.math"/>
+				</starts-with>
+			<ends-with>
+				<expression>\\stopformula</expression>
+				<capture number="0" name="context.string.end.math"/>
+			</ends-with>
+				<subzones>
+					<include syntax="EscapecharacterDollar"/>
+					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="Default_Order_of_Zones"/>
+				</subzones>
+			</zone>
+        	<zone name="context.string.math.textstyle">
+        	    <starts-with>
+        	        <expression>\$(?!\$)</expression>
+        	        <capture number="0" name="context.string.begin.math"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\$(?!\$)</expression>
+        	        <capture number="0" name="context.string.end.math"/>
+        	    </ends-with>
+        	    <subzones>
+        	        <include syntax="EscapecharacterDollar"/>
+        	        <include syntax="text.TeX.math.ConTeXt"/>
+        	        <include collection="Default_Order_of_Zones"/>
+        	    </subzones>
+        	</zone>
+            <zone name="context.literal.string.math.displaystyle">
+                <starts-with>
+                    <expression>\$\$</expression>
+                    <capture number="0" name="context.string.begin.math"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\$\$</expression>
+                    <capture number="0" name="context.string.end.math"/>
+                </ends-with>
+                <subzones>
+                    <include syntax="EscapecharacterDollar"/>
+                    <include syntax="text.TeX.math.ConTeXt"/>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="Keys">
+            <zone name="context.key-name">
+                    <expression>(\\?[0-9A-Za-z_@!?:]+)\s*(?==)</expression>
+            </zone>
+        </collection>
+        
+        <collection name="Values">
+        
+            <zone name="context.value-name">
+                    <starts-with>
+                    <expression>=(&gt;)?</expression>
+                    <capture number="0" name="keyword.operator.key"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(,)|(?=\])</expression>
+                    <capture number="1" name="keyword.operator.separator-comma"/>
+                </ends-with>
+                <subzones name="context.InValue.subzone">
+                
+                	<zone name="container.support-function">
+                	    <starts-with>
+                	        <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])\s*(\[)</expression>
+                	        <capture number="1" name="context.support.function.general"/>
+                	        <capture number="2" name="context.punctuation-close-bracket.level0"/>
+                	    </starts-with>
+                	    <ends-with>
+                	        <expression>\]</expression>
+                	        <capture number="0" name="context.punctuation-close-bracket.level0"/>
+                	    </ends-with>
+                	    <subzones>
+                	        <include collection="Default_Order_of_Zones"/>
+                	    </subzones>
+                	</zone>
+                	<include collection="EnvironmentHelper"/>
+                    <include collection="Default_Order_of_Zones"/>
+                    
+                </subzones>
+            </zone>
+            
+        </collection>
+        
+        <collection name="Sectioning">
+        
+            <zone name="context.structural.document.support.function.start.section">
+				<expression>(\\(?:part|title|chapter|SlideTitle)|\\(?:sub)*(?:section|subject))\b</expression>
+            </zone>
+            
+            <zone name="context.structural.container.startsection">
+                <starts-with>
+                    <expression>(\\start((part|title|chapter)|((?:sub)*)(section|subject)))\b</expression>
+                    <capture number="0" name="context.structural.document.support.function.start.section"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\stop\2\b</expression>
+                    <capture number="0" name="context.structural.document.support.function.stop.section"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+            
+        </collection>
+        
+        <collection name="GeneralTeX">
+        	<zone name="context.support.function.general">
+        	    <expression>\\[A-Za-z_@!?:]*[A-Za-z_@!?:]</expression>
+        	</zone>
+        </collection>
+        
+        <collection name="Keywords">
+        
+            <zone name="context.keyword.other.key-value">
+                <expression>\b((?&lt;=style=)\s*(\b(rm|ss|tt|hw|cg|mm)?(exlt|lt|sb|bk|exlti|li|sbi|bki|bf|sl|it|tf|bi|bs|sc)(a|b|c|d|e|f|x|xx)?|(rm|ss|tt|hw|cg|mm)(a|b|c|d|x|xx)?|(mediaeval|normal|type|mono|slanted|bold|italic|boldslanted|slantedbold|bolditalic|italicbold)|small(normal|bold|type|slanted|boldslanted|slantedbold|bolditalic|italicbold)?|sans(serif|bold)?|(small|big)(bodyfont)|(cap|capital|smallcaps|WORD))|\b(front|body|back)part\b|\bappendix\b|\b(each|first|last|odd|even)\b|\b(middle|fit|center|right|left|top|bottom)\b|(?&lt;=alternative=)\s*(a|b|c|d|e|f|g))\b(?!\s*=)|\b(lohi|hilo)\b</expression>
+            </zone>
+            
+            <zone name="context.keyword.other.table">
+                <expression>\|</expression>
+            </zone>
+            
+            <zone name="context.keyword.other.misc">
+                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?!=\s*[\+\-#0-9\.\*\\])|(?&lt;=\w)\*(?=\\?\w)|(\\s!)?(spec:|name:|file:))\b</expression>
+            </zone>
+            
+            <zone name="context.support.function.general.counting">
+                <expression>\\(advance|divide|multiply)\b</expression>
+            </zone>
+            
+            <zone name="context.support.function.general.box">
+                <expression>\\\w*box\b</expression>
+            </zone>
+            
+			<zone name="context.support.function.general.rule">
+				<expression>\\\w*rule\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.general.kern">
+				<expression>\\\w*kern(?![a-zA-Z])</expression>
+			</zone>
+            
+            <zone name="context.keyword.zone.to-spread-keyword">
+                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd))|(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]))</expression>
+                <capture number="1" name="context.keyword.to-spread-keyword.tex"/>
+                <capture number="2" name="context.constant.numeric.tex"/>
+                <capture number="3" name="context.keyword.number-separator.tex"/>
+                <capture number="4" name="context.keyword.fillls.tex"/>
+                <capture number="5" name="context.keyword.unit.tex"/>
+                <capture number="6" name="context.support.function.general.tex"/>
+            </zone>
+            
+            <zone name="context.keyword.zone.skip-keyword">
+                <expression>(\\\w*(?&lt;!un)(?:skip|size))\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd))|(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]))</expression>
+                <capture number="1" name="context.support.function.general"/>
+                <capture number="2" name="context.constant.numeric.tex"/>
+                <capture number="3" name="context.keyword.number-separator.tex"/>
+                <capture number="4" name="context.keyword.fillls.tex"/>
+                <capture number="5" name="context.keyword.unit.tex"/>
+                <capture number="6" name="context.support.function.general.tex"/>
+            </zone>
+            
+            <zone name="context.keyword.zone.plus-minus-keyword">
+                <expression>(minus|plus)</expression>
+            </zone>
+            
+			<zone name="context.keyword.zone.depth-width-height-keyword">
+				<expression>(depth|width|height)</expression>
+			</zone>
+            
+            <zone name="context.keyword.zone.by-keyword">
+                <expression>by</expression>
+            </zone>
+            
+            <zone name="context.keyword.zone.unit">
+                <expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)</expression>
+                <capture number="1" name="context.constant.numeric.tex"/>
+                <capture number="2" name="context.keyword.number-separator.tex"/>
+                <capture number="3" name="context.keyword.true.tex"/>
+                <capture number="4" name="context.keyword.unit.tex"/>
+            </zone>
+            
+        </collection>
+        
+    </library>
+    
+</syntax>
+
+
+
+

@@ -1,0 +1,33 @@
+<action-recipes>
+    <action id="actions.snippets.context.typesetMKIV" category="actions.snippets.context">
+        <class>TEALoader</class>
+        <title>Typeset MKIV and View</title>
+        <key-equivalent>cmd option r</key-equivalent>
+        <setup>
+            <script>Typeset_MKIV.sh</script>
+            <input>document</input>
+            <!--<alternate>line</alternate>-->
+            <!--<output>text</output>-->
+
+            <!--<undo_name>My Action</undo_name>-->
+            <syntax-context>language-root.tex.context,language-root.tex.context *</syntax-context>
+            <!--<selection-context>none</selection-context>-->
+        </setup>
+    </action>
+    
+    <action id="actions.snippets.context.typesetMKIV" category="tools.Snippets">
+            <class>TEALoader</class>
+            <title>Typeset MKIV and View</title>
+            <setup>
+                <script>Typeset_MKIV.sh</script>
+                <input>document</input>
+                <!--<alternate>line</alternate>-->
+                <!--<output>text</output>-->
+    
+                <!--<undo_name>My Action</undo_name>-->
+             <syntax-context>language-root.tex.context,language-root.tex.context *</syntax-context>
+              <!--<selection-context>none</selection-context>-->
+          </setup>
+      </action>
+        
+</action-recipes>
