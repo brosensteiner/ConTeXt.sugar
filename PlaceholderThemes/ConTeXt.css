@@ -26,7 +26,7 @@ support + delimiter.balanced keyword.unit.tex,
 support.function + context.keyword.other.tex,
 context.support.function.general + delimiter.balanced.bracket context.keyword.unit.tex,
 context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex,
-context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex.
+context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex,
 context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.unit.tex,
 context.keyword.zone.skip-keyword > keyword.unit.tex,
 context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
@@ -55,9 +55,10 @@ context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.ke
 	color: #9DD748;
 }
 
-context.keyword.zone.skip-keyword > constant-numeric.tex,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric.tex,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric.tex {
+source-MetaFun constant-numeric,
+context.keyword.zone.skip-keyword > constant-numeric,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric,
+context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric {
 	color: #7653c1;
 	background-color: #f3f2ff;
 }
@@ -65,10 +66,7 @@ context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.ke
 context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword {
 	color: #9DD748;
 }
-context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.normal.number {
-	color: #7653c1;
-	background-color: #f3f2ff;
-}
+
 context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.constant-numeric.tex {
 	color: #7653c1;
 	background-color: #f3f2ff;
@@ -166,7 +164,7 @@ structural.float + bracket.level0 + brace.level0,
 structural.float + bracket.level0 + brace.level0 + brace.level0,
 structural.float + bracket.level0 + bracket.level0 + brace.level0,
 structural.float + bracket.level0 + bracket.level0 + brace.level0 + brace.level0,  {
-	background-color: #d1ebb0;
+	background-color: #fefefe;
 }
 
 context.string.begin.math,
@@ -176,7 +174,6 @@ context.string.end.math {
 }
 
 structural.container.document structural.document {
-	background-color: #f3f2ff;
 	font-weight: bold;
 }
 
@@ -192,18 +189,6 @@ context.structural.container.document > support.variable.define {
 
 support.variable.define {
 	color: #B10004;
-	font-weight: bold;
-}
-
-delimiter.it-em-sl-cg-hw :not(bracket,brace,keyword,support) {
-	font-style: italic;
-}
-delimiter.bf-sc-ss :not(bracket,brace,keyword,support) {
-	font-weight: bold;
-	font-variant: small-caps;
-}
-delimiter.bi :not(bracket,brace,keyword,support) {
-	font-style: italic;
 	font-weight: bold;
 }
 

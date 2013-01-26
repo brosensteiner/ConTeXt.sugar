@@ -18,11 +18,7 @@
     		</zone>
     	
 			<zone name="context.normal.word">
-				<expression>[^\\\s\{\}\[\]\|0-9[[:punct:]]][^\s\{\}\[\]\|0-9[[:punct:]]]*</expression>
-			</zone>
-			
-			<zone name="context.normal.number">
-				<expression>(\+|\-)?([0-9]*(\.|,)?[0-9]+)</expression>
+				<expression>(\+|\-)?([0-9]*(\.|,)?[0-9]+)|[^\\\s\{\}\[\]\|0-9[[:punct:]]][^\s\{\}\[\]\|0-9[[:punct:]]]*</expression>
 			</zone>
 			
     	</collection>
@@ -30,7 +26,6 @@
         <collection name="Default_Order_of_Zones">
         	<include collection="Comments"/>
             <include collection="Sectioning"/>
-            <include collection="Emphasize"/>
             <include collection="If_Else"/>
             <include collection="BalancedBraces"/>
             <include collection="Group"/>
@@ -51,7 +46,7 @@
         <collection name="BalancedBrackets">
             <zone name="context.delimiter.balanced.bracket.level0">
                 <starts-with>
-                    <expression>\[</expression>
+                    <expression>(?&lt;=[0-9A-Za-z_@!?:\]])\s*\[|^\s*\[</expression>
                     <capture number="0" name="context.punctuation-open-bracket.level0"/>
                 </starts-with>
                 <ends-with>
@@ -59,7 +54,6 @@
                     <capture number="0" name="context.punctuation-close-bracket.level0"/>
                 </ends-with>
                 <subzones>
-                    <include collection="Emphasize"/>
                     <include collection="Between_Brackets"/>
                 </subzones>
             </zone>
@@ -76,7 +70,6 @@
                     <capture number="0" name="context.punctuation-close-brace.level0"/>
                 </ends-with>
                 <subzones>
-					<include collection="Emphasize"/>
 					<include collection="BalancedBraces_array"/>
                     <include collection="Between_Braces"/>
                 </subzones>
@@ -110,7 +103,6 @@
                     <capture number="0" name="context.punctuation.parenthesis.level0"/>
                 </ends-with>
                 <subzones name="context.between.parenthesis">
-                    <include collection="Emphasize"/>
 					<include collection="BalancedParenthesis_array"/>
                     <include collection="Between_Braces"/>
                 </subzones>
@@ -118,7 +110,6 @@
         </collection>        
         
         <collection name="BalancedBraces_array">
-            <include collection="Emphasize"/>
             <zone name="context.delimiter.balanced.brace.level1">
                 <starts-with>
                     <expression>\{</expression>
@@ -129,7 +120,6 @@
                     <capture number="0" name="punctuation-close-brace.level1"/>
                 </ends-with>
                 <subzones>
-                    <include collection="Emphasize"/>
                     <zone name="context.delimiter.balanced.brace.level2">
                         <starts-with>
                             <expression>\{</expression>
@@ -140,7 +130,6 @@
                             <capture number="0" name="punctuation-close-brace.level2"/>
                         </ends-with>
                         <subzones>
-                            <include collection="Emphasize"/>
                             <zone name="context.delimiter.balanced.brace.level3">
                                 <starts-with>
                                     <expression>\{</expression>
@@ -151,7 +140,6 @@
                                     <capture number="0" name="punctuation-close-brace.level3"/>
                                 </ends-with>
                                 <subzones>
-                                    <include collection="Emphasize"/>
                                     <zone name="context.delimiter.balanced.brace.level4">
                                         <starts-with>
                                             <expression>\{</expression>
@@ -162,7 +150,6 @@
                                             <capture number="0" name="punctuation-close-brace.level4"/>
                                         </ends-with>
                                         <subzones>
-                                            <include collection="Emphasize"/>
                                             <zone name="context.delimiter.balanced.brace.level5">
                                                 <starts-with>
                                                     <expression>\{</expression>
@@ -173,7 +160,6 @@
                                                     <capture number="0" name="punctuation-close-brace.level5"/>
                                                 </ends-with>
                                                 <subzones>
-                                                    <include collection="Emphasize"/>
                                                     <zone name="context.delimiter.balanced.brace.level6">
                                                         <starts-with>
                                                             <expression>\{</expression>
@@ -184,7 +170,6 @@
                                                             <capture number="0" name="punctuation-close-brace.level6"/>
                                                         </ends-with>
                                                         <subzones>
-                                                            <include collection="Emphasize"/>
                                                             <zone name="context.delimiter.balanced.brace.level7">
                                                                 <starts-with>
                                                                     <expression>\{</expression>
@@ -195,7 +180,6 @@
                                                                     <capture number="0" name="punctuation-close-brace.level7"/>
                                                                 </ends-with>
                                                                 <subzones>
-                                                                    <include collection="Emphasize"/>
                                                                     <zone name="context.delimiter.balanced.brace.level8">
                                                                         <starts-with>
                                                                             <expression>\{</expression>
@@ -206,7 +190,6 @@
                                                                             <capture number="0" name="punctuation-close-brace.level8"/>
                                                                         </ends-with>
                                                                         <subzones>
-                                                                        	<include collection="Emphasize"/>
                                                                             <include collection="Between_Braces"/>
                                                                         </subzones>
                                                                     </zone>
@@ -234,111 +217,110 @@
         </collection>
                 
         <collection name="BalancedParenthesis_array">
-            <include collection="Emphasize"/>
-                    <zone name="context.delimiter.balanced.parenthesis.level1">
-                        <starts-with>
-                            <expression>\(</expression>
-                            <capture number="0" name="context.punctuation-open-parenthesis.level1"/>
-                        </starts-with>
-                        <ends-with>
-                            <expression>\)</expression>
-                            <capture number="0" name="context.punctuation-close-parenthesis.level1"/>
-                        </ends-with>
-                        <subzones name="context.between.parenthesis">
-                            <zone name="context.delimiter.balanced.parenthesis.level2">
-                                <starts-with>
-                                    <expression>\(</expression>
-                                    <capture number="0" name="context.punctuation-open-parenthesis.level2"/>
-                                </starts-with>
-                                <ends-with>
-                                    <expression>\)</expression>
-                                    <capture number="0" name="context.punctuation-close-parenthesis.level2"/>
-                                </ends-with>
-                                <subzones name="context.between.parenthesis">
-                                    <zone name="context.delimiter.balanced.parenthesis.level3">
-                                        <starts-with>
-                                            <expression>\(</expression>
-                                            <capture number="0" name="context.punctuation-open-parenthesis.level3"/>
-                                        </starts-with>
-                                        <ends-with>
-                                            <expression>\)</expression>
-                                            <capture number="0" name="context.punctuation-close-parenthesis.level3"/>
-                                        </ends-with>
-                                        <subzones name="context.between.parenthesis">
-                                            <zone name="context.delimiter.balanced.parenthesis.level4">
-                                                <starts-with>
-                                                    <expression>\(</expression>
-                                                    <capture number="0" name="context.punctuation-open-parenthesis.level4"/>
-                                                </starts-with>
-                                                <ends-with>
-                                                    <expression>\)</expression>
-                                                    <capture number="0" name="context.punctuation-close-parenthesis.level4"/>
-                                                </ends-with>
-                                                <subzones name="context.between.parenthesis">
-                                                    <zone name="context.delimiter.balanced.parenthesis.level5">
-                                                        <starts-with>
-                                                            <expression>\(</expression>
-                                                            <capture number="0" name="context.punctuation-open-parenthesis.level5"/>
-                                                        </starts-with>
-                                                        <ends-with>
-                                                            <expression>\)</expression>
-                                                            <capture number="0" name="context.punctuation-close-parenthesis.level5"/>
-                                                        </ends-with>
-                                                        <subzones name="context.between.parenthesis">
-                                                            <zone name="context.delimiter.balanced.parenthesis.level6">
-                                                                <starts-with>
-                                                                    <expression>\(</expression>
-                                                                    <capture number="0" name="context.punctuation-open-parenthesis.level6"/>
-                                                                </starts-with>
-                                                                <ends-with>
-                                                                    <expression>\)</expression>
-                                                                    <capture number="0" name="context.punctuation-close-parenthesis.level6"/>
-                                                                </ends-with>
-                                                                <subzones name="context.between.parenthesis">
-                                                                    <zone name="context.delimiter.balanced.parenthesis.level7">
-                                                                        <starts-with>
-                                                                            <expression>\(</expression>
-                                                                            <capture number="0" name="context.punctuation-open-parenthesis.level7"/>
-                                                                        </starts-with>
-                                                                        <ends-with>
-                                                                            <expression>\)</expression>
-                                                                            <capture number="0" name="context.punctuation-close-parenthesis.level7"/>
-                                                                        </ends-with>
-                                                                        <subzones name="context.between.parenthesis">
-                                                                            <zone name="context.delimiter.balanced.parenthesis.level8">
-                                                                                <starts-with>
-                                                                                    <expression>\(</expression>
-                                                                                    <capture number="0" name="context.punctuation-open-parenthesis.level8"/>
-                                                                                </starts-with>
-                                                                                <ends-with>
-                                                                                    <expression>\)</expression>
-                                                                                    <capture number="0" name="context.punctuation-close-parenthesis.level8"/>
-                                                                                </ends-with>
-                                                                                <subzones name="context.between.parenthesis">
-                                                                                    <include collection="Between_Braces"/>
-                                                                                </subzones>
-                                                                            </zone>
-                                                                            <include collection="Between_Braces"/>
-                                                                        </subzones>
-                                                                    </zone>
-                                                                    <include collection="Between_Braces"/>
-                                                                </subzones>
-                                                            </zone>
-                                                            <include collection="Between_Braces"/>
-                                                        </subzones>
-                                                    </zone>
-                                                    <include collection="Between_Braces"/>
-                                                </subzones>
-                                            </zone>
-                                            <include collection="Between_Braces"/>
-                                        </subzones>
-                                    </zone>
-                                    <include collection="Between_Braces"/>
-                                </subzones>
-                            </zone>
-                            <include collection="Between_Braces"/>
-                        </subzones>
-                    </zone>
+               <zone name="context.delimiter.balanced.parenthesis.level1">
+                   <starts-with>
+                       <expression>\(</expression>
+                       <capture number="0" name="context.punctuation-open-parenthesis.level1"/>
+                   </starts-with>
+                   <ends-with>
+                       <expression>\)</expression>
+                       <capture number="0" name="context.punctuation-close-parenthesis.level1"/>
+                   </ends-with>
+                   <subzones name="context.between.parenthesis">
+                       <zone name="context.delimiter.balanced.parenthesis.level2">
+                           <starts-with>
+                               <expression>\(</expression>
+                               <capture number="0" name="context.punctuation-open-parenthesis.level2"/>
+                           </starts-with>
+                           <ends-with>
+                               <expression>\)</expression>
+                               <capture number="0" name="context.punctuation-close-parenthesis.level2"/>
+                           </ends-with>
+                           <subzones name="context.between.parenthesis">
+                               <zone name="context.delimiter.balanced.parenthesis.level3">
+                                   <starts-with>
+                                       <expression>\(</expression>
+                                       <capture number="0" name="context.punctuation-open-parenthesis.level3"/>
+                                   </starts-with>
+                                   <ends-with>
+                                       <expression>\)</expression>
+                                       <capture number="0" name="context.punctuation-close-parenthesis.level3"/>
+                                   </ends-with>
+                                   <subzones name="context.between.parenthesis">
+                                       <zone name="context.delimiter.balanced.parenthesis.level4">
+                                           <starts-with>
+                                               <expression>\(</expression>
+                                               <capture number="0" name="context.punctuation-open-parenthesis.level4"/>
+                                           </starts-with>
+                                           <ends-with>
+                                               <expression>\)</expression>
+                                               <capture number="0" name="context.punctuation-close-parenthesis.level4"/>
+                                           </ends-with>
+                                           <subzones name="context.between.parenthesis">
+                                               <zone name="context.delimiter.balanced.parenthesis.level5">
+                                                   <starts-with>
+                                                       <expression>\(</expression>
+                                                       <capture number="0" name="context.punctuation-open-parenthesis.level5"/>
+                                                   </starts-with>
+                                                   <ends-with>
+                                                       <expression>\)</expression>
+                                                       <capture number="0" name="context.punctuation-close-parenthesis.level5"/>
+                                                   </ends-with>
+                                                   <subzones name="context.between.parenthesis">
+                                                       <zone name="context.delimiter.balanced.parenthesis.level6">
+                                                           <starts-with>
+                                                               <expression>\(</expression>
+                                                               <capture number="0" name="context.punctuation-open-parenthesis.level6"/>
+                                                           </starts-with>
+                                                           <ends-with>
+                                                               <expression>\)</expression>
+                                                               <capture number="0" name="context.punctuation-close-parenthesis.level6"/>
+                                                           </ends-with>
+                                                           <subzones name="context.between.parenthesis">
+                                                               <zone name="context.delimiter.balanced.parenthesis.level7">
+                                                                   <starts-with>
+                                                                       <expression>\(</expression>
+                                                                       <capture number="0" name="context.punctuation-open-parenthesis.level7"/>
+                                                                   </starts-with>
+                                                                   <ends-with>
+                                                                       <expression>\)</expression>
+                                                                       <capture number="0" name="context.punctuation-close-parenthesis.level7"/>
+                                                                   </ends-with>
+                                                                   <subzones name="context.between.parenthesis">
+                                                                       <zone name="context.delimiter.balanced.parenthesis.level8">
+                                                                           <starts-with>
+                                                                               <expression>\(</expression>
+                                                                               <capture number="0" name="context.punctuation-open-parenthesis.level8"/>
+                                                                           </starts-with>
+                                                                           <ends-with>
+                                                                               <expression>\)</expression>
+                                                                               <capture number="0" name="context.punctuation-close-parenthesis.level8"/>
+                                                                           </ends-with>
+                                                                           <subzones name="context.between.parenthesis">
+                                                                               <include collection="Between_Braces"/>
+                                                                           </subzones>
+                                                                       </zone>
+                                                                       <include collection="Between_Braces"/>
+                                                                   </subzones>
+                                                               </zone>
+                                                               <include collection="Between_Braces"/>
+                                                           </subzones>
+                                                       </zone>
+                                                       <include collection="Between_Braces"/>
+                                                   </subzones>
+                                               </zone>
+                                               <include collection="Between_Braces"/>
+                                           </subzones>
+                                       </zone>
+                                       <include collection="Between_Braces"/>
+                                   </subzones>
+                               </zone>
+                               <include collection="Between_Braces"/>
+                           </subzones>
+                       </zone>
+                       <include collection="Between_Braces"/>
+                   </subzones>
+               </zone>
         </collection>
         
         <collection name="Between_Braces">
@@ -482,75 +464,6 @@
             </zone>
         </collection>
         
-        <collection name="Emphasize">
-            
-            <zone name="context.delimiter.bf-sc-ss">
-                <starts-with>
-                    <expression>(\{)\s*((\\bf|\\sc|\\ss)(a|b|c|d|e|f|x|xx)?)\b</expression>
-                    <capture number="1" name="punctuation-open-brace.level0"/>
-                    <capture number="2" name="context.support.function.general"/>
-                </starts-with>
-                <ends-with>
-                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
-                    <capture number="1" name="punctuation-close-brace.level0"/>
-                </ends-with>
-                <subzones name="context.stylistic.typography.variant.bold">
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-            
-            <zone name="context.delimiter.bi">
-                <starts-with>
-                    <expression>(\{)\s*((\\bi|\\bs)(a|b|c|d|e|f|x|xx)?)\b</expression>
-                    <capture number="2" name="context.support.function.general"/>
-                    <capture number="1" name="punctuation-open-brace.level0"/>
-                </starts-with>
-                <ends-with>
-                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
-                    <capture number="1" name="punctuation-close-brace.level0"/>
-                </ends-with>
-                <subzones name="context.stylistic.typography.variant.bolditalic">
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-            
-            <zone name="context.delimiter.it-em-sl-cg-hw">
-                <starts-with>
-                    <expression>(\{)\s*((\\it|\\em|\\sl|\\cg|\\hw)(a|b|c|d|e|x|xx)?\b)</expression>
-                    <capture number="2" name="context.support.function.general"/>
-                    <capture number="1" name="punctuation-open-brace.level0"/>
-                </starts-with>
-                <ends-with>
-                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
-                    <capture number="1" name="punctuation-close-brace.level0"/>
-                </ends-with>
-                <subzones name="context.stylistic.typography.variant.italic">
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-            <zone name="context.delimiter.underline">
-                <starts-with>
-                    <expression>(\\underline|\\underbar)\s*(\{)</expression>
-                    <capture number="1" name="context.support.function.general"/>
-                    <capture number="2" name="punctuation-open-brace.level0"/>
-                </starts-with>
-                <ends-with>
-                    <expression>(?=\\eTD|\\eTC|\\eTH|\\NC|\\VL|\\stoptext|\\stopcomponent)|(\})</expression>
-                    <capture number="1" name="punctuation-close-brace.level0"/>
-                </ends-with>
-                <subzones name="context.stylistic.typography.variant.underline">
-                    <zone name="context.structural.document">
-                        <expression>(\\(?:stop)((part|title|chapter)|((?:sub)*)(section|subject)))</expression>
-                    </zone>
-                    <zone name="context.container.environment">
-                        <expression>(\\stop(\w+))</expression>
-                        <capture number="0" name="support.function.stop.environment"/>
-                    </zone>
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-        </collection>
-        
         <collection name="EnvironmentHelper">
 			<!--balanced delimiters
 			<zone name="context.punctuation-open-bracket.level0">
@@ -600,12 +513,12 @@
             	</subzones>
             </zone>
             
-            <zone name="context.structural.float.figure">
+            <zone name="context.support.function.structural.float.figure">
                     <expression>(\\place(?:(\w*)?(figure|formula)(\w*)?|publications|content))</expression>
                     <capture number="0" name="structural.document"/>
                     <capture number="1" name="context.support.function.general"/>
             </zone>
-            <zone name="context.structural.float.table">
+            <zone name="context.support.function.structural.float.table">
                     <expression>(\\place(?:(\w*)?(table)(\w*)?))</expression>
                     <capture number="0" name="structural.document"/>
                     <capture number="1" name="context.support.function.general"/>
@@ -848,8 +761,7 @@
                 	        <include collection="Default_Order_of_Zones"/>
                 	    </subzones>
                 	</zone>
-                	<include collection="EnvironmentHelper"/>
-                    <include collection="Default_Order_of_Zones"/>
+                	<include collection="Default_Order_of_Zones"/>
                     
                 </subzones>
             </zone>
