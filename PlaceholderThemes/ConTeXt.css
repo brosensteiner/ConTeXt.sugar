@@ -20,13 +20,10 @@ keyword {
 	spell-check: disabled;
 }
 
-delimiter.balanced.bracket > keyword.other.misc,
-delimiter.balanced > support.variable.define + keyword.other.tex,
-support + delimiter.balanced keyword.unit.tex,
+balanced.bracket > keyword.other.misc,
+balanced > support.variable.define + keyword.other.tex,
+balanced keyword.unit.tex,
 support.function + context.keyword.other.tex,
-context.support.function.general + delimiter.balanced.bracket context.keyword.unit.tex,
-context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex,
-context.support.function.general + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket context.keyword.unit.tex,
 context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.unit.tex,
 context.keyword.zone.skip-keyword > keyword.unit.tex,
 context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
@@ -46,7 +43,6 @@ context.support.function.general.box + keyword.zone.to-spread-keyword > context.
 
 context.support.function.general.box + keyword.zone.to-spread-keyword > context.constant-numeric.tex {
 	color: #7653c1;
-	background-color: #f3f2ff;
 }
 
 
@@ -60,7 +56,6 @@ context.keyword.zone.skip-keyword > constant-numeric,
 context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric,
 context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric {
 	color: #7653c1;
-	background-color: #f3f2ff;
 }
 
 context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword {
@@ -69,7 +64,6 @@ context.support.function.general.counting + context.support.function.general + c
 
 context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.constant-numeric.tex {
 	color: #7653c1;
-	background-color: #f3f2ff;
 }
 
 context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword,
@@ -85,66 +79,15 @@ context.support.function.general.rule + context.keyword.zone.depth-width-height-
 context.support.function.general.kern + context.keyword.zone.unit > context.constant-numeric.tex
  {
         color: #7653c1;
-        background-color: #f3f2ff;
 }
 
-context.support.function + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.key,
-
-context.support.function + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-
-context.support.function + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > value-name > punctuation.operator.keyvalue.comma {
-	color: #FF0000;
-	font-weight: normal;
-}
-
-context.support.function.general + delimiter.balanced.bracket context.constant-numeric.tex,
-context.support.function.general ~ delimiter.balanced.bracket context.constant-numeric.tex {
+context.support.function.general + balanced.bracket context.constant-numeric.tex,
+context.support.function.general ~ balanced.bracket context.constant-numeric.tex {
 	color: #7653c1;
-	background-color: #f3f2ff;
 }
 
 context.punctuation.com.begin {
 	color: #A1A1A1;
-}
-
-escape,
-escapes,
-escaped {
-	color: #996600;
 }
 
 support.function {
@@ -157,13 +100,7 @@ context.support.function.start,
 	font-weight: bold;
 }
 
-structural.float,
-structural.float + bracket.level0,
-structural.float + bracket.level0 + bracket.level0,
-structural.float + bracket.level0 + brace.level0,
-structural.float + bracket.level0 + brace.level0 + brace.level0,
-structural.float + bracket.level0 + bracket.level0 + brace.level0,
-structural.float + bracket.level0 + bracket.level0 + brace.level0 + brace.level0,  {
+structural.float {
 	background-color: #fefefe;
 }
 
@@ -192,25 +129,10 @@ support.variable.define {
 	font-weight: bold;
 }
 
-context.support.function + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-
-context.support.function + context.comment + delimiter.balanced.bracket > context.key-name,
-
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
-
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket > context.key-name,
-context.support.function + context.comment + delimiter.balanced.bracket + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
-context.support.function + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name,
-
-context.support.function + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket + context.comment + delimiter.balanced.bracket > context.key-name {
+balanced.bracket:has-child(support.function) > context.key-name,
+balanced.bracket:has-child(support.function) + balanced.bracket > context.key-name,
+balanced.bracket:has-child(support.function) + balanced.bracket + balanced.bracket > context.key-name,
+structural.support.function + balanced.bracket > context.key-name, {
 	color: #15A8F9;
 }
 
@@ -223,7 +145,7 @@ structural.container.document context.container.environment.table support.functi
 structural.container.document context.container.environment.table support.function.table.row {
 	background-color: rgba(100, 100, 100, 0.7);
 }
-structural.container.document context.container.environment.table > support.function.start.table + context.delimiter.balanced.bracket > context.keyword.other.table {
+structural.container.document context.container.environment.table > support.function.start.table + context.balanced.bracket > context.keyword.other.table {
 	color: #FF0000;
 }
 
@@ -256,15 +178,8 @@ level8 {
 	color: #9491AA;
 }
 
-punctuation.brace,
-punctuation.bracket,
-punctuation.parenthesis {
-	font-weight: normal;
-	color: #F29E05;
-}
-
 support.function.text {
 	color: #ffffff;
-	font-weight:bold;
-	background-color: #f3f2ff;
+	font-weight: bold;
+	background-color: hsl(204, 93%, 51%);
 }

@@ -32,7 +32,7 @@
 	<recipe name="container.startsections">
 		
 		<class>ESXMLItem</class>
-		<start-selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + delimiter.balanced.bracket:has-child(value-name:has-child(context.InValue.subzone:capture(name)))</start-selector>
+		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
 		<end-selector>context.structural.document.support.function.stop.section</end-selector>
 		<subrecipes>	
 			<include-root-recipes />

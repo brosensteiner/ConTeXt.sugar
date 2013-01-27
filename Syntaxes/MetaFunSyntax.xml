@@ -6,13 +6,13 @@
         <zone name="delimiter.balanced.parentheses_and_braces.metafun">
             <starts-with>
                 <expression>(\()|(\[)</expression>
-                <capture number="1" name="punctuation.open.parenthesis.metafun"/>
-                <capture number="2" name="punctuation.open.brace.metafun"/>
+                <capture number="1" name="open-parenthesis.metafun"/>
+                <capture number="2" name="open-brace.metafun"/>
             </starts-with>
             <ends-with>
                 <expression>(\))|(\])</expression>
-                <capture number="1" name="punctuation.close.parenthesis.metafun"/>
-                <capture number="2" name="punctuation.close.brace.metafun"/>
+                <capture number="1" name="close-parenthesis.metafun"/>
+                <capture number="2" name="close-brace.metafun"/>
             </ends-with>
             <subzones>
                 <zone name="delimiter.balanced.quotes.metafun">
