@@ -6,37 +6,23 @@
         <include collection="Document"/>
         <include collection="Define"/>
         <include collection="Default_Order_of_Zones"/>
-        <include collection="NormalWord"/>
     </zones>
     
     <library>
     
-    	<collection name="NormalWord">
-    	
-    		<zone name="context.punctuation.separator.comma">
-    		    <expression>,</expression>
-    		</zone>
-    	
-			<zone name="context.normal.word">
-				<expression>(\+|\-)?([0-9]*(\.|,)?[0-9]+)|[^\\\s\{\}\[\]\|0-9[[:punct:]]][^\s\{\}\[\]\|0-9[[:punct:]]]*</expression>
-			</zone>
-			
-    	</collection>
-    	
-        <collection name="Default_Order_of_Zones">
-        	<include collection="Comments"/>
+		<collection name="Default_Order_of_Zones">
+        	<include collection="Comment"/>
+        	<include collection="Lua"/>
+        	<include collection="Metafun"/>
+        	<include collection="Environments"/>
             <include collection="Sectioning"/>
             <include collection="If_Else"/>
             <include collection="BalancedBraces"/>
             <include collection="Group"/>
         	<include collection="BalancedBrackets"/>
         	<include collection="BalancedParenthesis"/>
-            <include collection="Lua"/>
-            <include collection="Math"/>
-            <include collection="Environments"/>
             <include collection="Math"/>
             <include collection="Keywords"/>
-            <include collection="NormalWord"/>
             <include collection="Csname"/>
             <include collection="GeneralTeX"/>
             <include collection="DefinedVariable"/>
@@ -46,7 +32,8 @@
         <collection name="BalancedBrackets">
             <zone name="context.balanced.bracket">
                 <starts-with>
-                    <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]|(?&lt;=Part|title|chapter|SlideTitle|section|subject))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
+                	<!--has to be this verbose, otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
+                    <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]|(?&lt;=\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure||\\startplacelocalnotes|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general.tex"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -57,6 +44,10 @@
                     <capture number="0" name="context.close-bracket.level0"/>
                 </ends-with>
                 <subzones>
+                	<!--for ConTeXt tables:-->
+                	<zone name="context.keyword.other.table">
+                	    <expression>\|</expression>
+                	</zone>
                     <include collection="Between_Brackets"/>
                 </subzones>
             </zone>
@@ -328,12 +319,12 @@
         </collection>
         
         <collection name="Between_Braces">
-        	<include collection="Comments"/>
+        	<include collection="Comment"/>
             <include collection="DefinedVariable"/>
             <include collection="Define"/>
             <include collection="Csname"/>
             <include collection="Lua"/>
-            <include collection="EnvironmentHelper"/>
+            <include collection="Metafun"/>
             <include collection="Environments"/>
             <include collection="Group"/>
             <include collection="If_Else"/>
@@ -342,11 +333,11 @@
         </collection>
         
         <collection name="Between_Brackets">
-        	<include collection="Comments"/>
+        	<include collection="Comment"/>
             <include collection="DefinedVariable"/>
             <include collection="Define"/>
             <include collection="Lua"/>
-            <include collection="EnvironmentHelper"/>
+            <include collection="Metafun"/>
             <include collection="Keys"/>
             <include collection="Keywords"/>
             <include collection="Default_Order_of_Zones"/>
@@ -394,7 +385,7 @@
             
         </collection>
         
-        <collection name="Comments">
+        <collection name="Comment">
                   
             <zone name="context.comment.line">
                 <expression>(%)(?:\s*(.+)$\n?)|(%)(?:\s*$\n?)</expression>
@@ -467,64 +458,10 @@
             </zone>
         </collection>
         
-        <collection name="EnvironmentHelper">
-			<!--balanced delimiters
-			<zone name="context.open-bracket.level0">
-				<expression>\[</expression>
-			</zone>
-			<zone name="context.close-bracket.level0">
-				<expression>\]</expression>
-			</zone>-->
-        	<!--combination-->
-        	<zone name="context.support.function.general.tex">
-        	        <expression>\\start(float)?combination\b</expression>
-        	</zone>
-        	<zone name="context.support.function.general.tex">
-        	        <expression>\\stop(float)?combination\b</expression>
-        	</zone>
-        	<!--table-->
-        	<zone name="context.support.function.general.tex">
-        	        <expression>(\\bTABLE(head|foot|body|next)?)\b|(\\start(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
-        	</zone>
-        	<zone name="context.support.function.general.tex">
-        	        <expression>(\\eTABLE(head|foot|body|next)?)\b|(\\stop(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
-        	</zone>
-        	<!--general environment-->
-            <zone name="context.support.function.general.tex">
-                <expression>\\start\w*</expression>
-            </zone>
-            <zone name="context.support.function.general.tex">
-                <expression>\\stop\w*</expression>
-            </zone>
-            
-        </collection>
-        
         <collection name="Environments">
-            <!--combination-->
-            <zone name="context.container.environment.combination">
-            	<starts-with>
-            		<expression>\\start(float)?combination\b</expression>
-            		<capture number="0" name="context.support.function.start.combination"/>
-            	</starts-with>
-            	<ends-with>
-            		<expression>\\stop\1combination\b</expression>
-            		<capture number="0" name="context.support.function.stop.combination"/>
-            	</ends-with>
-            	<subzones>
-            		<include collection="Define"/>
-            		<include collection="Default_Order_of_Zones"/>
-            	</subzones>
-            </zone>
-            
-            <zone name="context.support.function.structural.float.figure">
-                    <expression>(\\place(?:(\w*)?(figure|formula)(\w*)?|publications|content))</expression>
-                    <capture number="0" name="structural.document"/>
-                    <capture number="1" name="context.support.function.general"/>
-            </zone>
-            <zone name="context.support.function.structural.float.table">
-                    <expression>(\\place(?:(\w*)?(table)(\w*)?))</expression>
-                    <capture number="0" name="structural.document"/>
-                    <capture number="1" name="context.support.function.general"/>
+
+            <zone name="context.support.function.structural.float">
+                    <expression>\\place[0-9A-Za-z_@!?:]+</expression>
             </zone>
             
             <!--table-->
@@ -558,50 +495,21 @@
             		<include collection="Default_Order_of_Zones"/>
             	</subzones>
             </zone>
-            <!--MetaFun-->
-            <zone name="context.container.injection.source-MetaFun">
-                <starts-with>
-                    <expression>(\\start(unique|reusable|use|static)?MP)(code|inclusions|extensions|initializations|definitions|drawing|run|clip|(position)?graphic|environment|page|figure)\b</expression>
-                    <capture number="0" name="context.support.function.start.metafun"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\\stop\2MP\3\b</expression>
-                    <capture number="0" name="context.support.function.stop.metafun"/>
-                </ends-with>
-                <subzones>
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-            <!--general environment-->
-			<zone name="context.container.environment">
+            <!--protect/unprotect environment-->
+            <zone name="context.container.unprotect-protect">
 				<starts-with>
-					<expression>\\start(\w*)</expression>
-					<capture number="0" name="context.support.function.start.environment"/>
+					<expression>\\unprotect\b</expression>
+					<capture number="0" name="context.support.function.start.unprotect-protect"/>
 				</starts-with>
 				<ends-with>
-					<expression>\\stop\1</expression>
-					<capture number="0" name="context.support.function.stop.environment"/>
+					<expression>\\protect\b</expression>
+						<capture number="0" name="context.support.function.stop.unprotect-protect"/>
 				</ends-with>
 				<subzones>
 					<include collection="Define"/>
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
-            </zone>
-            <!--protect/unprotect environment-->
-            <zone name="context.container.unprotect-protect">
-              <starts-with>
-                 <expression>\\unprotect\b</expression>
-                 <capture number="0" name="context.support.function.start.unprotect-protect"/>
-              </starts-with>
-              <ends-with>
-                 <expression>\\protect\b</expression>
-                 <capture number="0" name="context.support.function.stop.unprotect-protect"/>
-              </ends-with>
-              <subzones>
-                 <include collection="Define"/>
-                 <include collection="Default_Order_of_Zones"/>
-              </subzones>
-            </zone>
+			</zone>
 
         </collection>
                 
@@ -635,6 +543,22 @@
             </zone>
         </collection>
         
+        <collection name="Metafun">
+            <zone name="context.container.injection.source-MetaFun">
+                <starts-with>
+                    <expression>(\\start(unique|reusable|use|static)?MP)(code|inclusions|extensions|initializations|definitions|drawing|run|clip|(position)?graphic|environment|page|figure)\b</expression>
+                    <capture number="0" name="context.support.function.start.metafun"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\stop\2MP\3\b</expression>
+                    <capture number="0" name="context.support.function.stop.metafun"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
         <collection name="Document">
             <zone name="context.structural.container.document">
                 <starts-with>
@@ -646,7 +570,6 @@
                     <capture number="0" name="context.support.function.stop.text"/>
                 </ends-with>
                 <subzones>
-                    <include collection="Sectioning"/>
                     <include collection="CompleteSupport"/>
                     <include collection="Default_Order_of_Zones"/>
                 </subzones>
@@ -747,11 +670,11 @@
             
             <zone>
                 <starts-with>
-                    <expression>(\\start((part|title|chapter)|((?:sub)*)(section|subject)))\b</expression>
+                    <expression>\\start([0-9A-Za-z_@!?:]+)\b</expression>
                     <capture number="0" name="context.structural.document.support.function.start.section"/>
                 </starts-with>
                 <ends-with>
-                    <expression>\\stop\2\b</expression>
+                    <expression>\\stop\1\b</expression>
                     <capture number="0" name="context.structural.document.support.function.stop.section"/>
                 </ends-with>
                 <subzones>
@@ -765,6 +688,9 @@
         	<zone name="context.support.function.general">
         	    <expression>\\[A-Za-z_@!?:]*[A-Za-z_@!?:]</expression>
         	</zone>
+        	<zone name="context.punctuation.separator.comma">
+        	    <expression>,</expression>
+        	</zone>
         </collection>
         
         <collection name="Keywords">
@@ -773,12 +699,8 @@
                 <expression>\b((?&lt;=style=)\s*(\b(rm|ss|tt|hw|cg|mm)?(exlt|lt|sb|bk|exlti|li|sbi|bki|bf|sl|it|tf|bi|bs|sc)(a|b|c|d|e|f|x|xx)?|(rm|ss|tt|hw|cg|mm)(a|b|c|d|x|xx)?|(mediaeval|normal|type|mono|slanted|bold|italic|boldslanted|slantedbold|bolditalic|italicbold)|small(normal|bold|type|slanted|boldslanted|slantedbold|bolditalic|italicbold)?|sans(serif|bold)?|(small|big)(bodyfont)|(cap|capital|smallcaps|WORD))|\b(front|body|back)part\b|\bappendix\b|\b(each|first|last|odd|even)\b|\b(middle|fit|center|right|left|top|bottom)\b|(?&lt;=alternative=)\s*(a|b|c|d|e|f|g))\b(?!\s*=)|\b(lohi|hilo)\b|\b(on|off)\b</expression>
             </zone>
             
-            <zone name="context.keyword.other.table">
-                <expression>\|</expression>
-            </zone>
-            
             <zone name="context.keyword.other.misc">
-                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?!=\s*[\+\-#0-9\.\*\\])|(?&lt;=\w)\*(?=\\?\w)|(\\s!)?(spec:|name:|file:))\b</expression>
+                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?!=\s*[\+\-#0-9\.\*\\])|(\d+)\s*(\*)\s*(small|medium|big|hang)|(\\s!)?(spec:|name:|file:))\b</expression>
             </zone>
             
             <zone name="context.support.function.general.counting">

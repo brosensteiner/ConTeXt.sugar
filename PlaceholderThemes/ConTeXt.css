@@ -13,7 +13,6 @@
 }
 
 key-name,
-support-function,
 support,
 punctuation,
 keyword {
@@ -21,6 +20,7 @@ keyword {
 }
 
 balanced.bracket > keyword.other.misc,
+context.key-name + keyword.operator.key + balanced > keyword.other.misc,
 balanced > support.variable.define + keyword.other.tex,
 balanced keyword.unit.tex,
 support.function + context.keyword.other.tex,
@@ -136,17 +136,17 @@ structural.support.function + balanced.bracket > context.key-name, {
 	color: #15A8F9;
 }
 
-structural.container.document context.container.environment.table {
+context.structural.container.document container.environment.table {
 	background-color: rgba(160, 160, 160, 0.1);
 }
-structural.container.document context.container.environment.table support.function.table.cell {
+context.structural.container.document container.environment.table support.function.table.cell {
 	background-color: rgba(160, 160, 160, 0.7);
 }
-structural.container.document context.container.environment.table support.function.table.row {
+context.structural.container.document container.environment.table support.function.table.row {
 	background-color: rgba(100, 100, 100, 0.7);
 }
-structural.container.document context.container.environment.table > support.function.start.table + context.balanced.bracket > context.keyword.other.table {
-	color: #FF0000;
+context.structural.container.document container.environment.table > support.function.start.table + balanced.bracket > keyword.other.table {
+	color: #9b0808;
 }
 
 support.function.general.tex.ifelse,
@@ -160,7 +160,7 @@ level2 {
 	color: #F25B05;
 }
 level3 {
-	color: #F25B05;
+	color: hsl(21, 95%, 59%);
 }
 level4 {
 	color: #F29E05;
