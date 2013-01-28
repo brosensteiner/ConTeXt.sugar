@@ -32,7 +32,9 @@ context.support.function.general.counting + context.support.function.general + c
 context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
 context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
 context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
-context.support.function.general.kern + context.keyword.zone.unit > context.keyword.unit.tex {
+context.support.function.general.kern + context.keyword.zone.unit > context.keyword.unit.tex,
+context.keyword.spacecodes,
+context.keyword.wordboundary {
 	color: #800080;
 	font-weight: bold;
 }

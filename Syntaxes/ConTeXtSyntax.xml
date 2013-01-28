@@ -33,7 +33,7 @@
             <zone name="context.balanced.bracket">
                 <starts-with>
                 	<!--has to be this verbose, otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
-                    <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]|(?&lt;=\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure||\\startplacelocalnotes|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
+                    <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]|(?&lt;=\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general.tex"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -430,7 +430,25 @@
         </collection>
         
         <collection name="Define">
-                	
+            
+            <zone name="context.support.function.define">
+            	<starts-with>
+            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)([0-9])(\]))?\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])\s*(\[)</expression>
+            		<capture number="1" name="context.support.function.general.def"/>
+            		<capture number="2" name="context.open-bracket.level0"/>
+            		<capture number="3" name="context.support.variable.define"/>
+            		<capture number="4" name="context.close-bracket.level0"/>
+            		<capture number="5" name="context.support.function.defined"/>
+            		<capture number="6" name="context.open-bracket.level0"/>
+            	</starts-with>
+            	<ends-with>
+            		<expression>\]</expression>
+            		<capture number="0" name="context.close-bracket.level0"/>
+            	</ends-with>
+            	<subzones name="context.support.function.defined.subzone">
+            	    <include collection="Between_Brackets"/>
+            	</subzones>
+            </zone> 	
             <zone name="context.support.function.define">
 				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)([0-9])(\]))?\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
@@ -454,7 +472,7 @@
         
         <collection name="DefinedVariable">
             <zone name="context.support.variable.define">
-                <expression>\#{1,9}[1-9]</expression>
+                <expression>\#{1,9}[A-Za-z_@!?:1-9]+</expression>
             </zone>
         </collection>
         
@@ -694,6 +712,14 @@
         </collection>
         
         <collection name="Keywords">
+        
+        	<zone name="context.keyword.other.spacecodes">
+        	    <expression>\\\.|\\,|\\:|\\;</expression>
+        	</zone>
+        	
+        	<zone name="context.keyword.other.wordboundary">
+        	    <expression>\\\s|\\-|\|-\||~|\|&lt;\||\|&gt;\|</expression>
+        	</zone>
         
             <zone name="context.keyword.other.key-value">
                 <expression>\b((?&lt;=style=)\s*(\b(rm|ss|tt|hw|cg|mm)?(exlt|lt|sb|bk|exlti|li|sbi|bki|bf|sl|it|tf|bi|bs|sc)(a|b|c|d|e|f|x|xx)?|(rm|ss|tt|hw|cg|mm)(a|b|c|d|x|xx)?|(mediaeval|normal|type|mono|slanted|bold|italic|boldslanted|slantedbold|bolditalic|italicbold)|small(normal|bold|type|slanted|boldslanted|slantedbold|bolditalic|italicbold)?|sans(serif|bold)?|(small|big)(bodyfont)|(cap|capital|smallcaps|WORD))|\b(front|body|back)part\b|\bappendix\b|\b(each|first|last|odd|even)\b|\b(middle|fit|center|right|left|top|bottom)\b|(?&lt;=alternative=)\s*(a|b|c|d|e|f|g))\b(?!\s*=)|\b(lohi|hilo)\b|\b(on|off)\b</expression>

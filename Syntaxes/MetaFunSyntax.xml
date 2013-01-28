@@ -54,7 +54,7 @@
             <starts-with>
                 <expression>(\b(?:var|primary|secondary|tertary)?def\b)\s+([\w_\?!]+)\s*(@#)?</expression>
                 <capture number="1" name="storage.definition.metafun"/>
-                <capture number="2" name="keyword.operator.defined.context"/>
+                <capture number="2" name="keyword.command.function.name.metafun"/>
                 <capture number="3" name="entity.definition.special.metafun"/>
             </starts-with>
             <ends-with>
