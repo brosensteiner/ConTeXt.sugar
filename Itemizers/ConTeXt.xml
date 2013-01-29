@@ -13,33 +13,33 @@
 		
 	</recipe>
 	
-	
-	<recipe name="structural.sections">
-	
-		<class>ESXMLItem</class>
-		<selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + context.delimiter.balanced.bracket.level0 + context.delimiter.balanced.brace.level0:capture(name)</selector>
-		
-	</recipe>
-	
 	<recipe name="structural.sections">
 	
 		<class>ESXMLItem</class>
 		<selector>context.support.function.structural.document.start.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
 		
 	</recipe>
+
+<!--floats-->
+	<recipe name="container.control.if">
+		<class>ESXMLItem</class>
+		<selector>context.support.function.structural.float:capture(name)</selector>
+	</recipe>
 	
-	
+		
+<!--sections-->	
 	<recipe name="container.startsections">
 		
 		<class>ESXMLItem</class>
-		<start-selector>context.structural.document.support.function.start.section:capture(itemizer-firstused) + balanced.bracket:capture(name)</start-selector>
+		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
 		<end-selector>context.structural.document.support.function.stop.section</end-selector>
 		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
 		
 	</recipe>
-	 
+	
+<!--rest of environments-->		 
 	<recipe name="container.environment">
 	
 		<class>ESXMLItem</class>
@@ -51,44 +51,8 @@
 		</subrecipes>
 	
 	</recipe>
-	
-	
-	<recipe name="container.float.figure">
-	
-		<class>ESXMLItem</class>
-		<start-selector>structural.float.figure:capture(name)</start-selector>
-		<end-selector>structural.float.figure + bracket.level0 + bracket.level0 + brace.level0 + brace.level0</end-selector>
-		<subrecipes>	
-			<include-root-recipes />
-		</subrecipes>
-	
-	</recipe>
-	
-	
-	<recipe name="container.table">
-	
-		<class>ESXMLItem</class>
-		<start-selector>language-root.context > support.function.general.starttable.begin:capture(name)</start-selector>
-		<end-selector>language-root.context > support.function.general.starttable.end</end-selector>
-		<subrecipes>	
-			<include-root-recipes />
-		</subrecipes>
-	
-	</recipe>
-	
-	
-	<recipe name="container.combination">
-	
-		<class>ESXMLItem</class>
-		<start-selector>language-root.context > support.function.combination.begin:capture(name)</start-selector>
-		<end-selector>language-root.context > support.function.combination.end</end-selector>
-		<subrecipes>	
-			<include-root-recipes />
-		</subrecipes>
-	
-	</recipe>
-	
-	
+
+
 	<recipe name="container.startstop">
 	
 		<class>ESXMLItem</class>
@@ -101,13 +65,19 @@
 	</recipe>
 	
 	
+<!--control block-->
+	<recipe name="container.control.if">
+		<class>ESJSControlBlockItem</class>
+		<selector>context.keyword.control.if:capture(name)</selector>
+	</recipe>
+	
 <!--comment-->
 	<recipe name="context.comment">
 		<class>ESCommentItem</class>
 		<selector>comment</selector>
 	</recipe>
 	
-	
+<!--define/def...-->	
 	<recipe name="container.support.function.define">
 	
 		<selector>context.support.function.define > support.function.name:capture(name)</selector>

@@ -32,18 +32,18 @@
         <collection name="BalancedBrackets">
             <zone name="context.balanced.bracket">
                 <starts-with>
-                	<!--has to be this verbose, otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
-                    <expression>(\\[A-Za-z@!?:]*[A-Za-z@!?:]|(?&lt;=\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
+                	<!--has to be this verbose (commands with "place" and "start" will be used in the inspector tree), otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
+                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_]|(?&lt;=\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general"/>
-                    <capture number="2" name="context.open-bracket.level0"/>
-                    <capture number="3" name="context.open-bracket.level0"/>
-                    <capture number="4" name="context.open-bracket.level0"/>
+                    <capture number="2" name="context.openbracket.level0"/>
+                    <capture number="3" name="context.openbracket.level0"/>
+                    <capture number="4" name="context.openbracket.level0"/>
                 </starts-with>
                 <ends-with>
                     <expression>\]</expression>
-                    <capture number="0" name="context.close-bracket.level0"/>
+                    <capture number="0" name="context.closebracket.level0"/>
                 </ends-with>
-                <subzones>
+                <subzones name="context.between.brackets">
                 	<!--for ConTeXt tables:-->
                 	<zone name="context.keyword.other.table">
                 	    <expression>\|</expression>
@@ -72,8 +72,11 @@
         </collection>
         
         <collection name="If_Else">
+        	<zone name="context.keyword.control.if">
+        	    <expression>\\if[A-Za-z@!?:_]*</expression>
+        	</zone>
             <zone name="context.keyword.control">
-                <expression>\\if[A-Za-z@!?:]*|\\fi\b|\\else\b|\\or\b</expression>
+                <expression>\\fi\b|\\else\b|\\or\b</expression>
             </zone>
         </collection>
                 
@@ -97,7 +100,7 @@
                     <expression>\)</expression>
                     <capture number="0" name="context.closeparenthesis.level0"/>
                 </ends-with>
-                <subzones name="context.between.parenthesis">
+                <subzones name="context.between.parentheses">
 					<include collection="BalancedParenthesis_array"/>
                     <include collection="Between_Braces"/>
                 </subzones>
@@ -105,84 +108,84 @@
         </collection>        
         
         <collection name="BalancedBraces_array">
-            <zone name="context.delimiter.balanced.brace.level1">
+            <zone name="context.delimiter.balanced.brace-level1">
                 <starts-with>
                     <expression>\{</expression>
-                    <capture number="0" name="openbrace.level1"/>
+                    <capture number="0" name="context.openbrace.level1"/>
                 </starts-with>
                 <ends-with>
                     <expression>\}</expression>
-                    <capture number="0" name="closebrace.level1"/>
+                    <capture number="0" name="context.closebrace.level1"/>
                 </ends-with>
                 <subzones>
-                    <zone name="context.delimiter.balanced.brace.level2">
+                    <zone name="context.delimiter.balanced.brace-level2">
                         <starts-with>
                             <expression>\{</expression>
-                            <capture number="0" name="openbrace.level2"/>
+                            <capture number="0" name="context.openbrace.level2"/>
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="closebrace.level2"/>
+                            <capture number="0" name="context.closebrace.level2"/>
                         </ends-with>
                         <subzones>
-                            <zone name="context.delimiter.balanced.brace.level3">
+                            <zone name="context.delimiter.balanced.brace-level3">
                                 <starts-with>
                                     <expression>\{</expression>
-                                    <capture number="0" name="openbrace.level3"/>
+                                    <capture number="0" name="context.openbrace.level3"/>
                                 </starts-with>
                                 <ends-with>
                                     <expression>\}</expression>
-                                    <capture number="0" name="closebrace.level3"/>
+                                    <capture number="0" name="context.closebrace.level3"/>
                                 </ends-with>
                                 <subzones>
-                                    <zone name="context.delimiter.balanced.brace.level4">
+                                    <zone name="context.delimiter.balanced.brace-level4">
                                         <starts-with>
                                             <expression>\{</expression>
-                                            <capture number="0" name="openbrace.level4"/>
+                                            <capture number="0" name="context.openbrace.level4"/>
                                         </starts-with>
                                         <ends-with>
                                             <expression>\}</expression>
-                                            <capture number="0" name="closebrace.level4"/>
+                                            <capture number="0" name="context.closebrace.level4"/>
                                         </ends-with>
                                         <subzones>
-                                            <zone name="context.delimiter.balanced.brace.level5">
+                                            <zone name="context.delimiter.balanced.brace-level5">
                                                 <starts-with>
                                                     <expression>\{</expression>
-                                                    <capture number="0" name="openbrace.level5"/>
+                                                    <capture number="0" name="context.openbrace.level5"/>
                                                 </starts-with>
                                                 <ends-with>
                                                     <expression>\}</expression>
-                                                    <capture number="0" name="closebrace.level5"/>
+                                                    <capture number="0" name="context.closebrace.level5"/>
                                                 </ends-with>
                                                 <subzones>
-                                                    <zone name="context.delimiter.balanced.brace.level6">
+                                                    <zone name="context.delimiter.balanced.brace-level6">
                                                         <starts-with>
                                                             <expression>\{</expression>
-                                                            <capture number="0" name="openbrace.level6"/>
+                                                            <capture number="0" name="context.openbrace.level6"/>
                                                         </starts-with>
                                                         <ends-with>
                                                             <expression>\}</expression>
-                                                            <capture number="0" name="closebrace.level6"/>
+                                                            <capture number="0" name="context.closebrace.level6"/>
                                                         </ends-with>
                                                         <subzones>
-                                                            <zone name="context.delimiter.balanced.brace.level7">
+                                                            <zone name="context.delimiter.balanced.brace-level7">
                                                                 <starts-with>
                                                                     <expression>\{</expression>
-                                                                    <capture number="0" name="openbrace.level7"/>
+                                                                    <capture number="0" name="context.openbrace.level7"/>
                                                                 </starts-with>
                                                                 <ends-with>
                                                                     <expression>\}</expression>
-                                                                    <capture number="0" name="closebrace.level7"/>
+                                                                    <capture number="0" name="context.closebrace.level7"/>
                                                                 </ends-with>
                                                                 <subzones>
-                                                                    <zone name="context.delimiter.balanced.brace.level8">
+                                                                    <zone name="context.delimiter.balanced.brace-level8">
                                                                         <starts-with>
                                                                             <expression>\{</expression>
-                                                                            <capture number="0" name="openbrace.level8"/>
+                                                                            <capture number="0" name="context.openbrace.level8"/>
                                                                         </starts-with>
                                                                         <ends-with>
                                                                             <expression>\}</expression>
-                                                                            <capture number="0" name="closebrace	.level8"/>
+                                                                            <capture number="0" name="context.closebrace.level8"/>
                                                                         </ends-with>
                                                                         <subzones>
                                                                             <include collection="Between_Braces"/>
@@ -212,86 +215,86 @@
         </collection>
                 
         <collection name="BalancedParenthesis_array">
-               <zone name="context.delimiter.balanced.parenthesis.level1">
+               <zone name="context.delimiter.balanced.parenthesis-level1">
                    <starts-with>
                        <expression>\(</expression>
-                       <capture number="0" name="context.closeparenthesis.level1"/>
+                       <capture number="0" name="context.openparenthesis.level1"/>
                    </starts-with>
                    <ends-with>
                        <expression>\)</expression>
                        <capture number="0" name="context.closeparenthesis.level1"/>
                    </ends-with>
-                   <subzones name="context.between.parenthesis">
-                       <zone name="context.delimiter.balanced.parenthesis.level2">
+                   <subzones name="context.between.parentheses">
+                       <zone name="context.delimiter.balanced.parenthesis-level2">
                            <starts-with>
                                <expression>\(</expression>
-                               <capture number="0" name="context.closeparenthesis.level2"/>
+                               <capture number="0" name="context.openparenthesis.level2"/>
                            </starts-with>
                            <ends-with>
                                <expression>\)</expression>
                                <capture number="0" name="context.closeparenthesis.level2"/>
                            </ends-with>
-                           <subzones name="context.between.parenthesis">
-                               <zone name="context.delimiter.balanced.parenthesis.level3">
+                           <subzones name="context.between.parentheses">
+                               <zone name="context.delimiter.balanced.parenthesis-level3">
                                    <starts-with>
                                        <expression>\(</expression>
-                                       <capture number="0" name="context.closeparenthesis.level3"/>
+                                       <capture number="0" name="context.openparenthesis.level3"/>
                                    </starts-with>
                                    <ends-with>
                                        <expression>\)</expression>
                                        <capture number="0" name="context.closeparenthesis.level3"/>
                                    </ends-with>
-                                   <subzones name="context.between.parenthesis">
-                                       <zone name="context.delimiter.balanced.parenthesis.level4">
+                                   <subzones name="context.between.parentheses">
+                                       <zone name="context.delimiter.balanced.parenthesis-level4">
                                            <starts-with>
                                                <expression>\(</expression>
-                                               <capture number="0" name="context.closeparenthesis.level4"/>
+                                               <capture number="0" name="context.openparenthesis.level4"/>
                                            </starts-with>
                                            <ends-with>
                                                <expression>\)</expression>
                                                <capture number="0" name="context.closeparenthesis.level4"/>
                                            </ends-with>
-                                           <subzones name="context.between.parenthesis">
-                                               <zone name="context.delimiter.balanced.parenthesis.level5">
+                                           <subzones name="context.between.parentheses">
+                                               <zone name="context.delimiter.balanced.parenthesis-level5">
                                                    <starts-with>
                                                        <expression>\(</expression>
-                                                       <capture number="0" name="context.closeparenthesis.level5"/>
+                                                       <capture number="0" name="context.openparenthesis.level5"/>
                                                    </starts-with>
                                                    <ends-with>
                                                        <expression>\)</expression>
                                                        <capture number="0" name="context.closeparenthesis.level5"/>
                                                    </ends-with>
-                                                   <subzones name="context.between.parenthesis">
-                                                       <zone name="context.delimiter.balanced.parenthesis.level6">
+                                                   <subzones name="context.between.parentheses">
+                                                       <zone name="context.delimiter.balanced.parenthesis-level6">
                                                            <starts-with>
                                                                <expression>\(</expression>
-                                                               <capture number="0" name="context.closeparenthesis.level6"/>
+                                                               <capture number="0" name="context.openparenthesis.level6"/>
                                                            </starts-with>
                                                            <ends-with>
                                                                <expression>\)</expression>
                                                                <capture number="0" name="context.closeparenthesis.level6"/>
                                                            </ends-with>
-                                                           <subzones name="context.between.parenthesis">
-                                                               <zone name="context.delimiter.balanced.parenthesis.level7">
+                                                           <subzones name="context.between.parentheses">
+                                                               <zone name="context.delimiter.balanced.parenthesis-level7">
                                                                    <starts-with>
                                                                        <expression>\(</expression>
-                                                                       <capture number="0" name="context.closeparenthesis.level7"/>
+                                                                       <capture number="0" name="context.openparenthesis.level7"/>
                                                                    </starts-with>
                                                                    <ends-with>
                                                                        <expression>\)</expression>
                                                                        <capture number="0" name="context.closeparenthesis.level7"/>
                                                                    </ends-with>
-                                                                   <subzones name="context.between.parenthesis">
-                                                                       <zone name="context.delimiter.balanced.parenthesis.level8">
+                                                                   <subzones name="context.between.parentheses">
+                                                                       <zone name="context.delimiter.balanced.parenthesis-level8">
                                                                            <starts-with>
                                                                                <expression>\(</expression>
-                                                                               <capture number="0" name="context.closeparenthesis.level8"/>
+                                                                               <capture number="0" name="context.openparenthesis.level8"/>
                                                                            </starts-with>
                                                                            <ends-with>
                                                                                <expression>\)</expression>
                                                                                <capture number="0" name="context.closeparenthesis.level8"/>
                                                                            </ends-with>
-                                                                           <subzones name="context.between.parenthesis">
+                                                                           <subzones name="context.between.parentheses">
                                                                                <include collection="Between_Braces"/>
                                                                            </subzones>
                                                                        </zone>
@@ -394,13 +397,6 @@
             
         </collection>
         
-        <collection name="CompleteSupport">
-            <zone name="context.support.function.complete">
-                <expression>\\complete\w+|\\placelistof\w+</expression>
-                <capture number="0" name="structural.document"/>
-            </zone>
-        </collection>
-        
         <collection name="Escapecharacter">
             <zone name="context.literal.escape.character">
                 <expression>\\[^0-9a-zA-Z@?!\[\]\(\)]</expression>
@@ -433,39 +429,39 @@
             
             <zone name="context.support.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
-            		<capture number="2" name="context.open-bracket.level0"/>
+            		<capture number="2" name="context.openbracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
-            		<capture number="4" name="context.close-bracket.level0"/>
+            		<capture number="4" name="context.closebracket.level0"/>
             		<capture number="5" name="context.support.function.name"/>
             		<capture number="6" name="context.support.variable.define"/>
-            		<capture number="7" name="context.open-bracket.level0"/>
+            		<capture number="7" name="context.openbracket.level0"/>
             	</starts-with>
             	<ends-with>
             		<expression>\]</expression>
-            		<capture number="0" name="context.close-bracket.level0"/>
+            		<capture number="0" name="context.closebracket.level0"/>
             	</ends-with>
-            	<subzones name="context.support.function.name.subzone">
+            	<subzones name="context.support.function-name.subzone">
             	    <include collection="Between_Brackets"/>
             	</subzones>
             </zone> 	
             <zone name="context.support.function.define">
-				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])</expression>
+				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
-				<capture number="2" name="context.open-bracket.level0"/>
+				<capture number="2" name="context.openbracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
-				<capture number="4" name="context.close-bracket.level0"/>
+				<capture number="4" name="context.closebracket.level0"/>
 				<capture number="5" name="context.support.function.name"/>
             </zone>
             
             <zone name="context.support.function.new">
-                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\b\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])?</expression>
+                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\b\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])?</expression>
                 <capture number="1" name="context.support.function.name"/>
             </zone>
             
             <zone name="context.support.function.let">
-                <expression>\\(?:future)?let\b\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])?</expression>
+                <expression>\\(?:future)?let\b\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])?</expression>
                 <capture number="1" name="context.support.function.name"/>
             </zone>
             
@@ -480,7 +476,7 @@
         <collection name="Environments">
 
             <zone name="context.support.function.structural.float">
-                    <expression>\\place[0-9A-Za-z_@!?:]+</expression>
+                    <expression>\\(place|complete)[0-9A-Za-z_@!?:]+</expression>
             </zone>
             
             <!--table-->
@@ -550,11 +546,11 @@
                 <starts-with>
                     <expression>((?:\\(?:ctx|direct|late)lua|\\ctxsprint|(?:luaescapestring))|\\ctxcommand|\\usercode)\s*(\{)</expression>
                     <capture number="1" name="context.support.function.general.lua"/>
-                    <capture number="2" name="context.open-bracket.level0"/>
+                    <capture number="2" name="context.openbrace.level0"/>
                 </starts-with>
                 <ends-with>
                     <expression>\}</expression>
-                    <capture number="0" name="context.close-bracket.level0"/>
+                    <capture number="0" name="context.closebrace.level0"/>
                 </ends-with>
                 <subzones>
                 	<include collection="Default_Order_of_Zones"/>
@@ -589,7 +585,6 @@
                     <capture number="0" name="context.support.function.stop.text"/>
                 </ends-with>
                 <subzones>
-                    <include collection="CompleteSupport"/>
                     <include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>
@@ -705,7 +700,7 @@
         
         <collection name="GeneralTeX">
         	<zone name="context.support.function.general">
-        	    <expression>\\[A-Za-z@!?:]*[A-Za-z@!?:]</expression>
+        	    <expression>\\[A-Za-z@!?:_]*[A-Za-z@!?:_]</expression>
         	</zone>
         	<zone name="context.punctuation.separator.comma">
         	    <expression>,</expression>
@@ -721,13 +716,9 @@
         	<zone name="context.keyword.other.wordboundary">
         	    <expression>\\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
         	</zone>
-        
-            <zone name="context.keyword.other.key-value">
-                <expression>\b((?&lt;=style=)\s*(\b(rm|ss|tt|hw|cg|mm)?(exlt|lt|sb|bk|exlti|li|sbi|bki|bf|sl|it|tf|bi|bs|sc)(a|b|c|d|e|f|x|xx)?|(rm|ss|tt|hw|cg|mm)(a|b|c|d|x|xx)?|(mediaeval|normal|type|mono|slanted|bold|italic|boldslanted|slantedbold|bolditalic|italicbold)|small(normal|bold|type|slanted|boldslanted|slantedbold|bolditalic|italicbold)?|sans(serif|bold)?|(small|big)(bodyfont)|(cap|capital|smallcaps|WORD))|\b(front|body|back)part\b|\bappendix\b|\b(each|first|last|odd|even)\b|\b(middle|fit|center|right|left|top|bottom)\b|(?&lt;=alternative=)\s*(a|b|c|d|e|f|g))\b(?!\s*=)|\b(lohi|hilo)\b|\b(on|off)\b</expression>
-            </zone>
             
             <zone name="context.keyword.other.misc">
-                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?!=\s*[\+\-#0-9\.\*\\])|(\d+)\s*(\*)\s*(small|medium|big|hang|line|halfline|formula)|(\\s!)?(spec:|name:|file:))\b</expression>
+                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?=\s*[\+\-#0-9\.\*\\])|(\d+)\s*(\*)\s*(small|medium|big|hang|line|halfline|formula)|(\\s!)?(spec:|name:|file:))\b</expression>
             </zone>
             
             <zone name="context.support.function.general.counting">
@@ -747,7 +738,7 @@
 			</zone>
             
             <zone name="context.keyword-zone.to-spread-keyword">
-                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|(\\[A-Za-z@!?:]*[A-Za-z@!?:]))</expression>
+                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
                 <capture number="1" name="context.keyword.to-spread-keyword"/>
                 <capture number="2" name="context.numeric"/>
                 <capture number="3" name="context.keyword.number-separator"/>
@@ -758,7 +749,7 @@
             </zone>
             
             <zone name="context.keyword-zone.skip-keyword">
-                <expression>(\\\w*(?&lt;!un)(?:skip|size))\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|(\\[A-Za-z@!?:]*[A-Za-z@!?:]))</expression>
+                <expression>(\\\w*(?&lt;!un)(?:skip|size)\w*)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
                 <capture number="1" name="context.support.function.general"/>
                 <capture number="2" name="context.numeric"/>
                 <capture number="3" name="context.keyword.number-separator"/>

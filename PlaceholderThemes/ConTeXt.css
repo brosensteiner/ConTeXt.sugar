@@ -8,32 +8,6 @@
 	spell-check: disabled;
 }
 
-context.balanced.bracket > keyword.other.misc,
-context.balanced > support.variable.define + keyword.other,
-context.keyword-zone > keyword.other,
-context.support.function + keyword.other,
-context.keyword.spacecodes,
-context.keyword.wordboundary {
-	color: #d33682;
-	font-weight: bold;
-}
-
-context.keyword-zone + plus-minus-keyword,
-context.support.function.general.box + keyword-zone.to-spread-keyword > to-spread-keyword {
-	color: #9DD748;
-}
-
-context.support.function.general.counting + context.support.function.general + keyword-zone.by-keyword {
-	color: #9DD748;
-}
-
-context.support.function.general.rule + keyword-zone.depth-width-height-keyword,
-context.support.function.general.rule + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword,
-context.support.function.general.rule + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword
- {
-        color: #9DD748;
-}
-
 context.structural.container.document structural.document {
 	font-weight: bold;
 }
@@ -47,12 +21,13 @@ context.structural.container.document container.environment.table support.functi
 context.structural.container.document container.environment.table support.function.table.row {
 	background-color: rgba(100, 100, 100, 0.7);
 }
-context.structural.container.document container.environment.table > support.function.start.table + balanced.bracket > keyword.other.table {
+context.structural.container.document container.environment.table > support.function.start.table + balanced.bracket > between.brackets > keyword.other.table {
 	color: #9b0808;
 }
 
 context.level0 {
 	color: #e90000;
+	font-weight: bold;
 }
 context.level1 {
 	color: #BF2603;
@@ -77,10 +52,4 @@ context.level7 {
 }
 context.level8 {
 	color: #9491AA;
-}
-
-context.support.function.text {
-	color: #ffffff;
-	font-weight: bold;
-	background-color: hsl(204, 93%, 51%);
 }
