@@ -2,11 +2,11 @@
 
 <injections>
 	
-	<injection name="injection.LuaTeX.ConTeXt" selector="language-root.tex.context context.container.injection.source.Lua" action="insert-before-children">
+	<injection name="injection.LuaTeX.ConTeXt" selector="language-root.context context.container.injection.source.Lua" action="insert-before-children">
 		<include syntax="source.LuaTeX"/>
 	</injection>
 		
-    <injection name="injection.MetaFun-ConTeXt" selector="language-root.tex.context context.container.injection.source-MetaFun" action="insert-before-children">
+    <injection name="injection.MetaFun-ConTeXt" selector="language-root.context context.container.injection.source-MetaFun" action="insert-before-children">
     	<include syntax="source.MetaFun"/>
     </injection>
       

@@ -28,7 +28,7 @@ THE SOFTWARE.
 
     <language id="com.rosensteiner.ConTeXt">
  
-        <syntax-name>language-root.tex.context</syntax-name>
+        <syntax-name>language-root.context</syntax-name>
         
         <name>ConTeXt</name>
         

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<syntax name="language-root.tex.context">
+<syntax name="language-root.context">
 
     <zones>
         <include collection="Document"/>
@@ -33,8 +33,8 @@
             <zone name="context.balanced.bracket">
                 <starts-with>
                 	<!--has to be this verbose, otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
-                    <expression>(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]|(?&lt;=\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
-                    <capture number="1" name="context.support.function.general.tex"/>
+                    <expression>(\\[A-Za-z@!?:]*[A-Za-z@!?:]|(?&lt;=\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\])\s*(\[)</expression>
+                    <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
                     <capture number="4" name="context.open-bracket.level0"/>
@@ -72,8 +72,8 @@
         </collection>
         
         <collection name="If_Else">
-            <zone name="context.keyword.control.tex">
-                <expression>\\if[A-Za-z_@!?:]*|\\fi\b|\\else\b|\\or\b</expression>
+            <zone name="context.keyword.control">
+                <expression>\\if[A-Za-z@!?:]*|\\fi\b|\\else\b|\\or\b</expression>
             </zone>
         </collection>
                 
@@ -423,7 +423,7 @@
                     <expression>\\endcsname\b</expression>
                     <capture number="0" name="context.support.function.general.csname"/>
                 </ends-with>
-                <subzones name="context.support.function.defined.subzone">
+                <subzones name="context.support.function.name.subzone">
                     <include collection="DefinedVariable"/>
                 </subzones>
             </zone>
@@ -433,39 +433,40 @@
             
             <zone name="context.support.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)([0-9])(\]))?\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.open-bracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
             		<capture number="4" name="context.close-bracket.level0"/>
-            		<capture number="5" name="context.support.function.defined"/>
-            		<capture number="6" name="context.open-bracket.level0"/>
+            		<capture number="5" name="context.support.function.name"/>
+            		<capture number="6" name="context.support.variable.define"/>
+            		<capture number="7" name="context.open-bracket.level0"/>
             	</starts-with>
             	<ends-with>
             		<expression>\]</expression>
             		<capture number="0" name="context.close-bracket.level0"/>
             	</ends-with>
-            	<subzones name="context.support.function.defined.subzone">
+            	<subzones name="context.support.function.name.subzone">
             	    <include collection="Between_Brackets"/>
             	</subzones>
             </zone> 	
             <zone name="context.support.function.define">
-				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)([0-9])(\]))?\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])</expression>
+				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
 				<capture number="4" name="context.close-bracket.level0"/>
-				<capture number="5" name="context.support.function.defined"/>
+				<capture number="5" name="context.support.function.name"/>
             </zone>
             
             <zone name="context.support.function.new">
-                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\b\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])?</expression>
-                <capture number="1" name="context.support.function.defined"/>
+                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\b\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])?</expression>
+                <capture number="1" name="context.support.function.name"/>
             </zone>
             
             <zone name="context.support.function.let">
-                <expression>\\(?:future)?let\b\s*(\\[A-Za-z_@!?:]*[A-Za-z_@!?:])?</expression>
-                <capture number="1" name="context.support.function.defined"/>
+                <expression>\\(?:future)?let\b\s*(\\[A-Za-z@!?:]*[A-Za-z@!?:])?</expression>
+                <capture number="1" name="context.support.function.name"/>
             </zone>
             
         </collection>
@@ -595,14 +596,14 @@
         </collection>
         
         <collection name="Math">
-			<zone name="context.string.math.textstyle">
+			<zone name="context.math.textstyle">
 				<starts-with>
 					<expression>(\\(?:mathematics|inlinemath|math|inlinemathematics))\s*(\{)</expression>
-					<capture number="0" name="context.string.begin.math"/>
+					<capture number="0" name="context.begin.math"/>
 				</starts-with>
 			<ends-with>
 				<expression>\}</expression>
-				<capture number="0" name="context.string.end.math"/>
+				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
 					<include syntax="EscapecharacterDollar"/>
@@ -610,14 +611,14 @@
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
-			<zone name="context.string.math.displaystyle">
+			<zone name="context.math.displaystyle">
 				<starts-with>
 					<expression>(\\(?:displaymath|displaymathematics|automathematics))\s*(\{)</expression>
-					<capture number="0" name="context.string.begin.math"/>
+					<capture number="0" name="context.begin.math"/>
 				</starts-with>
 			<ends-with>
 				<expression>\}</expression>
-				<capture number="0" name="context.string.end.math"/>
+				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
 					<include syntax="EscapecharacterDollar"/>
@@ -625,14 +626,14 @@
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
-			<zone name="context.string.math.displaystyle">
+			<zone name="context.math.displaystyle">
 				<starts-with>
 					<expression>\\startformula</expression>
-					<capture number="0" name="context.string.begin.math"/>
+					<capture number="0" name="context.begin.math"/>
 				</starts-with>
 			<ends-with>
 				<expression>\\stopformula</expression>
-				<capture number="0" name="context.string.end.math"/>
+				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
 					<include syntax="EscapecharacterDollar"/>
@@ -640,14 +641,14 @@
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
-        	<zone name="context.string.math.textstyle">
+        	<zone name="context.math.textstyle">
         	    <starts-with>
         	        <expression>\$(?!\$)</expression>
-        	        <capture number="0" name="context.string.begin.math"/>
+        	        <capture number="0" name="context.begin.math"/>
         	    </starts-with>
         	    <ends-with>
         	        <expression>\$(?!\$)</expression>
-        	        <capture number="0" name="context.string.end.math"/>
+        	        <capture number="0" name="context.end.math"/>
         	    </ends-with>
         	    <subzones>
         	        <include syntax="EscapecharacterDollar"/>
@@ -658,11 +659,11 @@
             <zone name="context.literal.string.math.displaystyle">
                 <starts-with>
                     <expression>\$\$</expression>
-                    <capture number="0" name="context.string.begin.math"/>
+                    <capture number="0" name="context.begin.math"/>
                 </starts-with>
                 <ends-with>
                     <expression>\$\$</expression>
-                    <capture number="0" name="context.string.end.math"/>
+                    <capture number="0" name="context.end.math"/>
                 </ends-with>
                 <subzones>
                     <include syntax="EscapecharacterDollar"/>
@@ -704,7 +705,7 @@
         
         <collection name="GeneralTeX">
         	<zone name="context.support.function.general">
-        	    <expression>\\[A-Za-z_@!?:]*[A-Za-z_@!?:]</expression>
+        	    <expression>\\[A-Za-z@!?:]*[A-Za-z@!?:]</expression>
         	</zone>
         	<zone name="context.punctuation.separator.comma">
         	    <expression>,</expression>
@@ -714,11 +715,11 @@
         <collection name="Keywords">
         
         	<zone name="context.keyword.other.spacecodes">
-        	    <expression>\\!|\\,|\\:|\\;</expression>
+        	    <expression>\\\.|\\!|\\,|\\:|\\;</expression>
         	</zone>
         	
         	<zone name="context.keyword.other.wordboundary">
-        	    <expression>\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
+        	    <expression>\\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
         	</zone>
         
             <zone name="context.keyword.other.key-value">
@@ -745,44 +746,46 @@
 				<expression>\\\w*kern(?![a-zA-Z])</expression>
 			</zone>
             
-            <zone name="context.keyword.zone.to-spread-keyword">
-                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd))|(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]))</expression>
-                <capture number="1" name="context.keyword.to-spread-keyword.tex"/>
-                <capture number="2" name="context.numeric.tex"/>
-                <capture number="3" name="context.keyword.number-separator.tex"/>
-                <capture number="4" name="context.keyword.fillls.tex"/>
-                <capture number="5" name="context.keyword.unit.tex"/>
-                <capture number="6" name="context.support.function.general.tex"/>
+            <zone name="context.keyword-zone.to-spread-keyword">
+                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|(\\[A-Za-z@!?:]*[A-Za-z@!?:]))</expression>
+                <capture number="1" name="context.keyword.to-spread-keyword"/>
+                <capture number="2" name="context.numeric"/>
+                <capture number="3" name="context.keyword.number-separator"/>
+                <capture number="4" name="context.keyword.other.fillls"/>
+                <capture number="5" name="context.keyword.other.true"/>
+                <capture number="6" name="context.keyword.unit"/>
+                <capture number="7" name="context.support.function.general"/>
             </zone>
             
-            <zone name="context.keyword.zone.skip-keyword">
-                <expression>(\\\w*(?&lt;!un)(?:skip|size))\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd))|(\\[A-Za-z_@!?:]*[A-Za-z_@!?:]))</expression>
+            <zone name="context.keyword-zone.skip-keyword">
+                <expression>(\\\w*(?&lt;!un)(?:skip|size))\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|(\\[A-Za-z@!?:]*[A-Za-z@!?:]))</expression>
                 <capture number="1" name="context.support.function.general"/>
-                <capture number="2" name="context.numeric.tex"/>
-                <capture number="3" name="context.keyword.number-separator.tex"/>
-                <capture number="4" name="context.keyword.fillls.tex"/>
-                <capture number="5" name="context.keyword.unit.tex"/>
-                <capture number="6" name="context.support.function.general.tex"/>
+                <capture number="2" name="context.numeric"/>
+                <capture number="3" name="context.keyword.number-separator"/>
+                <capture number="4" name="context.keyword.other.fillls"/>
+                <capture number="5" name="context.keyword.other.true"/>
+                <capture number="6" name="context.keyword.unit"/>
+                <capture number="7" name="context.support.function.general"/>
             </zone>
             
-            <zone name="context.keyword.zone.plus-minus-keyword">
+            <zone name="context.keyword-zone.plus-minus-keyword">
                 <expression>(minus|plus)</expression>
             </zone>
             
-			<zone name="context.keyword.zone.depth-width-height-keyword">
+			<zone name="context.keyword-zone.depth-width-height-keyword">
 				<expression>(depth|width|height)</expression>
 			</zone>
             
-            <zone name="context.keyword.zone.by-keyword">
+            <zone name="context.keyword-zone.by-keyword">
                 <expression>by</expression>
             </zone>
             
-            <zone name="context.keyword.zone.unit">
+            <zone name="context.keyword-zone.unit">
                 <expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)</expression>
-                <capture number="1" name="context.numeric.tex"/>
-                <capture number="2" name="context.keyword.number-separator.tex"/>
-                <capture number="3" name="context.keyword.true.tex"/>
-                <capture number="4" name="context.keyword.unit.tex"/>
+                <capture number="1" name="context.numeric"/>
+                <capture number="2" name="context.keyword.number-separator"/>
+                <capture number="3" name="context.keyword.other.true"/>
+                <capture number="4" name="context.keyword.unit"/>
             </zone>
             
         </collection>

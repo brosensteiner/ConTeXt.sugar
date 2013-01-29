@@ -68,8 +68,8 @@
 	<recipe name="container.table">
 	
 		<class>ESXMLItem</class>
-		<start-selector>language-root.tex.context > support.function.general.starttable.begin:capture(name)</start-selector>
-		<end-selector>language-root.tex.context > support.function.general.starttable.end</end-selector>
+		<start-selector>language-root.context > support.function.general.starttable.begin:capture(name)</start-selector>
+		<end-selector>language-root.context > support.function.general.starttable.end</end-selector>
 		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
@@ -80,8 +80,8 @@
 	<recipe name="container.combination">
 	
 		<class>ESXMLItem</class>
-		<start-selector>language-root.tex.context > support.function.combination.begin:capture(name)</start-selector>
-		<end-selector>language-root.tex.context > support.function.combination.end</end-selector>
+		<start-selector>language-root.context > support.function.combination.begin:capture(name)</start-selector>
+		<end-selector>language-root.context > support.function.combination.end</end-selector>
 		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
@@ -92,8 +92,8 @@
 	<recipe name="container.startstop">
 	
 		<class>ESXMLItem</class>
-		<start-selector>language-root.tex.context > support.function.start.environment:capture(name)</start-selector>
-		<end-selector>language-root.tex.context > support.function.stop.environment</end-selector>
+		<start-selector>language-root.context > support.function.start.environment:capture(name)</start-selector>
+		<end-selector>language-root.context > support.function.stop.environment</end-selector>
 		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
@@ -110,7 +110,7 @@
 	
 	<recipe name="container.support.function.define">
 	
-		<selector>context.support.function.define > support.function.defined:capture(name)</selector>
+		<selector>context.support.function.define > support.function.name:capture(name)</selector>
 				
 	</recipe>
 	

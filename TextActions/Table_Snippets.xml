@@ -6,7 +6,7 @@
             <title>add new row</title>
             <text>
 ${EDITOR_SELECTION_LINE/(?&lt;=\\bTH)(.*?)(?=\\eTH)|(?&lt;=\\bTC)(.*?)(?=\\eTC)|(?&lt;=\\bTD)(.*?)(?=\\eTD)|(?&lt;=\\NC)(.*?)(?=\\NC)|(?&lt;=\\NC)(.*?)(?=\\VL)|(?&lt;=\\VL)(.*?)(?=\\VL)|(?&lt;=\\VL)(.*?)(?=\\AR)|(?&lt;=\\VL)(.*?)(?=\\SR)|(?&lt;=\\VL)(.*?)(?=\\FR)|(?&lt;=\\VL)(.*?)(?=\\MR)|(?&lt;=\\VL)(.*?)(?=\\LR)|(?&lt;=\\VL)(.*?)(?=\\NR)|(?&lt;=\\NC)(.*?)(?=\\AR)|(?&lt;=\\NC)(.*?)(?=\\SR)|(?&lt;=\\NC)(.*?)(?=\\FR)|(?&lt;=\\NC)(.*?)(?=\\MR)|(?&lt;=\\NC)(.*?)(?=\\LR)|(?&lt;=\\NC)(.*?)(?=\\NR)/  /g}</text>
-            <syntax-context>language-root.tex.context structural.container.table,language-root.tex.context structural.container.table *</syntax-context>
+            <syntax-context>language-root.context structural.container.table,language-root.context structural.container.table *</syntax-context>
             <key-equivalent>cmd shift r</key-equivalent>
         </snippet>
 

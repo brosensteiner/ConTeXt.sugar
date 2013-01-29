@@ -5,49 +5,49 @@
     <snippet id="actions.snippets.context.emphasize.italic" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>italic</title>
         <text>\{\\it ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option i</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.em" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>emphasize</title>
         <text>\{\\em ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option e</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.bold" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>bold</title>
         <text>\{\\bf ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option b</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.bolditalic" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>bold italic</title>
         <text>\{\\bi ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option shift b</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.smallcaps" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>smallcaps</title>
         <text>\{\\sc ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option k</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.oldstyle" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>oldstyle</title>
         <text>\{\\os ${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option o</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.quotation" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>quote</title>
         <text>\\quotation\{${EDITOR_SELECTION:you have to select text first!}\}</text>
-        <syntax-context>language-root.tex.context *</syntax-context>
+        <syntax-context>language-root.context *</syntax-context>
         <key-equivalent>cmd option Q</key-equivalent>
     </snippet>
     

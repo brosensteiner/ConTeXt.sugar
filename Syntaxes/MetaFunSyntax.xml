@@ -25,14 +25,14 @@
                         <capture number="1" name="string.quoted.double.metafun"/>
                     </ends-with>
                     <subzones>
-                        <include syntax="language-root.tex.context"/>
+                        <include syntax="language-root.context"/>
                     </subzones>
                 </zone>
                 <zone name="constant.character.comma.metafun">
                     <expression>,</expression>
                 </zone>
                 <include collection="Units"/>
-                <include syntax="language-root.tex.context"/>
+                <include syntax="language-root.context"/>
                 <include syntax="source.MetaFun"/>
             </subzones>
         </zone>
@@ -82,7 +82,7 @@
                 </zone>
                 <include collection="Units"/>
                 <include syntax="source.MetaFun"/>
-                <include syntax="language-root.tex.context"/>
+                <include syntax="language-root.context"/>
             </subzones>
         </zone>
         
@@ -194,7 +194,7 @@
                 <capture number="1" name="support.function.tex.metafun"/>
             </ends-with>
             <subzones>
-                <include syntax="language-root.tex.context"/>
+                <include syntax="language-root.context"/>
             </subzones>
         </zone>
         

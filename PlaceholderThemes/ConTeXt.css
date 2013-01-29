@@ -1,6 +1,6 @@
 /*
     @theme ConTeXt Placeholder
-    @placeholder language-root.tex.context
+    @placeholder language-root.context
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
 */
 
@@ -8,123 +8,34 @@
 	spell-check: disabled;
 }
 
-balanced.bracket > keyword.other.misc,
-context.key-name + keyword.operator.assignment + balanced > keyword.other.misc,
-balanced > support.variable.define + keyword.other.tex,
-balanced keyword.unit.tex,
-support.function + context.keyword.other.tex,
-context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.unit.tex,
-context.keyword.zone.skip-keyword > keyword.unit.tex,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > keyword.unit.tex,
-context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.keyword.unit.tex,
-context.support.function.general.kern + context.keyword.zone.unit > context.keyword.unit.tex,
+context.balanced.bracket > keyword.other.misc,
+context.balanced > support.variable.define + keyword.other,
+context.keyword-zone > keyword.other,
+context.support.function + keyword.other,
 context.keyword.spacecodes,
 context.keyword.wordboundary {
-	color: #800080;
+	color: #d33682;
 	font-weight: bold;
 }
 
-context.support.function.general.box + keyword.zone.to-spread-keyword > context.keyword.to-spread-keyword.tex {
+context.keyword-zone + plus-minus-keyword,
+context.support.function.general.box + keyword-zone.to-spread-keyword > to-spread-keyword {
 	color: #9DD748;
 }
 
-context.support.function.general.box + keyword.zone.to-spread-keyword > context.constant-numeric.tex {
-	color: #7653c1;
-}
-
-
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword {
+context.support.function.general.counting + context.support.function.general + keyword-zone.by-keyword {
 	color: #9DD748;
 }
 
-source-MetaFun constant-numeric,
-context.keyword.zone.skip-keyword > constant-numeric,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric,
-context.keyword.zone.skip-keyword + keyword.zone.plus-minus-keyword + context.keyword.zone.unit + keyword.zone.plus-minus-keyword + context.keyword.zone.unit > constant-numeric {
-	color: #7653c1;
-}
-
-context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword {
-	color: #9DD748;
-}
-
-context.support.function.general.counting + context.support.function.general + context.keyword.zone.by-keyword + context.keyword.zone.unit > context.constant-numeric.tex {
-	color: #7653c1;
-}
-
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword
+context.support.function.general.rule + keyword-zone.depth-width-height-keyword,
+context.support.function.general.rule + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword,
+context.support.function.general.rule + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword + keyword-zone.unit + keyword-zone.depth-width-height-keyword
  {
         color: #9DD748;
 }
 
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
-context.support.function.general.rule + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit + context.keyword.zone.depth-width-height-keyword + context.keyword.zone.unit > context.constant-numeric.tex,
-context.support.function.general.kern + context.keyword.zone.unit > context.constant-numeric.tex
- {
-        color: #7653c1;
-}
-
-context.support.function.general + balanced.bracket context.constant-numeric.tex,
-context.support.function.general ~ balanced.bracket context.constant-numeric.tex {
-	color: #7653c1;
-}
-
-context.punctuation.com.begin {
-	color: #A1A1A1;
-}
-
-support.function {
-	color: #1867F6;
-}
-
-context.support.function.start,
- context.support.function.stop {
-	color: #9DD748;
+context.structural.container.document structural.document {
 	font-weight: bold;
-}
-
-structural.float {
-	background-color: #fefefe;
-}
-
-context.string.begin.math,
-context.string.end.math {
-	color: #800080;
-	font-weight: bold;
-}
-
-structural.container.document structural.document {
-	font-weight: bold;
-}
-
-support.function.defined {
-	color: #2BD500;
-	font-weight: bold;
-}
-
-context.structural.container.document > support.variable.define {
-	color: rgb(0, 0, 0);
-	font-weight: normal;
-}
-
-support.variable.define {
-	color: #B10004;
-	font-weight: bold;
-}
-
-balanced.bracket:has-child(support.function) > context.key-name,
-balanced.bracket:has-child(support.function) + balanced.bracket > context.key-name,
-balanced.bracket:has-child(support.function) + balanced.bracket + balanced.bracket > context.key-name,
-structural.support.function + balanced.bracket > context.key-name, {
-	color: #15A8F9;
 }
 
 context.structural.container.document container.environment.table {
@@ -140,35 +51,35 @@ context.structural.container.document container.environment.table > support.func
 	color: #9b0808;
 }
 
-level0 {
+context.level0 {
 	color: #e90000;
 }
-level1 {
+context.level1 {
 	color: #BF2603;
 }
-level2 {
+context.level2 {
 	color: #F25B05;
 }
-level3 {
+context.level3 {
 	color: hsl(21, 95%, 59%);
 }
-level4 {
+context.level4 {
 	color: #F29E05;
 }
-level5 {
+context.level5 {
 	color: #565766;
 }
-level6 {
+context.level6 {
 	color: #8058BD;
 }
-level7 {
+context.level7 {
 	color: #827EBC;
 }
-level8 {
+context.level8 {
 	color: #9491AA;
 }
 
-support.function.text {
+context.support.function.text {
 	color: #ffffff;
 	font-weight: bold;
 	background-color: hsl(204, 93%, 51%);

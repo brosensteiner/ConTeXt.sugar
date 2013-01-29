@@ -6,21 +6,21 @@
             <title>auto curly braces</title>
             <key-equivalent>shift {</key-equivalent>
 		<text>{${EDITOR_SELECTION:${1:happy ConTeXting!}}}$2</text>
-            <syntax-context>language-root.tex.context :not(literal.escape.character),language-root.tex.context</syntax-context>
+            <syntax-context>language-root.context :not(literal.escape.character),language-root.context</syntax-context>
         </snippet>
         
         <snippet id="actions.snippets.context.WrapBracket" category="actions.snippets.context/actions.snippets.context.autopairing">
             <title>auto square brackets</title>
 		<text>[${EDITOR_SELECTION:${1:happy ConTeXting!}}]$2</text>
 		<key-equivalent>shift [</key-equivalent>
-            <syntax-context>language-root.tex.context :not(literal.escape.character),language-root.tex.context</syntax-context>
+            <syntax-context>language-root.context :not(literal.escape.character),language-root.context</syntax-context>
         </snippet>
         
         <snippet id="actions.snippets.context.WrapParenthesis" category="actions.snippets.context/actions.snippets.context.autopairing">
             <title>auto parenthesis</title>
             <key-equivalent>cmd (</key-equivalent>
 		<text>\(${EDITOR_SELECTION:${1:happy ConTeXting!}}\)$2</text>
-            <syntax-context>language-root.tex.context :not(literal.escape.character),language-root.tex.context</syntax-context>
+            <syntax-context>language-root.context :not(literal.escape.character),language-root.context</syntax-context>
         </snippet>
         
 </action-recipes> 

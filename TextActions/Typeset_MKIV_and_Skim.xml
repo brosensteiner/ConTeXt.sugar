@@ -10,7 +10,7 @@
             <!--<output>text</output>-->
 
             <!--<undo_name>My Action</undo_name>-->
-            <syntax-context>language-root.tex.context,language-root.tex.context *</syntax-context>
+            <syntax-context>language-root.context,language-root.context *</syntax-context>
             <!--<selection-context>none</selection-context>-->
         </setup>
     </action>
@@ -25,7 +25,7 @@
                 <!--<output>text</output>-->
     
                 <!--<undo_name>My Action</undo_name>-->
-             <syntax-context>language-root.tex.context,language-root.tex.context *</syntax-context>
+             <syntax-context>language-root.context,language-root.context *</syntax-context>
               <!--<selection-context>none</selection-context>-->
           </setup>
       </action>
