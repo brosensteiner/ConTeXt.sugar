@@ -4,23 +4,12 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
 */
 
-@base {
-    color: #000000;
-    background-color: rgba(253, 255, 253, 0.94);
-    insertion-point-color: #000000;
-    selection-background-color: default;
-    current-line-background-color: #fff8dd;
-}
-
-key-name,
-support,
-punctuation,
-keyword {
+:not(context.comment, context.string) {
 	spell-check: disabled;
 }
 
 balanced.bracket > keyword.other.misc,
-context.key-name + keyword.operator.key + balanced > keyword.other.misc,
+context.key-name + keyword.operator.assignment + balanced > keyword.other.misc,
 balanced > support.variable.define + keyword.other.tex,
 balanced keyword.unit.tex,
 support.function + context.keyword.other.tex,
@@ -151,7 +140,6 @@ context.structural.container.document container.environment.table > support.func
 	color: #9b0808;
 }
 
-support.function.general.tex.ifelse,
 level0 {
 	color: #e90000;
 }
