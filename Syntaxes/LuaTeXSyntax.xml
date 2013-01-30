@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--special things which differentiate LuaTeX from Lua go here:-->
 
-<syntax name="source.LuaTeX">
+<syntax name="language-root.LuaTeX">
 
 	<zones>
 		
@@ -26,8 +26,8 @@
 		   	    </ends-with>
 		   	    <subzones name="lua.function-argument.format">
 		   	    	<include collection="Functionargument-format" />
-		   	    	<include syntax="source.LuaTeX"/>
-		   	    	<include syntax="source.Lua"/>
+		   	    	<include syntax="language-root.LuaTeX"/>
+		   	    	<include syntax="language-root.Lua"/>
 		   	    </subzones>
 		   	</zone>
 		</collection>
@@ -55,8 +55,8 @@
 			    	    <capture number="2" name="context.content_of_a_comment"/>     
 			    	</zone>
 			    	
-			    	<include syntax="source.LuaTeX" />
-			    	<include syntax="source.Lua" />
+			    	<include syntax="language-root.LuaTeX" />
+			    	<include syntax="language-root.Lua" />
 			    	
 			    </subzones>
 			</zone>
@@ -89,40 +89,40 @@
 		
 		<collection name="Additional"><!--some keywords which are only valid in designated functions, so they syntax highlighting will be made in Lua.css, and in stings: see string zones-->
 		        
-		        	<zone name="lua.keyword.additional.PEG">
-		        	    <expression>#|&amp;|!|/|&lt;-|->|=>|\{:[a-zA-Z0-9_]+:|\{(:|\~)?|(:|\~)?\}|\=[a-zA-Z0-9_]+</expression>
+			<zone name="lua.keyword.additional.PEG">
+				<expression>#|&amp;|!|/|&lt;-|->|=>|\{:[a-zA-Z0-9_]+:|\{(:|\~)?|(:|\~)?\}|\=[a-zA-Z0-9_]+</expression>
 		        	</zone> 
 		        	        
-		        	<zone name="lua.keyword.additional.io-read">
+			<zone name="lua.keyword.additional.io-read">
 		        		<expression>(?&lt;="|')(\*all|\*line|\*number|\*a|\*l|\*n)(?="|')</expression>
-		        	</zone>
-		        	<zone name="lua.keyword.additional.io-popen">
-		        		<expression>(?&lt;="|')(r|w)(?="|')</expression>
-		        	</zone>
+			</zone>
+			<zone name="lua.keyword.additional.io-popen">
+				<expression>(?&lt;="|')(r|w)(?="|')</expression>
+			</zone>
 		        	
-		        	<zone name="lua.keyword.additional.io-open">
-		        		<expression>(?&lt;="|')(r|w|a)(\+|b)?(?="|')</expression>
-		        	</zone>
-		        	<zone name="lua.keyword.additional.file-setbuf">
-		        		<expression>(?&lt;="|')(no|full|line)(?="|')</expression>
-		        	</zone>
-		        	<zone name="lua.keyword.additional.file-seek">
-		        		<expression>(?&lt;="|')(set|cur|end)(?="|')</expression>
-		        	</zone>
-		        	<zone name="lua.keyword.additional.collectgarbage">
-		        		<expression>(?&lt;="|')(stop|restart|collect|count|step|setpause|setstepmul)(?="|')</expression>
-		        	</zone>
-		        	<zone name="lua.keyword.additional.metamethod.mode">
-		        		<expression>(?&lt;="|')(k|v|kv|vk)(?="|')</expression>
-		        	</zone>
-					<zone name="lua.keyword.character-class">
-						<expression>%([acdlpsuwxzbACDLPSUWXZ]|nl)</expression>
-					</zone>                    		    
-					<zone name="lua.keyword.additional.magic-character">
-						<expression>\(|\)|\.|%|\+|-|\*|\?|\[|\]|\^|\$</expression>
-					</zone>
+			<zone name="lua.keyword.additional.io-open">
+				<expression>(?&lt;="|')(r|w|a)(\+|b)?(?="|')</expression>
+			</zone>
+			<zone name="lua.keyword.additional.file-setbuf">
+				<expression>(?&lt;="|')(no|full|line)(?="|')</expression>
+			</zone>
+			<zone name="lua.keyword.additional.file-seek">
+				<expression>(?&lt;="|')(set|cur|end)(?="|')</expression>
+			</zone>
+			<zone name="lua.keyword.additional.collectgarbage">
+				<expression>(?&lt;="|')(stop|restart|collect|count|step|setpause|setstepmul)(?="|')</expression>
+			</zone>
+			<zone name="lua.keyword.additional.metamethod.mode">
+				<expression>(?&lt;="|')(k|v|kv|vk)(?="|')</expression>
+			</zone>
+			<zone name="lua.keyword.character-class">
+				<expression>%([acdlpsuwxzbACDLPSUWXZ]|nl)</expression>
+			</zone>                    		    
+			<zone name="lua.keyword.additional.magic-character">
+				<expression>\(|\)|\.|%|\+|-|\*|\?|\[|\]|\^|\$</expression>
+			</zone>
 		
-		        </collection>
+		</collection>
 		
 	</library>
 	

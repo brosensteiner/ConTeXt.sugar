@@ -578,11 +578,11 @@
             <zone name="context.structural.container.document">
                 <starts-with>
                     <expression>\\start(text|component)\b</expression>
-                    <capture number="0" name="context.support.function.start.text"/>
+                    <capture number="0" name="context.support.function.structural.document.start.text"/>
                 </starts-with>
                 <ends-with>
                     <expression>\\stop\1\b</expression>
-                    <capture number="0" name="context.support.function.stop.text"/>
+                    <capture number="0" name="context.support.function.structural.document.stop.text"/>
                 </ends-with>
                 <subzones>
                     <include collection="Default_Order_of_Zones"/>
@@ -685,11 +685,11 @@
             <zone>
                 <starts-with>
                     <expression>\\start([0-9A-Za-z_@!?:]+)\b</expression>
-                    <capture number="0" name="context.structural.document.support.function.start.section"/>
+                    <capture number="0" name="context.support.function.structural.document.start.section"/>
                 </starts-with>
                 <ends-with>
                     <expression>\\stop\1\b</expression>
-                    <capture number="0" name="context.structural.document.support.function.stop.section"/>
+                    <capture number="0" name="context.support.function.structural.document.stop.section"/>
                 </ends-with>
                 <subzones>
                     <include collection="Default_Order_of_Zones"/>
@@ -738,7 +738,7 @@
 			</zone>
             
             <zone name="context.keyword-zone.to-spread-keyword">
-                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
+                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(fi(?:lll|ll|l)|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
                 <capture number="1" name="context.keyword.to-spread-keyword"/>
                 <capture number="2" name="context.numeric"/>
                 <capture number="3" name="context.keyword.number-separator"/>
@@ -749,7 +749,7 @@
             </zone>
             
             <zone name="context.keyword-zone.skip-keyword">
-                <expression>(\\\w*(?&lt;!un)(?:skip|size)\w*)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(?:(fi(?:lll|ll|l))|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
+                <expression>(\\[A-Za-z_@!?:]*(?&lt;!un)(?:skip|size)[A-Za-z_@!?:]*)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(fi(?:lll|ll|l)|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+))</expression>
                 <capture number="1" name="context.support.function.general"/>
                 <capture number="2" name="context.numeric"/>
                 <capture number="3" name="context.keyword.number-separator"/>

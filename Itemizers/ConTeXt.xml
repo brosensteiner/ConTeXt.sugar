@@ -2,7 +2,7 @@
 
 <itemizer>
 
-	<recipe name="container.document">
+	<recipe name="context.container.document">
 	
 		<start-selector>support.function.start.text:capture(name)</start-selector>
 		<end-selector>support.function.stop.text</end-selector>
@@ -13,7 +13,7 @@
 		
 	</recipe>
 	
-	<recipe name="structural.sections">
+	<recipe name="context.structural.sections">
 	
 		<class>ESXMLItem</class>
 		<selector>context.support.function.structural.document.start.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
@@ -21,14 +21,14 @@
 	</recipe>
 
 <!--floats-->
-	<recipe name="container.control.if">
+	<recipe name="context.container.control.float">
 		<class>ESXMLItem</class>
 		<selector>context.support.function.structural.float:capture(name)</selector>
 	</recipe>
 	
 		
 <!--sections-->	
-	<recipe name="container.startsections">
+	<recipe name="context.container.startsections">
 		
 		<class>ESXMLItem</class>
 		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
@@ -40,20 +40,20 @@
 	</recipe>
 	
 <!--rest of environments-->		 
-	<recipe name="container.environment">
+	<recipe name="context.container.environment">
 	
 		<class>ESXMLItem</class>
 		<start-selector>context.support.function.start.environment:capture(name)</start-selector>
 		<end-selector>context.support.function.stop.environment</end-selector>
 		<subrecipes>
-			<include recipe="container.environment"/>
+			<include recipe="context.container.environment"/>
 			<include-root-recipes />
 		</subrecipes>
 	
 	</recipe>
 
 
-	<recipe name="container.startstop">
+	<recipe name="context.container.startstop">
 	
 		<class>ESXMLItem</class>
 		<start-selector>language-root.context > support.function.start.environment:capture(name)</start-selector>
@@ -66,11 +66,28 @@
 	
 	
 <!--control block-->
-	<recipe name="container.control.if">
+	<recipe name="context.container.control.if">
 		<class>ESJSControlBlockItem</class>
 		<selector>context.keyword.control.if:capture(name)</selector>
 	</recipe>
 	
+<!--metapost control block-->	
+	<recipe name="metapost.container.control.for">
+		<class>ESJSControlBlockItem</class>
+		<start-selector>metafun.keyword.control[text='for']:capture(itemizer-firstused) + *:capture(open-parameters) ~ metafun.keyword.control[text=':']:capture(close-parameters)</start-selector>
+		<end-selector>metafun.keyword.control[text='endfor']</end-selector>
+		<subrecipes>
+			<include recipe="metapost.container.control.for"/>
+		</subrecipes>
+	</recipe>
+<!--metapost macro def-->
+	<recipe name="metapost.container.function">
+		<start-selector>metafun.storage.definition.begin:capture(itemizer-firstused) + *:capture(name)</start-selector>
+		<end-selector>metafun.storage.definition.end</end-selector>
+		<subrecipes>
+			<include recipe="metapost.container.control.for"/>
+		</subrecipes>
+	</recipe>
 <!--comment-->
 	<recipe name="context.comment">
 		<class>ESCommentItem</class>
@@ -78,10 +95,8 @@
 	</recipe>
 	
 <!--define/def...-->	
-	<recipe name="container.support.function.define">
-	
+	<recipe name="context.container.support.function">
 		<selector>context.support.function.define > support.function.name:capture(name)</selector>
-				
 	</recipe>
 	
 	

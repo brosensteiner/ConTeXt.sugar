@@ -3,22 +3,22 @@
 <settings>
         	
     	<setting name="comment-multiline-start">
-    		<language-context>tex.context</language-context>
+    		<language-context>context</language-context>
     		<no-value/>
     	</setting>
     		
     	<setting name="comment-multiline-end">
-    		<language-context>tex.context</language-context>
+    		<language-context>context</language-context>
     		<no-value/>
     	</setting>
     		
     	<setting name="comment-multiline-end-inert">
-    		<language-context>tex.context</language-context>
+    		<language-context>context</language-context>
     		<no-value/>
     	</setting>
     	
     	<setting name="comment-singleline-start">
-    		<language-context>tex.context</language-context>
+    		<language-context>context</language-context>
     		<value>%</value>
     	</setting>
 

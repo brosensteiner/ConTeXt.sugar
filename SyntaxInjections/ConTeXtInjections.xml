@@ -3,11 +3,11 @@
 <injections>
 	
 	<injection name="injection.LuaTeX.ConTeXt" selector="language-root.context context.container.injection.source.Lua" action="insert-before-children">
-		<include syntax="source.LuaTeX"/>
+		<include syntax="language-root.LuaTeX"/>
 	</injection>
 		
     <injection name="injection.MetaFun-ConTeXt" selector="language-root.context context.container.injection.source-MetaFun" action="insert-before-children">
-    	<include syntax="source.MetaFun"/>
+    	<include syntax="language-root.MetaFun"/>
     </injection>
       
 </injections>
