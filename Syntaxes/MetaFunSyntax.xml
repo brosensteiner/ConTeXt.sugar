@@ -72,7 +72,7 @@
                     <ends-with>
                         <expression>(\))?\s*(=)</expression>
                         <capture number="1" name="metafun.close-parenthesis"/>
-                        <capture number="2" name="metafun.keyword.binops"/>
+                        <capture number="2" name="metafun.keyword.operator.binops.def"/>
                     </ends-with>
                     <subzones>
                         <zone name="metafun.punctuation.separator.comma">

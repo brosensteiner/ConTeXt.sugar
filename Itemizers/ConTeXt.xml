@@ -16,7 +16,7 @@
 	<recipe name="context.structural.sections">
 	
 		<class>ESXMLItem</class>
-		<selector>context.support.function.structural.document.start.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
+		<selector>context.support.function.structural.document.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
 		
 	</recipe>
 
@@ -25,14 +25,24 @@
 		<class>ESXMLItem</class>
 		<selector>context.support.function.structural.float:capture(name)</selector>
 	</recipe>
-	
+
+<!--balanced brackets-->	
+	<recipe name="context.container.startsections">
+		
+		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
+		<end-selector>context.structural.document.support.function.stop.section</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+		
+	</recipe>
 		
 <!--sections-->	
 	<recipe name="context.container.startsections">
 		
 		<class>ESXMLItem</class>
-		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
-		<end-selector>context.structural.document.support.function.stop.section</end-selector>
+		<start-selector>context.openbracket.level0</start-selector>
+		<end-selector>context.closebracket.level0</end-selector>
 		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
