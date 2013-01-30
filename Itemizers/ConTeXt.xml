@@ -26,9 +26,9 @@
 		<selector>context.support.function.structural.float:capture(name)</selector>
 	</recipe>
 
-<!--balanced brackets-->	
+<!--sections-->	
 	<recipe name="context.container.startsections">
-		
+		<class>ESXMLItem</class>
 		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
 		<end-selector>context.structural.document.support.function.stop.section</end-selector>
 		<subrecipes>	
@@ -37,19 +37,45 @@
 		
 	</recipe>
 		
-<!--sections-->	
-	<recipe name="context.container.startsections">
-		
-		<class>ESXMLItem</class>
+<!-- [] -->	
+	<!--<recipe name="context.container.codeblock">
+
 		<start-selector>context.openbracket.level0</start-selector>
 		<end-selector>context.closebracket.level0</end-selector>
-		<subrecipes>	
+		
+	</recipe>-->
+
+<!--Metafun code block-->		 
+	<recipe name="context.container.metafun-code-block">
+	
+		<class>ESCodeClassItem</class>
+		<start-selector>context.support.function.start.metafun:capture(name)</start-selector>
+		<end-selector>context.support.function.stop.metafun</end-selector>
+		<subrecipes>
+			<include recipe="context.container.environment"/>
 			<include-root-recipes />
 		</subrecipes>
-		
+	
 	</recipe>
 	
-<!--rest of environments-->		 
+<!--Lua code block-->		 
+	<recipe name="context.container.lua-code-block">
+	
+		<class>ESCodeClassItem</class>
+		<start-selector>context.support.function.start.lua:capture(name)</start-selector>
+		<end-selector>context.support.function.stop.lua</end-selector>
+		<subrecipes>
+			<include recipe="context.container.environment"/>
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
+	
+	<recipe name="context.container.lua-code-block-single-liner">
+		<class>ESCodeClassItem</class>
+		<selector>context.support.function.general.lua:capture(name)</selector>
+	</recipe>
+<!--\start... \stop...-->		 
 	<recipe name="context.container.environment">
 	
 		<class>ESXMLItem</class>
@@ -101,7 +127,7 @@
 <!--comment-->
 	<recipe name="context.comment">
 		<class>ESCommentItem</class>
-		<selector>comment</selector>
+		<selector>comment.line</selector>
 	</recipe>
 	
 <!--define/def...-->	

@@ -389,7 +389,11 @@
         </collection>
         
         <collection name="Comment">
-                  
+            
+            <zone name="context.comment-line-empty">
+                <expression>(%)\s*$</expression>
+                <capture number="1" name="context.punctuation.comment.begin"/>   
+            </zone>    
             <zone name="context.comment.line">
                 <expression>(%)(?:\s*(.+)$\n?)|(%)(?:\s*$\n?)</expression>
                 <capture number="1" name="context.punctuation.comment.begin"/>   
@@ -529,6 +533,7 @@
         </collection>
                 
         <collection name="Lua">
+        
             <zone name="context.container.injection.source.Lua">
                 <starts-with>
                     <expression>(?:\\start((lua)(code|parameterset)|usercode))\b</expression>
@@ -542,6 +547,7 @@
                 	<include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>
+            
             <zone name="context.container.injection.source.Lua">
                 <starts-with>
                     <expression>((?:\\(?:ctx|direct|late)lua|\\ctxsprint|(?:luaescapestring))|\\ctxcommand|\\usercode)\s*(\{)</expression>
@@ -556,6 +562,7 @@
                 	<include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>
+            
         </collection>
         
         <collection name="Metafun">
