@@ -26,30 +26,29 @@ context.structural.container.document container.environment.table > support.func
 }
 
 context.level0 {
-	color: #e90000;
-	font-weight: bold;
+	color: hsl(10, 80%, 10%);
 }
 context.level1 {
-	color: #BF2603;
+	color: hsl(29, 80%, 10%);
 }
 context.level2 {
-	color: #F25B05;
+	color: hsl(21, 50%, 40%);
 }
 context.level3 {
-	color: hsl(21, 95%, 59%);
+	color: hsl(21, 40%, 70%);
 }
 context.level4 {
-	color: #F29E05;
+	color: hsl(263, 60%, 30%);
 }
 context.level5 {
-	color: #565766;
+	color: hsl(263, 30%, 40%);
 }
 context.level6 {
-	color: #8058BD;
+	color: hsl(263, 20%, 99%);
 }
 context.level7 {
-	color: #827EBC;
+	color: hsl(500, 80%, 60%);
 }
 context.level8 {
-	color: #9491AA;
+	color: hsl(500, 50%, 80%);
 }

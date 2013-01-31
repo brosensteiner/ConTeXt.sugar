@@ -28,7 +28,7 @@
                         <include syntax="language-root.context"/>
                     </subzones>
                 </zone>
-                <zone name="metafun.punctuation.separator.comma">
+                <zone name="metafun.punctuation.delimiter.comma">
                     <expression>,</expression>
                 </zone>
                 <include collection="Units"/>
@@ -72,10 +72,10 @@
                     <ends-with>
                         <expression>(\))?\s*(=)</expression>
                         <capture number="1" name="metafun.close-parenthesis"/>
-                        <capture number="2" name="metafun.keyword.operator.binops.def"/>
+                        <capture number="2" name="metafun.operator.binops.def"/>
                     </ends-with>
                     <subzones>
-                        <zone name="metafun.punctuation.separator.comma">
+                        <zone name="metafun.punctuation.delimiter.comma">
                             <expression>,</expression>
                         </zone>
                     </subzones>
@@ -117,7 +117,7 @@
         <zone name="metafun.support.function">
             <expression>\b(clip|interim|let|newinternal|pickup|randomseed|setbounds|shipout|special|mpxbreak|show(variable|token|dependencies)?)\b</expression>
         </zone>
-        <zone name="metafun.keyword.operator.binops">
+        <zone name="metafun.operator.binops">
             <expression>(\+|-|\*|/|\*\*|\+\+|\+-\+|&amp;|\&lt;(=)?|\>(=)?|=)|\b(and|dotprod|div|infont|mod|or|intersection(point|times)|cut(after|before|ends))\b</expression>
         </zone>
         
@@ -160,11 +160,11 @@
             <expression>\b:|((end)?for(suffixes)?|within|else(if)?|(exit)?if|fi|forever|upto|until|downto|step|(begin|end)group|save)\b</expression>
         </zone>
         
-        <zone name="metafun.keyword.operator.nullaryop">
+        <zone name="metafun.operator.nullaryop">
             <expression>\b(false|normaldeviate|nullpicture|nullpen|pencircle|true|whatever)\b</expression>
         </zone>
         
-        <zone name="metafun.keyword.operator.unaryop">
+        <zone name="metafun.operator.unaryop">
             <expression>\b(abs|acos|acosh|angle|arclength|ASCII|asin|asinh|atan|bbox|bluepart|bot|(left|right|top|bottom)boundary|bounded|boundingbox|ceiling|center|char|clipped|condition|cosd|cos|cosh|cot|cotd|cycle|dashpart|decimal|ddecimal|dddecimal|dir|exp|filled|floor|fontpart|fontsize|grayed|greenpart|hex|(inner|outer)boundingbox|inv|invcos|inverse|inverted|invsin|known|length|lft|llcorner|ln|log|lrcorner|makepath|makepen|mexp|mlog|not|oct|odd|pathpart|penpart|redpart|reverse|round|rt|simplified|sin|sind|sinh|sqr|sqrt|stroked|tan|tand|textpart|textual|top|ulcorner|uniformdeviate|unitvector|unknown|unspiked|urcorner|xpart|xxpart|xypart|ypart|yxpart|yypart)\b</expression>
         </zone>
         

@@ -51,8 +51,8 @@ THE SOFTWARE.
         	<description>ConTeXt a Macro Programming Language based on TeX by Pragma ADE</description>
         	<author>Bernhard Rosensteiner</author>
 			<identifier>context.luatex.metafun</identifier>
-			<version status="preview">0.2</version>
-			<download format="svn">http://bitbucket.org/bernhard/context.sugar</download>
+			<version status="preview">0.7</version>
+			<download format="svn">https://github.com/brosensteiner/ConTeXt.sugar</download>
                
         </meta>
         

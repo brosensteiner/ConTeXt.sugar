@@ -37,7 +37,8 @@
 		
 	</recipe>
 		
-<!-- [] -->	
+<!-- [] -->
+<!-- MacRabbit told me that it is currently not possible to have code folding and no entry in the Navigator - this here makes no sense in the Navigator (would fill it completely up): -->	
 	<!--<recipe name="context.container.codeblock">
 
 		<start-selector>context.openbracket.level0</start-selector>

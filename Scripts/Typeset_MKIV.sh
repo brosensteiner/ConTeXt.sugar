@@ -11,7 +11,14 @@ exec osascript <<EOF
 
 tell application "Terminal"
 activate
-do script "cd $E_DIRECTORY;context $path;/Applications/Skim.app/Contents/SharedSupport/displayline $E_LINENUMBER ${pdfer}" in window 1
+set index of window 1 to 1
+do script "cd $E_DIRECTORY;context $path" in window 1
+
+end tell
+
+tell application "Terminal"
+activate
+do script "/Applications/Skim.app/Contents/SharedSupport/displayline $E_LINENUMBER ${pdfer} ${path}" in window 1
 
 end tell
 
