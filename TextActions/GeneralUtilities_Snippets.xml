@@ -18,10 +18,19 @@ $0
         <!--  define -->
         <snippet id="actions.snippets.context.define" category="tools.Snippets">
             <title>new definition</title>
-            <text>\\def\\${1:newmacro}\{$2\}
-$3</text>
+            <text>\\define[${1:args}]\\${2:newmacro}\{$3\}
+$4</text>
             <syntax-context>language-root.context, language-root.context *</syntax-context>
             <text-trigger>def</text-trigger>
+        </snippet>
+        
+        <!--  define -->
+        <snippet id="actions.snippets.context.setup" category="tools.Snippets">
+            <title>new setup</title>
+            <text>\\setup$1[${2:first}][${3:second}]${4:[${5:third}]}
+$6</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set</text-trigger>
         </snippet>
 
 </action-recipes>

@@ -2,7 +2,7 @@
 
 <syntax name="language-root.MetaFun">
     <zones>
-    
+    	
         <zone name="metafun.delimiter.balanced.parentheses_and_braces">
             <starts-with>
                 <expression>(\()|(\[)</expression>
@@ -31,7 +31,6 @@
                 <zone name="metafun.punctuation.delimiter.comma">
                     <expression>,</expression>
                 </zone>
-                <include collection="Units"/>
                 <include syntax="language-root.context"/>
                 <include syntax="language-root.MetaFun"/>
             </subzones>
@@ -80,7 +79,6 @@
                         </zone>
                     </subzones>
                 </zone>
-                <include collection="Units"/>
                 <include syntax="language-root.MetaFun"/>
                 <include syntax="language-root.context"/>
             </subzones>
@@ -160,11 +158,11 @@
             <expression>\b:|((end)?for(suffixes)?|within|else(if)?|(exit)?if|fi|forever|upto|until|downto|step|(begin|end)group|save)\b</expression>
         </zone>
         
-        <zone name="metafun.operator.nullaryop">
+        <zone name="metafun.operator.nullary">
             <expression>\b(false|normaldeviate|nullpicture|nullpen|pencircle|true|whatever)\b</expression>
         </zone>
         
-        <zone name="metafun.operator.unaryop">
+        <zone name="metafun.operator.unary">
             <expression>\b(abs|acos|acosh|angle|arclength|ASCII|asin|asinh|atan|bbox|bluepart|bot|(left|right|top|bottom)boundary|bounded|boundingbox|ceiling|center|char|clipped|condition|cosd|cos|cosh|cot|cotd|cycle|dashpart|decimal|ddecimal|dddecimal|dir|exp|filled|floor|fontpart|fontsize|grayed|greenpart|hex|(inner|outer)boundingbox|inv|invcos|inverse|inverted|invsin|known|length|lft|llcorner|ln|log|lrcorner|makepath|makepen|mexp|mlog|not|oct|odd|pathpart|penpart|redpart|reverse|round|rt|simplified|sin|sind|sinh|sqr|sqrt|stroked|tan|tand|textpart|textual|top|ulcorner|uniformdeviate|unitvector|unknown|unspiked|urcorner|xpart|xxpart|xypart|ypart|yxpart|yypart)\b</expression>
         </zone>
         
@@ -206,6 +204,14 @@
             </subzones>
         </zone>
         
+        <!--copy from ConTeXt syntax, but MetaFun needs it too:-->
+        <zone name="metafun.numeric.unit">
+            <expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)</expression>
+            <capture number="1" name="metafun.numeric"/>
+            <capture number="2" name="metafun.punctuation.delimiter.point"/>
+            <capture number="3" name="metafun.keyword.other.true"/>
+            <capture number="4" name="metafun.keyword.unit"/>
+        </zone>
         <zone name="metafun.numeric">
             <expression>(?&lt;![a-zA-Z_])((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)</expression>
         </zone>
