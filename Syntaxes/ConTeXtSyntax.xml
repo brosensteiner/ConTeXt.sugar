@@ -23,7 +23,7 @@
         	<include collection="BalancedParenthesis"/>
             <include collection="Math"/>
             <include collection="Keywords"/>
-            <include collection="GeneralTeX"/>
+            <include collection="General"/>
             <include collection="DefinedVariable"/>
             <include collection="Escapecharacter"/>
         </collection>
@@ -32,7 +32,7 @@
             <zone name="context.balanced.bracket">
                 <starts-with>
                 	<!--has to be this verbose (commands with "place" and "start" will be used in the inspector tree), otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
-                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_]|(?&lt;=\\startcolor|\\starttyping|\\startpublication|\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startpart|\\startchapter|\\starttitle|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
+                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_]|(?&lt;=\\startcolor|\\starttyping|\\startpublication|\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startpart|\\startchapter|\\starttitle|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startlayerproperty|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -705,7 +705,7 @@
             
         </collection>
         
-        <collection name="GeneralTeX">
+        <collection name="General">
         	<zone name="context.support.function.general">
         	    <expression>\\[A-Za-z@!?:_]*[A-Za-z@!?:_]</expression>
         	</zone>
@@ -727,8 +727,23 @@
         	    <expression>-{2,3}|\\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
         	</zone>
             
+            <zone name="context.keyword-other-misc">
+                <starts-with>
+                    <expression>\b(sa|at|scaled|mo|mu)((?=[\d#\\\*])|\s(?=[\d#\\\*]))</expression>
+                    <capture number="1" name="context.keyword.other.misc"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(\*)|(?=[\s,\]])\b</expression>
+                    <capture number="1" name="context.keyword.other.misc"/>
+                </ends-with>
+                <subzones>
+                	<include collection="Default_Order_of_Zones"/>
+                	<include collection="Numeric" />
+                </subzones>
+            </zone>
             <zone name="context.keyword.other.misc">
-                <expression>(?&lt;=sa)\s+\*|\b((sa|at|scaled|mo|mu)(?=\s*[\+\-#0-9\.\*\\])|(\d+)\s*(\*)\s*(broad|small|medium|big|hang|line|halfline|formula)|(\\s!)?(spec|name|file):)\b</expression>
+                <expression>(\d+)\s*(\*)\s*(broad|small|medium|big|hang|line|halfline|formula)|(\\s!)?(spec|name|file):)\b</expression>
+                <capture number="1" name="context.numeric"/>
             </zone>
             
             <zone name="context.support.function.general.counting">
@@ -789,6 +804,14 @@
                 <capture number="4" name="context.keyword.unit"/>
             </zone>
             
+        </collection>
+        
+        <collection name="Numeric">
+        
+        	<zone name="context.numeric">
+        		<expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)</expression>
+        	</zone>
+        
         </collection>
         
     </library>
