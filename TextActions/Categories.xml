@@ -6,6 +6,10 @@
 		<title>ConTeXt</title>
 	</category>
 	
+	<category id="actions.snippets.context.separated" show="inline separated">
+		<!--<title>ConTeXt</title>-->
+	</category>
+	
 	<!-- Closing Braces and Brackets -->
 	<category id="actions.snippets.context.autopairing" show="sub">
 		<title>AutoPairing</title>

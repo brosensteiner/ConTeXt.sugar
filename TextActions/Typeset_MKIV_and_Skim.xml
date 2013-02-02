@@ -1,5 +1,5 @@
 <action-recipes>
-    <action id="actions.snippets.context.typesetMKIV" category="actions.snippets.context">
+    <action id="actions.snippets.context.typesetMKIV" category="actions.snippets.context/actions.snippets.context.separated">
         <class>TEALoader</class>
         <title>Typeset MKIV and View</title>
         <key-equivalent>cmd option r</key-equivalent>

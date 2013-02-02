@@ -48,14 +48,14 @@
         <title>quotation</title>
         <text>\\quotation\{${EDITOR_SELECTION:you have to select text first!}\}</text>
         <syntax-context>language-root.context *</syntax-context>
-        <key-equivalent>cmd option Q</key-equivalent>
+        <key-equivalent>cmd control q</key-equivalent>
     </snippet>
     
     <snippet id="actions.snippets.context.emphasize.quote" category="actions.snippets.context/actions.snippets.context.emphasize">
         <title>quote</title>
         <text>\\quote\{${EDITOR_SELECTION:you have to select text first!}\}</text>
         <syntax-context>language-root.context *</syntax-context>
-        <key-equivalent>cmd option Q</key-equivalent>
+        <key-equivalent>cmd option q</key-equivalent>
     </snippet>
     
 </action-recipes>

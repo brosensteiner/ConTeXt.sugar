@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<action-sort-instructions>
+
+    <sort-template>
+        <selector>actions.snippets.context.separated</selector>
+        <selector>actions.snippets.context.autopairing</selector>
+        <selector>actions.snippets.context.sectioning</selector>
+        <selector>actions.snippets.context.emphasize</selector>
+        <selector>actions.snippets.context.generalcommands</selector>
+        <selector>actions.snippets.context.update</selector>
+    </sort-template>
+    
+</action-sort-instructions> 
