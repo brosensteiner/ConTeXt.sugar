@@ -15,7 +15,7 @@ $0
             <text-trigger>env</text-trigger>
         </snippet>
         
-        <!--  define -->
+<!--  define -->
         <snippet id="actions.snippets.context.define" category="tools.Snippets">
             <title>new definition</title>
             <text>\\define[${1:args}]\\${2:newmacro}\{$3\}
@@ -24,13 +24,54 @@ $4</text>
             <text-trigger>def</text-trigger>
         </snippet>
         
-        <!--  define -->
-        <snippet id="actions.snippets.context.setup" category="tools.Snippets">
-            <title>new setup</title>
-            <text>\\setup$1[${2:first}][${3:second}]${4:[${5:third}]}
+<!--  setup -->
+        
+        <snippet id="actions.snippets.context.setup1" category="tools.Snippets">
+            <title>setup 1 arguments</title>
+            <text>\\setup$1[${2:first}]
+$3</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set1</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.setup2" category="tools.Snippets">
+            <title>setup 2 argument</title>
+            <text>\\setup$1[${2:first}][${3:second}]
+$4</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set2</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.setup3" category="tools.Snippets">
+            <title>setup 3 arguments</title>
+            <text>\\setup$1[${2:first}][${3:second}][${4:third}]
+$5</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set3</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.setup4" category="tools.Snippets">
+            <title>setup 4 arguments</title>
+            <text>\\setup$1[${2:first}][${3:second}][${4:third}][${5:fourth}]
 $6</text>
             <syntax-context>language-root.context, language-root.context *</syntax-context>
-            <text-trigger>set</text-trigger>
+            <text-trigger>set4</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.setup5" category="tools.Snippets">
+            <title>setup 5 arguments</title>
+            <text>\\setup$1[${2:first}][${3:second}][${4:third}][${5:fourth}][${6:fifth}]
+$7</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set5</text-trigger>
+        </snippet>
+        
+        <snippet id="actions.snippets.context.setup6" category="tools.Snippets">
+            <title>setup 6 arguments</title>
+            <text>\\setup$1[${2:first}][${3:second}][${4:third}][${5:fourth}][${6:fifth}][${7:fifth}]
+$8</text>
+            <syntax-context>language-root.context, language-root.context *</syntax-context>
+            <text-trigger>set6</text-trigger>
         </snippet>
 
 </action-recipes>

@@ -2,12 +2,14 @@
 
 <itemizer>
 
-	<recipe name="context.container.document">
+<!--docunent blocks (starttext, startsection...)-->	
 	
-		<start-selector>support.function.start.text:capture(name)</start-selector>
-		<end-selector>support.function.stop.text</end-selector>
-		
-		<subrecipes>
+	<recipe name="context.structural.startsections">
+	
+		<class>ESXMLItem</class>
+		<start-selector>context.structural.start-section:capture(name)</start-selector>
+		<end-selector>context.structural.stop-section</end-selector>
+		<subrecipes>	
 			<include-root-recipes />
 		</subrecipes>
 		
@@ -16,27 +18,10 @@
 	<recipe name="context.structural.sections">
 	
 		<class>ESXMLItem</class>
-		<selector>context.support.function.structural.document.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
+		<selector>context.structural.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
 		
 	</recipe>
-
-<!--floats-->
-	<recipe name="context.container.control.float">
-		<class>ESXMLItem</class>
-		<selector>context.support.function.structural.float:capture(name)</selector>
-	</recipe>
-
-<!--sections-->	
-	<recipe name="context.container.startsections">
-		<class>ESXMLItem</class>
-		<start-selector>context.structural.document.support.function.start.section:capture(name)</start-selector>
-		<end-selector>context.structural.document.support.function.stop.section</end-selector>
-		<subrecipes>	
-			<include-root-recipes />
-		</subrecipes>
-		
-	</recipe>
-		
+	
 <!-- [] -->
 <!-- MacRabbit told me that it is currently not possible to have code folding and no entry in the Navigator - this here makes no sense in the Navigator (would fill it completely up): -->	
 	<!--<recipe name="context.container.codeblock">
@@ -45,6 +30,12 @@
 		<end-selector>context.closebracket.level0</end-selector>
 		
 	</recipe>-->
+	
+<!--floats-->
+	<recipe name="context.float">
+		<class>ESXMLItem</class>
+		<selector>context.structural.float:capture(name)</selector>
+	</recipe>
 
 <!--Metafun code block-->		 
 	<recipe name="context.container.metafun-code-block">

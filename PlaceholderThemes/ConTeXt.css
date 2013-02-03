@@ -8,20 +8,16 @@
 	spell-check: disabled;
 }
 
-context.structural.container.document structural.document {
-	font-weight: bold;
-}
-
-context.structural.container.document container.environment.table {
+context.structural.container container.environment.table {
 	background-color: rgba(160, 160, 160, 0.1);
 }
-context.structural.container.document container.environment.table support.function.table.cell {
+context.structural.container container.environment.table support.function.table.cell {
 	background-color: rgba(160, 160, 160, 0.7);
 }
-context.structural.container.document container.environment.table support.function.table.row {
+context.structural.container container.environment.table support.function.table.row {
 	background-color: rgba(100, 100, 100, 0.7);
 }
-context.structural.container.document container.environment.table > support.function.start.table + balanced.bracket > between.brackets > keyword.other.table {
+context.structural.container container.environment.table > support.function.start.table + balanced.bracket > between.brackets > keyword.other.table {
 	color: #9b0808;
 }
 

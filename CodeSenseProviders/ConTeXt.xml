@@ -3,7 +3,7 @@
 <codesense>
 
 	<provider>
-        <selector>key-name:capture(name) + value-name > punctuation.separator,key-name:capture(name) + value-name > InValue</selector>
+        <selector>context.key-name:capture(name) + assignment + *</selector>
         <completions>com.context.value-name.${name}</completions>
         <complete-match>[a-zA-Z@!\?\\]*</complete-match>
         <require-suffix>\s*,|\s*\]|\s*$</require-suffix>
@@ -11,13 +11,7 @@
     
 
     <provider>
-        <selector>context.support.function.general:capture(name) + delimiter.balanced.bracket > *</selector>
-        <completions>com.context.key-name.${name}</completions>
-        <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
-    </provider>
-    
-    <provider>
-        <selector>context.support.function.general:capture(name) + delimiter.balanced.bracket + delimiter.balanced.bracket > *</selector>
+        <selector>context.support.function:capture(name) + open-bracket + between,context.support.function:capture(name) + open-bracket + between + close-bracket</selector>
         <completions>com.context.key-name.${name}</completions>
         <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
     </provider>

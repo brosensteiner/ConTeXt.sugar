@@ -3,7 +3,6 @@
 <syntax name="language-root.context">
 
     <zones>
-        <include collection="Document"/>
         <include collection="Define"/>
         <include collection="Default_Order_of_Zones"/>
     </zones>
@@ -31,8 +30,7 @@
         <collection name="BalancedBrackets">
             <zone name="context.balanced.bracket">
                 <starts-with>
-                	<!--has to be this verbose (commands with "place" and "start" will be used in the inspector tree), otherwise balanced brackets get not caught (this or-condition-list will grow...):-->
-                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_]|(?&lt;=\\startcolor|\\starttyping|\\startpublication|\\startinteractionmenu|\\starttypescriptcollection|\\starttypescript|\\startfigure|\\startgraphic|\\startintermezzo|\\starttabulate|\\starttables|\\starttable|\\startplacepairedbox|\\startplacelegend|\\startcaption|\\startplacefigure|\\startplacetable|\\startcontent|\\starthanging|\\startsectionblockenvironment|\\startfrontmatter|\\startbodymatter|\\startbackmatter|\\startappendices|SlideTitle|\\part|\\chapter|\\title|\\startpart|\\startchapter|\\starttitle|\\startsection|\\startsubsection|\\startsubsubsection|\\startsubsubsubsection|\\startsubsubsubsubsection|\\startsubsubsubsubsubsection|\\startsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsection|\\startsubsubsubsubsubsubsubsubsubsubsection|\\startsubject|\\startsubsubject|\\startsubsubsubject|\\startsubsubsubsubject|\\startsubsubsubsubsubject|\\startsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubject|\\startsubsubsubsubsubsubsubsubsubsubject|\\startsetups|\\startdescription|\\startdocument|\\startfact|\\starthiding|\\startlegend|\\startlinecorrection|\\startlines|\\startline|\\startlocal|\\startlocalenvironment|\\startmakeup|\\startnamemakeup|\\startopposite|\\startoverview|\\startpacked|\\startplacefigure|\\startplacelocalnotes|\\startbookmarks|\\startpositioning|\\startprofile|\\startsynchronization|\\startTEXpage|\\startunpacked|\\startversion|\\startlinealignment|\\startitemize|\\startitemgroup|\\startcombination|\\startcolumns|\\startcolumnset|\\startparagraph|\\startquote|\\startquotation|\\startalignment|\\startglobal|\\startlinenumbering|\\startlocalfootnotes|\\startmarginblock|\\startmarginrule|\\startnarrower|\\startlayerproperty|\\startoverlay|\\startproduct|\\startproject|\\startraster|\\startsymbolset|\\starttextrule|\\placefigure|\\placetable|\\placegraphic|\\placeintermezzo|\\placepairedbox|\\placepublications|\\placemargintable|\\placemarginfigure|\\startplacemargintable|\\startplacemarginfigure|\\placelistoffloats|\\placelocalnotes|\\placebookmarks))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
+                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -476,20 +474,36 @@
         </collection>
         
         <collection name="Environments">
-
-            <zone name="context.support.function.structural.float">
+			
+			<zone  name="context.balanced.structural.float">
+			    <starts-with>
+			        <expression>(\\(?:place|complete)[0-9A-Za-z_@!?:]+)\s*(\[)</expression>
+			        <capture number="1" name="context.support.function.place-complete"/>
+			        <capture number="2" name="context.open-bracket.level0"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\]</expression>
+			        <capture number="0" name="context.close-bracket.level0"/>
+			    </ends-with>
+			    <subzones name="context.between.brackets">
+			        <include collection="Between_Brackets"/>
+			    </subzones>
+			</zone>
+			
+            <zone name="context.structural.float">
                     <expression>\\(place|complete)[0-9A-Za-z_@!?:]+</expression>
+                    <capture number="0" name="context.support.function.place-complete"/>
             </zone>
             
             <!--table-->
-            <zone name="context.container.environment.table">
+            <zone name="context.container.table.float">
             	<starts-with>
             		<expression>(?:\\bTABLE(head|foot|body|next)?)\b</expression>
-            		<capture number="0" name="context.support.function.start.table"/>
+            		<capture number="0" name="context.support.function.start-table"/>
             	</starts-with>
             	<ends-with>
             		<expression>\\eTABLE\1</expression>
-            		<capture number="0" name="context.support.function.stop.table"/>
+            		<capture number="0" name="context.support.function.stop-table"/>
             	</ends-with>
             	<subzones>
             		<include collection="Define"/>
@@ -497,14 +511,14 @@
             		<include collection="Default_Order_of_Zones"/>
             	</subzones>
             </zone>
-            <zone name="context.container.environment.table">
+            <zone name="context.container.table.float">
             	<starts-with>
             		<expression>(?:\\start(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
-            		<capture number="0" name="context.support.function.start.table"/>
+            		<capture number="0" name="context.support.function.start-table"/>
             	</starts-with>
             	<ends-with>
             		<expression>\\stop\1</expression>
-            		<capture number="0" name="context.support.function.stop.table"/>
+            		<capture number="0" name="context.support.function.stop-table"/>
             	</ends-with>
             	<subzones>
             		<include collection="Define"/>
@@ -516,11 +530,11 @@
             <zone name="context.container.unprotect-protect">
 				<starts-with>
 					<expression>\\unprotect\b</expression>
-					<capture number="0" name="context.support.function.start.unprotect-protect"/>
+					<capture number="0" name="context.support.function.start-unprotect-protect"/>
 				</starts-with>
 				<ends-with>
 					<expression>\\protect\b</expression>
-						<capture number="0" name="context.support.function.stop.unprotect-protect"/>
+						<capture number="0" name="context.support.function.stop-unprotect-protect"/>
 				</ends-with>
 				<subzones>
 					<include collection="Define"/>
@@ -574,23 +588,6 @@
                     <capture number="0" name="context.support.function.stop.metafun"/>
                 </ends-with>
                 <subzones>
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-        </collection>
-        
-        <collection name="Document">
-            <zone name="context.structural.container.document">
-                <starts-with>
-                    <expression>\\start(text|component)\b</expression>
-                    <capture number="0" name="context.support.function.structural.document.start.text"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\\stop\1\b</expression>
-                    <capture number="0" name="context.support.function.structural.document.stop.text"/>
-                </ends-with>
-                <subzones>
-                	<include collection="Define"/>
                     <include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>
@@ -684,23 +681,34 @@
         
         <collection name="Sectioning">
         
-            <zone name="context.support.function.structural.document.section">
+            <zone name="context.structural.section">
 				<expression>(\\(?:part|title|chapter|SlideTitle)|\\(?:sub)*(?:section|subject))\b</expression>
+				<capture number="0" name="context.support.function.section"/>
             </zone>
             
-            <zone>
+            <zone  name="context.balanced.structural.start-section">
                 <starts-with>
-                    <expression>\\start([0-9A-Za-z_@!?:]+)\b</expression>
-                    <capture number="0" name="context.support.function.structural.document.start.section"/>
+                    <expression>(\\start(?:text|project|product|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\s*(\[)</expression>
+                    <capture number="1" name="context.support.function.section"/>
+                    <capture number="2" name="context.open-bracket.level0"/>
                 </starts-with>
                 <ends-with>
-                    <expression>\\stop\1\b</expression>
-                    <capture number="0" name="context.support.function.structural.document.stop.section"/>
+                    <expression>\]</expression>
+                    <capture number="0" name="context.close-bracket.level0"/>
                 </ends-with>
-                <subzones>
-                	<include collection="Define"/>
-                    <include collection="Default_Order_of_Zones"/>
+                <subzones name="context.between.brackets">
+                    <include collection="Between_Brackets"/>
                 </subzones>
+            </zone>
+            
+            <zone name="context.structural.start-section">
+            	<expression>(\\start(?:text|project|product|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\b</expression>
+            	<capture number="0" name="context.support.function.section"/>
+            </zone>
+            
+            <zone name="context.structural.stop-section">
+            	<expression>(\\stop(?:text|project|product|component|part|title|chapter|SlideTitle)|\\stop(?:sub)*(?:section|subject))\b</expression>
+            	<capture number="0" name="context.support.function.section"/>
             </zone>
             
         </collection>
@@ -741,9 +749,13 @@
                 	<include collection="Numeric" />
                 </subzones>
             </zone>
-            <zone name="context.keyword.other.misc">
-                <expression>(\d+)\s*(\*)\s*(broad|small|medium|big|hang|line|halfline|formula)|(\\s!)?(spec|name|file):)\b</expression>
+            
+            <zone name="context.keyword-other-misc">
+                <expression>(\d+)\s*(\*)\s*(broad|small|medium|big|hang|line|halfline|formula)|((\\s!)?(spec|name|file):)\b</expression>
                 <capture number="1" name="context.numeric"/>
+                <capture number="2" name="context.keyword.other.misc"/>
+                <capture number="3" name="context.keyword.other.misc"/>
+                <capture number="4" name="context.keyword.other.misc"/>
             </zone>
             
             <zone name="context.support.function.general.counting">

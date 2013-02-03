@@ -14,7 +14,7 @@
 $6
 
 \\stoptitle</text>
-        <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+        <syntax-context>context,context *</syntax-context>
         <text-trigger>title</text-trigger>
     </snippet>
 
@@ -30,7 +30,7 @@ $6
 $6
 
 \\stoppart</text>
-        <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+        <syntax-context>context,context *</syntax-context>
         <text-trigger>part</text-trigger>
     </snippet>
 
@@ -46,7 +46,7 @@ $6
 $6
 
 \\stopchapter</text>
-            <syntax-context>structural.container.document,structural.container.document *</syntax-context>
+            <syntax-context>context,context *</syntax-context>
             <text-trigger>chapter</text-trigger>
 	</snippet>
 
@@ -62,7 +62,7 @@ $6
 $6
 
 \\stopsection</text>
-			<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+			<syntax-context>context,context *</syntax-context>
                 <text-trigger>sec</text-trigger>
             </snippet>
 
@@ -78,7 +78,7 @@ $6
 $6
 
 \\stopsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
                 <text-trigger>ssec</text-trigger>
 	</snippet>
 
@@ -94,7 +94,7 @@ $6
 $6
 
 \\stopsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>sssec</text-trigger>
 	</snippet>
 
@@ -110,7 +110,7 @@ $6
 $6
 
 \\stopsubsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>ssssec</text-trigger>
 	</snippet>
 
@@ -126,7 +126,7 @@ $6
 $6
 
 \\stopsubsubsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>sssssec</text-trigger>
 	</snippet>
 
@@ -142,7 +142,7 @@ $6
 $6
 
 \\stopsubsubsubsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>ssssssec</text-trigger>
 	</snippet>
 
@@ -158,7 +158,7 @@ $6
 $6
 
 \\stopsubsubsubsubsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>sssssssec</text-trigger>
 	</snippet>
                                     
@@ -174,7 +174,7 @@ $6
 $6
 
 \\stopsubsubsubsubsubsubsubsection</text>
-		<syntax-context>structural.container.document,structural.container.document *</syntax-context>
+		<syntax-context>context,context *</syntax-context>
 		<text-trigger>ssssssssec</text-trigger>
 	</snippet>
 
