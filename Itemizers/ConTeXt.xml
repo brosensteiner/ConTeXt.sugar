@@ -34,7 +34,7 @@
 <!--floats-->
 	<recipe name="context.float">
 		<class>ESXMLItem</class>
-		<selector>context.structural.float:capture(name)</selector>
+		<selector>context.float:capture(name)</selector>
 	</recipe>
 
 <!--Metafun code block-->		 

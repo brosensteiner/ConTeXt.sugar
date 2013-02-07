@@ -342,48 +342,6 @@
             <include collection="Default_Order_of_Zones"/>
         </collection>
         
-        <collection name="TableCells">
-            <zone name="context.container.table.cell">
-                <starts-with>
-                    <expression>\\(?:b(TD|TC|TH))\b</expression>
-                    <capture number="0" name="support.function.table.cell.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\\(e(\1))\b</expression>
-                    <capture number="0" name="support.function.table.cell.end"/>
-                </ends-with>
-                <subzones>
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-        </collection>
-        
-         <collection name="TableRows">
-         
-            <zone name="context.support.function.table.row.end">
-                <expression>\\(HL|TB|NR|SR|FR|MR|LR|AR)\b</expression>
-            </zone>
-            
-            <zone name="context.support.function.table.cell.begin">
-                <expression>\\(NC|VL|NC|VL)\b</expression>
-            </zone>
-            
-            <zone name="context.container.table.row">
-            <starts-with>
-                    <expression>\\bTR\b</expression>
-                    <capture number="0" name="support.function.table.row.begin"/>
-            </starts-with>
-            <ends-with>
-                    <expression>\\eTR\b</expression>
-                    <capture number="0" name="support.function.table.row.end"/>
-            </ends-with>
-                <subzones>
-                    <include collection="TableCells"/>
-                </subzones>
-            </zone>
-            
-        </collection>
-        
         <collection name="Comment">
             
             <zone name="context.comment-line-empty">
@@ -473,6 +431,48 @@
             </zone>
         </collection>
         
+        <collection name="TableCells">
+            <zone name="context.container.table-cell">
+                <starts-with>
+                    <expression>\\(?:b(TD|TC|TH))\b</expression>
+                    <capture number="0" name="context.support.function.table.cell.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\\(e(\1))\b</expression>
+                    <capture number="0" name="context.support.function.table.cell.end"/>
+                </ends-with>
+                <subzones>
+                    <include collection="Default_Order_of_Zones"/>
+                </subzones>
+            </zone>
+        </collection>
+        
+         <collection name="TableRows">
+         
+            <zone name="context.support.function.table.row.end">
+                <expression>\\(HL|TB|NR|SR|FR|MR|LR|AR)\b</expression>
+            </zone>
+            
+            <zone name="context.support.function.table.cell.begin">
+                <expression>\\(NC|VL|NC|VL)\b</expression>
+            </zone>
+            
+            <zone name="context.container.table-row">
+            <starts-with>
+                    <expression>\\bTR\b</expression>
+                    <capture number="0" name="context.support.function.table.row.begin"/>
+            </starts-with>
+            <ends-with>
+                    <expression>\\eTR\b</expression>
+                    <capture number="0" name="context.support.function.table.row.end"/>
+            </ends-with>
+                <subzones>
+                    <include collection="TableCells"/>
+                </subzones>
+            </zone>
+            
+        </collection>
+        
         <collection name="Environments">
 			
 			<zone  name="context.balanced.structural.float">
@@ -530,11 +530,11 @@
             <zone name="context.container.unprotect-protect">
 				<starts-with>
 					<expression>\\unprotect\b</expression>
-					<capture number="0" name="context.support.function.start-unprotect-protect"/>
+					<capture number="0" name="context.support.function.unprotect.start-unprotect"/>
 				</starts-with>
 				<ends-with>
 					<expression>\\protect\b</expression>
-						<capture number="0" name="context.support.function.stop-unprotect-protect"/>
+						<capture number="0" name="context.support.function.unprotect.stop-unprotect"/>
 				</ends-with>
 				<subzones>
 					<include collection="Define"/>
