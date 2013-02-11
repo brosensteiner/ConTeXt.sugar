@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <codesense>
-
+	
+<!--commands-->
+	<provider>
+	    <selector>context, context *</selector>
+	    <completions>com.context.commands</completions>
+	    <complete-match>(?&lt;=\\)[a-zA-Z@!\?\\]*</complete-match>
+	</provider>
+	
+<!--values-->
 	<provider>
         <selector>context.key-name:capture(name) + assignment + *</selector>
         <completions>com.context.value-name.${name}</completions>
@@ -9,11 +17,86 @@
         <require-suffix>\s*,|\s*\]|\s*$</require-suffix>
     </provider>
     
+<!--the arguments of a ConTeXt command where code sense should hit for key-name-->
 
+	<!--only first argument-->
     <provider>
-        <selector>context.support.function:capture(name) + open-bracket + between,context.support.function:capture(name) + open-bracket + between + close-bracket</selector>
-        <completions>com.context.key-name.${name}</completions>
+        <selector>context.support.function:capture(name) + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket</selector>
+        <completions>com.context.key-name.argument1.${name}</completions>
         <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
     </provider>
-    
+
+	<!--only second argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument2.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	<!--only third argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument3.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	<!--only forth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument4.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	<!--only fifth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument5.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	<!--only sixth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument6.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	
+	<!--first or second argument-->
+	<provider>
+		<selector>context.support.function:capture(name) + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+		<completions>com.context.key-name.argument1or2.${name}</completions>
+		<complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+		
+	<!--first or second or third argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument1or2or3.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	
+	<!--second or third or fourth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument2or3or4.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	
+	<!--second or third argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument2or3.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	
+	<!--third or forth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument3or4.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+	
+	<!--fifth or sixth argument-->
+	<provider>
+	    <selector>context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between, context.support.function:capture(name) + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket + open-bracket + between + close-bracket</selector>
+	    <completions>com.context.key-name.argument5or6.${name}</completions>
+	    <complete-match>[0-9A-Za-z_@!?:\\]*</complete-match>
+	</provider>
+		
 </codesense> 

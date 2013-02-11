@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<tool-recipes>
+	
+	<tool type="toolbar" id="com.rosensteiner.text-tools.context.new-tag" category="macrabbit">
+	
+		<class>ESTextActionToolbarTool</class>
+		<setup>
+			<main-action-selector>context, context *</main-action-selector>
+			<image>ToolNewTag</image>
+		</setup>
+		
+	</tool>
+	
+</tool-recipes>

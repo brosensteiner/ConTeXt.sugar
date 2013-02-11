@@ -15,7 +15,7 @@ $6
 
 \\stoptitle</text>
         <syntax-context>context,context *</syntax-context>
-        <text-trigger>title</text-trigger>
+        <text-trigger>ntitle</text-trigger>
     </snippet>
 
     <snippet id="actions.snippets.context.sectioning.startpart" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -31,7 +31,7 @@ $6
 
 \\stoppart</text>
         <syntax-context>context,context *</syntax-context>
-        <text-trigger>part</text-trigger>
+        <text-trigger>npart</text-trigger>
     </snippet>
 
     <snippet id="actions.snippets.context.sectioning.startchapter" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -47,7 +47,7 @@ $6
 
 \\stopchapter</text>
             <syntax-context>context,context *</syntax-context>
-            <text-trigger>chapter</text-trigger>
+            <text-trigger>nchap</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -63,7 +63,7 @@ $6
 
 \\stopsection</text>
 			<syntax-context>context,context *</syntax-context>
-                <text-trigger>sec</text-trigger>
+                <text-trigger>nsec</text-trigger>
             </snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -79,7 +79,7 @@ $6
 
 \\stopsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-                <text-trigger>ssec</text-trigger>
+                <text-trigger>nssec</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -95,7 +95,7 @@ $6
 
 \\stopsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>sssec</text-trigger>
+		<text-trigger>nsssec</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -111,7 +111,7 @@ $6
 
 \\stopsubsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>ssssec</text-trigger>
+		<text-trigger>nssssec</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -127,7 +127,7 @@ $6
 
 \\stopsubsubsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>sssssec</text-trigger>
+		<text-trigger>nsssssec</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -143,7 +143,7 @@ $6
 
 \\stopsubsubsubsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>ssssssec</text-trigger>
+		<text-trigger>nssssssec</text-trigger>
 	</snippet>
 
 	<snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -159,7 +159,7 @@ $6
 
 \\stopsubsubsubsubsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>sssssssec</text-trigger>
+		<text-trigger>nsssssssec</text-trigger>
 	</snippet>
                                     
 	<snippet id="actions.snippets.context.sectioning.startsubsubsubsubsubsubsubsection" category="actions.snippets.context/actions.snippets.context.sectioning">
@@ -175,7 +175,7 @@ $6
 
 \\stopsubsubsubsubsubsubsubsection</text>
 		<syntax-context>context,context *</syntax-context>
-		<text-trigger>ssssssssec</text-trigger>
+		<text-trigger>nssssssssec</text-trigger>
 	</snippet>
 
 
