@@ -15,7 +15,6 @@
         	<include collection="Environments"/>
             <include collection="Sectioning"/>
             <include collection="BalancedBraces"/>
-            <include collection="Group"/>
         	<include collection="BalancedBrackets"/>
         	<include collection="BalancedParenthesis"/>
             <include collection="Math"/>
@@ -65,15 +64,6 @@
 					<include collection="BalancedBrackets"/>
                     <include collection="Between_Braces"/>
                 </subzones>
-            </zone>
-        </collection>
-                
-        <collection name="Group">
-            <zone name="context.open-brace.level0">
-                <expression>(\\(begin|b)group)\b</expression>
-            </zone>
-            <zone name="context.close-brace.level0">
-                <expression>(\\(end|e)group)\b</expression>
             </zone>
         </collection>
         
@@ -314,7 +304,6 @@
             <include collection="Lua"/>
             <include collection="Metafun"/>
             <include collection="Environments"/>
-            <include collection="Group"/>
             <include collection="Keywords"/>
             <include collection="Default_Order_of_Zones"/>
         </collection>
@@ -360,7 +349,7 @@
             <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined-->
             <zone name="context.support.function.define">
             	<starts-with>
-            		<expression>(\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.open-bracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -378,7 +367,7 @@
             	</subzones>
             </zone> 	
             <zone name="context.support.function.define">
-				<expression>(\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
+				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
@@ -488,20 +477,12 @@
             		<include collection="Default_Order_of_Zones"/>
             	</subzones>
             </zone>
-            <!--protect/unprotect environment-->
-            <zone name="context.container.unprotect-protect">
-				<starts-with>
-					<expression>\\unprotect\b</expression>
-					<capture number="0" name="context.support.function.unprotect.start-unprotect"/>
-				</starts-with>
-				<ends-with>
-					<expression>\\protect\b</expression>
-						<capture number="0" name="context.support.function.unprotect.stop-unprotect"/>
-				</ends-with>
-				<subzones>
-					<include collection="Define"/>
-					<include collection="Default_Order_of_Zones"/>
-				</subzones>
+
+			<zone name="context.support.function.start-protect">
+				<expression>\\unprotect\b</expression>
+			</zone>
+			<zone name="context.support.function.stop-protect">
+				<expression>\\protect\b</expression>
 			</zone>
 
         </collection>
@@ -635,9 +616,11 @@
         
         <collection name="Keys">
             <zone>
-				<expression>(\\?[0-9A-Za-z_@!?:]+)\s*(=)</expression>
+				<expression>(\\?)(s!|c!|v!|\?\?(?:\?\?)?|@@)?([0-9A-Za-z_@!?:]+)\s*(=)</expression>
 				<capture number="1" name="context.key-name"/>
-				<capture number="2" name="operator.assignment"/>
+				<capture number="2" name="context.key-name.scratchvariable"/>
+				<capture number="3" name="context.key-name"/>
+				<capture number="4" name="operator.assignment"/>
             </zone>
         </collection>
         
@@ -677,12 +660,13 @@
         
         <collection name="General">
         	<zone name="context.support.function.general">
-        	    <expression>\\[A-Za-z@!?:_]*[A-Za-z@!?:_]</expression>
+        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[A-Za-z@!?:_]*[A-Za-z@!?:_]</expression>
+        	    <capture number="1" name="context.support.function.scratchvariable"/>
         	</zone>
         	<zone name="context.punctuation.delimiter.comma">
         	    <expression>,</expression>
         	</zone>
-        	<zone name="context.punctuation.delimiter.colon"><!--(?!=), because of otherwise interference with MetaFun-->
+        	<zone name="context.punctuation.delimiter.colon"><!--(?!=), because of otherwise interference with MetaPost/MetaFun-->
         	    <expression>:(?!=)</expression>
         	</zone>
         </collection>
@@ -707,6 +691,7 @@
                     <capture number="1" name="context.keyword.other.misc"/>
                 </ends-with>
                 <subzones>
+                	<include syntax="language-root.tex" collection="Unit" />
                 	<include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>

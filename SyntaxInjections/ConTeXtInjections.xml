@@ -2,7 +2,7 @@
 
 <injections>
 	<!--TEX-->
-	<injection name="injection.TeX-ConTeXt" selector="language-root.context *" action="attach-after-target">
+	<injection name="injection.TeX-ConTeXt" selector="language-root.context *" action="attach-before-target">
 		<include syntax="language-root.TeXConTeXt"/>
 	</injection>
 	<!--Lua-->

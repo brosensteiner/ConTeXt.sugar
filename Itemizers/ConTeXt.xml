@@ -79,6 +79,19 @@
 		</subrecipes>
 	
 	</recipe>
+	
+<!--unprotext/protect-->
+	<recipe name="context.container.unprotect-protect">
+	
+		<class>ESCodeClassItem</class>
+		<start-selector>context.start-protect:capture(name)</start-selector>
+		<end-selector>context.stop-protect</end-selector>
+		<subrecipes>
+			<include recipe="context.container.environment"/>
+			<include-root-recipes />
+		</subrecipes>
+	
+	</recipe>
 
 
 	<recipe name="context.container.startstop">
