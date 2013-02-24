@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--here can be some "inbetween hooks" code-->
+
+<syntax name="language-root.TeXConTeXt">
+
+	<zones>
+		<include syntax="language-root.context" collection="BalancedBrackets" />
+        <include syntax="language-root.tex"/>
+	</zones>
+	
+</syntax>

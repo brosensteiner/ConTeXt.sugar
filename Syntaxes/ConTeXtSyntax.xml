@@ -10,12 +10,10 @@
     <library>
     
 		<collection name="Default_Order_of_Zones">
-        	<include collection="Comment"/>
         	<include collection="Lua"/>
         	<include collection="Metafun"/>
         	<include collection="Environments"/>
             <include collection="Sectioning"/>
-            <include collection="If_Else"/>
             <include collection="BalancedBraces"/>
             <include collection="Group"/>
         	<include collection="BalancedBrackets"/>
@@ -23,7 +21,6 @@
             <include collection="Math"/>
             <include collection="Keywords"/>
             <include collection="General"/>
-            <include collection="DefinedVariable"/>
             <include collection="Escapecharacter"/>
         </collection>
                 
@@ -45,7 +42,10 @@
                 	<zone name="context.keyword.other.table">
                 	    <expression>\|</expression>
                 	</zone>
+                	<!--TeX has some special keywords so...:-->.
+                	<include syntax="language-root.tex" collection="Unit" />
                     <include collection="Between_Brackets"/>
+                    <include syntax="language-root.tex"/>
                 </subzones>
             </zone>
         </collection>
@@ -65,15 +65,6 @@
 					<include collection="BalancedBrackets"/>
                     <include collection="Between_Braces"/>
                 </subzones>
-            </zone>
-        </collection>
-        
-        <collection name="If_Else">
-        	<zone name="context.keyword.control.if">
-        	    <expression>\\if[A-Za-z@!?:_]*</expression>
-        	</zone>
-            <zone name="context.keyword.control">
-                <expression>\\fi\b|\\else\b|\\or\b</expression>
             </zone>
         </collection>
                 
@@ -319,40 +310,22 @@
         </collection>
         
         <collection name="Between_Braces">
-        	<include collection="Comment"/>
-            <include collection="DefinedVariable"/>
             <include collection="Define"/>
             <include collection="Lua"/>
             <include collection="Metafun"/>
             <include collection="Environments"/>
             <include collection="Group"/>
-            <include collection="If_Else"/>
             <include collection="Keywords"/>
             <include collection="Default_Order_of_Zones"/>
         </collection>
         
         <collection name="Between_Brackets">
-        	<include collection="Comment"/>
-            <include collection="DefinedVariable"/>
             <include collection="Define"/>
             <include collection="Lua"/>
             <include collection="Metafun"/>
             <include collection="Keys"/>
             <include collection="Keywords"/>
             <include collection="Default_Order_of_Zones"/>
-        </collection>
-        
-        <collection name="Comment">
-            
-            <zone name="context.comment-line-empty">
-                <expression>(%)\s*$</expression>
-                <capture number="1" name="context.punctuation.comment.begin"/>   
-            </zone>    
-            <zone name="context.comment.line">
-                <expression>(%)(?:\s*(.+)$\n?)|(%)(?:\s*$\n?)</expression>
-                <capture number="1" name="context.punctuation.comment.begin"/>   
-            </zone>
-            
         </collection>
         
         <collection name="Escapecharacter">
@@ -387,7 +360,7 @@
             <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined-->
             <zone name="context.support.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.open-bracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -405,7 +378,7 @@
             	</subzones>
             </zone> 	
             <zone name="context.support.function.define">
-				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
+				<expression>(\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
@@ -418,17 +391,6 @@
                 <capture number="1" name="context.support.function.name"/>
             </zone>
             
-            <zone name="context.support.function.let">
-                <expression>\\(?:future)?let\b\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])?</expression>
-                <capture number="1" name="context.support.function.name"/>
-            </zone>
-            
-        </collection>
-        
-        <collection name="DefinedVariable">
-            <zone name="context.support.variable.define">
-                <expression>\#{1,9}[A-Za-z_@!?:1-9]+</expression>
-            </zone>
         </collection>
         
         <collection name="TableCells">
@@ -546,7 +508,7 @@
                 
         <collection name="Lua">
         
-            <zone name="context.container.injection.language-root.lua">
+            <zone name="context.container.language-root.lua">
                 <starts-with>
                     <expression>(?:\\start((lua)(code|parameterset)|usercode))\b</expression>
                     <capture number="0" name="context.support.function.start.lua"/>
@@ -560,7 +522,7 @@
                 </subzones>
             </zone>
             
-            <zone name="context.container.injection.language-root.lua">
+            <zone name="context.container.language-root.lua">
                 <starts-with>
                     <expression>((?:\\(?:ctx|direct|late)lua|\\ctxsprint|(?:luaescapestring))|\\ctxcommand|\\usercode)\s*(\{)</expression>
                     <capture number="1" name="context.support.function.general.lua"/>
@@ -578,7 +540,7 @@
         </collection>
         
         <collection name="Metafun">
-            <zone name="context.container.injection.language-root.metafun">
+            <zone name="context.container.language-root.metafun">
                 <starts-with>
                     <expression>(\\start(unique|reusable|use|static)?MP)(code|inclusions|extensions|initializations|definitions|drawing|run|clip|(position)?graphic|environment|page|figure)\b</expression>
                     <capture number="0" name="context.support.function.start.metafun"/>
@@ -720,8 +682,8 @@
         	<zone name="context.punctuation.delimiter.comma">
         	    <expression>,</expression>
         	</zone>
-        	<zone name="context.punctuation.delimiter.colon">
-        	    <expression>:</expression>
+        	<zone name="context.punctuation.delimiter.colon"><!--(?!=), because of otherwise interference with MetaFun-->
+        	    <expression>:(?!=)</expression>
         	</zone>
         </collection>
         
@@ -746,7 +708,6 @@
                 </ends-with>
                 <subzones>
                 	<include collection="Default_Order_of_Zones"/>
-                	<include collection="Numeric" />
                 </subzones>
             </zone>
             
@@ -758,72 +719,6 @@
                 <capture number="4" name="context.keyword.other.misc"/>
             </zone>
             
-            <zone name="context.support.function.general.counting">
-                <expression>\\(advance|divide|multiply)\b</expression>
-            </zone>
-            
-            <zone name="context.support.function.general.box">
-                <expression>\\\w*box\b</expression>
-            </zone>
-            
-			<zone name="context.support.function.general.rule">
-				<expression>\\\w*rule\b</expression>
-			</zone>
-			
-			<zone name="context.support.function.general.kern">
-				<expression>\\\w*kern(?![a-zA-Z])</expression>
-			</zone>
-            
-            <zone name="context.keyword-zone.to-spread-keyword">
-                <expression>(to|spread)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(fi(?:lll|ll|l)|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+)(?=\\fi))</expression>
-                <capture number="1" name="context.keyword.to-spread-keyword"/>
-                <capture number="2" name="context.numeric"/>
-                <capture number="3" name="context.punctuation.delimiter.point"/>
-                <capture number="4" name="context.keyword.other.fillls"/>
-                <capture number="5" name="context.keyword.other.true"/>
-                <capture number="6" name="context.keyword.unit"/>
-                <capture number="7" name="context.support.function.general"/>
-            </zone>
-            
-            <zone name="context.keyword-zone.skip-keyword">
-                <expression>(\\[A-Za-z_@!?:]*(?&lt;!un)(?:skip|size)[A-Za-z_@!?:]*)\s*(?:((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(fi(?:lll|ll|l)|(?:\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)))|((\\[A-Za-z@!?:_]*[A-Za-z@!?:_]\s*)+)(?=\\fi))</expression>
-                <capture number="1" name="context.support.function.general"/>
-                <capture number="2" name="context.numeric"/>
-                <capture number="3" name="context.punctuation.delimiter.point"/>
-                <capture number="4" name="context.keyword.other.fillls"/>
-                <capture number="5" name="context.keyword.other.true"/>
-                <capture number="6" name="context.keyword.unit"/>
-                <capture number="7" name="context.support.function.general"/>
-            </zone>
-            
-            <zone name="context.keyword-zone.plus-minus-keyword">
-                <expression>(minus|plus)</expression>
-            </zone>
-            
-			<zone name="context.keyword-zone.depth-width-height-keyword">
-				<expression>(depth|width|height)</expression>
-			</zone>
-            
-            <zone name="context.keyword-zone.by-keyword">
-                <expression>by</expression>
-            </zone>
-            
-            <zone name="context.keyword-zone.unit">
-                <expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)</expression>
-                <capture number="1" name="context.numeric"/>
-                <capture number="2" name="context.punctuation.delimiter.point"/>
-                <capture number="3" name="context.keyword.other.true"/>
-                <capture number="4" name="context.keyword.unit"/>
-            </zone>
-            
-        </collection>
-        
-        <collection name="Numeric">
-        
-        	<zone name="context.numeric">
-        		<expression>((?:\+|\-)?[0-9]*(\.|,)?[0-9]+)</expression>
-        	</zone>
-        
         </collection>
         
     </library>

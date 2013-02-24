@@ -1,0 +1,1970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--TODO: TeX code completion is here direct in ConTeXt.sugar, because the code completion injection does not work (but Lua.sugar´s does - why!!!). Another fact which is strange is that syntax highlighting injection, itemizers and so on of the TeX sugar works perfect, so obviously some things get injected ...-->
+<codesense version="1.0">
+	
+	<set name="com.tex.Inserts" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="holdinginserts">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="insert">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}{${2:&lt;vertical mode material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="insertpenalties"/>
+	    <completion string="interlinepenalty"/>
+	    <completion string="splitbotmark"/>
+	    <completion string="splitfirstmark"/>
+	    <completion string="splitmaxdepth">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="splittopskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vsplit">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}${2:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Box" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="badness"/>
+	    <completion string="box">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="boxmaxdepth"/>
+	    <completion string="brokenpenalty"/>
+	    <completion string="cleaders">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box or rule&gt;}${2:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="copy">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="dp">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="everyhbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="everyvbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="exhyphenpenalty"/>
+	    <completion string="hbadness"/>
+	    <completion string="hbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;horizontal material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hfuzz"/>
+	    <completion string="hrule">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:[${2:height} ${3:&lt;dimen&gt;} ${4:depth} ${5:&lt;dimen&gt;} ${6:width} ${7:&lt;dimen&gt;}]})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ht">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lastbox"/>
+	    <completion string="leaders">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box or rule&gt;}${2:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="overfullrule"/>
+	    <completion string="prevdepth"/>
+	    <completion string="setbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}=${2:&lt;hbox or vbox&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unhbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unhcopy">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unvbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unvcopy">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vbadness"/>
+	    <completion string="vbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;vertical material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vcenter">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;vertical material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vfuzz"/>
+	    <completion string="vrule">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:[${2:height} ${3:&lt;dimen&gt;} ${4:depth} ${5:&lt;dimen&gt;} ${6:width} ${7:&lt;dimen&gt;}]})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vtop">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;vertical material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="wd">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="widowpenalty"/>
+	    <completion string="xleaders">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box or rule&gt;}${2:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Fonts" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="/"/>
+	    <completion string="fam">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="font">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}=${2:&lt;file name&gt;}${3:&lt;at clause&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="fontdimen">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;parameter number&gt;}${2:&lt;font&gt;}=${3:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="fontname">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;font&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="nullfont"/>
+	    <completion string="scriptfont">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;font identifier&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="scriptscriptfont">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;font identifier&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="textfont">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;font identifier&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Math" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="above">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="abovewithdelims">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;delim1&gt;}${2:&lt;delim2&gt;}${3:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="atop"/>
+	    <completion string="atopwithdelims">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;delim1&gt;}${2:&lt;delim2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="delimiterfactor"/>
+	    <completion string="delimitershortfall"/>
+	    <completion string="displaylimits"/>
+	    <completion string="displaystyle"/>
+	    <completion string="eqno">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;formula&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="everydisplay">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="everymath">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="left">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;delim1&gt;}${2:&lt;subformula&gt;}${3:&lt;delim2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="leqno">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;formula&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="limits"/>
+	    <completion string="linepenalty"/>
+	    <completion string="mathbin">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathchoice">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;math&gt;}}{${2:&lt;math&gt;}}{${3:&lt;math&gt;}}{${4:&lt;math&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathclose">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathinner">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathop">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathopen">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathord">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathpunct">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathrel">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="nolimits"/>
+	    <completion string="nonscript"/>
+	    <completion string="over"/>
+	    <completion string="overline">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="overwithdelims">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;delim1&gt;}${2:&lt;delim2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="radical">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}${2:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="right">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;delim&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="scriptscriptstyle"/>
+	    <completion string="scriptstyle"/>
+	    <completion string="textstyle"/>
+	    <completion string="underline">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Job" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="day"/>
+	    <completion string="deadcycles"/>
+	    <completion string="dump"/>
+	    <completion string="end"/>
+	    <completion string="everyjob">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="jobname"/>
+	    <completion string="mag">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="maxdeadcycles">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="month"/>
+	    <completion string="time"/>
+	    <completion string="year"/>
+	</set>
+	
+	<set name="com.tex.Tables" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="cr"/>
+	    <completion string="crcr"/>
+	    <completion string="everycr">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="halign">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;alignment material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="noalign">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;vertical/horizontal mode material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="omit"/>
+	    <completion string="span"/>
+	    <completion string="tabskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="valign">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box specification&gt;}{${2:&lt;alignment material&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Debugging" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="batchmode"/>
+	    <completion string="errhelp">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;general text&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="errmessage">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;general text&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="errorcontextlines"/>
+	    <completion string="errorstopmode"/>
+	    <completion string="meaning">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="message">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;general text&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="nonstopmode"/>
+	    <completion string="pausing"/>
+	    <completion string="penalty">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="scrollmode"/>
+	    <completion string="show">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="showbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="showboxbreadth">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="showboxdepth">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="showlists"/>
+	    <completion string="showthe">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;internal quantity&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingcommands">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracinglostchars">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingmacros">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingonline">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingoutput">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingpages">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingparagraphs">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingrestores">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tracingstats">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Page" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="hoffset">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="maxdepth">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="pagedepth"/>
+	    <completion string="pagefilllstretch"/>
+	    <completion string="pagefillstretch"/>
+	    <completion string="pagefilstretch"/>
+	    <completion string="pagegoal"/>
+	    <completion string="pageshrink"/>
+	    <completion string="pagestretch"/>
+	    <completion string="pagetotal"/>
+	    <completion string="topskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="voffset">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vsize">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Paragraph" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="adjdemerits">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="baselineskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="displayindent"/>
+	    <completion string="displaywidth"/>
+	    <completion string="doublehyphendemerits">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="emergencystretch">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="everypar">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="finalhyphendemerits">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hangafter">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hangindent">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hsize">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ignorespaces">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;optional spaces&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="indent"/>
+	    <completion string="leftskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lineskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lineskiplimit">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="looseness">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="noboundary"/>
+	    <completion string="noindent"/>
+	    <completion string="par"/>
+	    <completion string="parfillskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="parindent">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="parshape">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;}${2:&lt;shape dimensions&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="parskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="predisplaysize"/>
+	    <completion string="pretolerance">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="prevgraf"/>
+	    <completion string="rightskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="spacefactor">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="spaceskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="tolerance">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vadjust">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;vertical list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="xspaceskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Hyphenation" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-"/>
+	    <completion string="defaulthyphenchar">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="discretionary">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;pre-break text&gt;}}{${2:&lt;post-break text&gt;}}{${3:&lt;no-break text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hyphenation">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;hyphenated words&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hyphenchar">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;font&gt;}=${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hyphenpenalty"/>
+	    <completion string="language">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lefthyphenmin">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="patterns">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;patterns&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="righthyphenmin">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:=${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="setlanguage">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="uchyph"/>
+	</set>
+	
+	<set name="com.tex.Kern" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="kern">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lastkern"/>
+	    <completion string="lastpenalty"/>
+	    <completion string="lower">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;}${2:&lt;box&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathsurround">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mkern">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;mudimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="moveleft">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;}${2:&lt;box&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="moveright">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;}${2:&lt;box&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="nulldelimiterspace">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="raise">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;}${2:&lt;box&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="scriptspace">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unkern"/>
+	    <completion string="unpenalty"/>
+	</set>
+	
+	<set name="com.tex.Registers" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="advance">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;numeric variables&gt;}${2:&lt;quantity&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="count">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}=${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="countdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;name&gt;}=${2:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="dimen">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}=${2:&lt;dimen&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="dimendef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;name&gt;}=${2:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="divide">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;numeric variable&gt;}${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="multiply">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;numeric variable&gt;}${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="muskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}=${2:&lt;muglue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="muskipdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;name&gt;}=${2:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="skip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}=${2:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="skipdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;name&gt;}=${2:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="toks">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;register number&gt;}={${2:&lt;replacement text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="toksdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;name&gt;}=${2:&lt;register number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Macro" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="afterassignment">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="aftergroup">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="begingroup"/>
+	    <completion string="csname">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;tokens&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="def">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}${2:&lt;parameter text&gt;}{${3:&lt;replacement text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="edef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}${2:&lt;parameter text&gt;}{${3:&lt;replacement text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="endcsname"/>
+	    <completion string="endgroup"/>
+	    <completion string="expandafter">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token1&gt;}${2:&lt;token2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="futurelet">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}${2:&lt;token1&gt;}${3:&lt;token2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="gdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}${2:&lt;parameter text&gt;}{${3:&lt;replacement text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="global">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;assignment&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="globaldefs"/>
+	    <completion string="let">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}=${2:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="long">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;macro-definition assignment&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="noexpand">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="outer">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;macro-definition assignment&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="relax"/>
+	    <completion string="the">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;internal quantity&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="xdef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}${2:&lt;parameter text&gt;}{${3:&lt;replacement text&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Character" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="accent">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}${2:&lt;optional assignments&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="catcode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="char">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="chardef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}=${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="defaultskewchar"/>
+	    <completion string="delcode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;2number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="delimiter">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="endlinechar"/>
+	    <completion string="escapechar"/>
+	    <completion string="lccode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="lowercase">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathaccent">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}${2:&lt;single character or \{subformula\}&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathchar">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathchardef">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;control sequence&gt;}=${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mathcode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="newlinechar"/>
+	    <completion string="number">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="romannumeral">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="sfcode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="skewchar">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;font&gt;}=${2:&lt;-1 or number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="uccode">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="uppercase">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.tex.Glue" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="abovedisplayshortskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="abovedisplayskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="belowdisplayshortskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="belowdisplayskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hfil"/>
+	    <completion string="hfill"/>
+	    <completion string="hfilneg"/>
+	    <completion string="hskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="hss"/>
+	    <completion string="lastskip"/>
+	    <completion string="medmuskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;muglue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;muglue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="thickmuskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;muglue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="thinmuskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;muglue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unskip"/>
+	    <completion string="vfil"/>
+	    <completion string="vfill"/>
+	    <completion string="vfilneg"/>
+	    <completion string="vskip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;glue&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="vss"/>
+	</set>
+	
+	<set name="com.tex.Penalties" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="binoppenalty"/>
+	    <completion string="displaywidowpenalty"/>
+	    <completion string="postdisplaypenalty"/>
+	    <completion string="predisplaypenalty"/>
+	    <completion string="relpenalty"/>
+	</set>
+	
+	<set name="com.tex.Logic" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="else"/>
+	    <completion string="fi"/>
+	    <completion string="if">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token1&gt;}${2:&lt;token2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifcase">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifcat">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token1&gt;}${2:&lt;token2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifdim">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;dimen1&gt;}${2:&lt;relation&gt;}${3:&lt;dimen2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifeof">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="iffalse"/>
+	    <completion string="ifhbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifhmode"/>
+	    <completion string="ifinner"/>
+	    <completion string="ifmmode"/>
+	    <completion string="ifnum">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number1&gt;}${2:&lt;relation&gt;}${3:&lt;number2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifodd">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="iftrue"/>
+	    <completion string="ifvbox">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifvmode"/>
+	    <completion string="ifvoid">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="ifx">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;token1&gt;}${2:&lt;token2&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="or"/>
+	</set>
+	
+	<set name="com.tex.Marks" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="botmark"/>
+	    <completion string="firstmark"/>
+	    <completion string="floatingpenalty"/>
+	    <completion string="mark">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:\&gt;mark text\&lt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="topmark"/>
+	</set>
+	
+	<set name="com.tex.FileIO" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="closein">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="closeout">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="clubpenalty"/>
+	    <completion string="endinput"/>
+	    <completion string="immediate">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;write or openout or closeout&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="input">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;file name&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="inputlineno"/>
+	    <completion string="openin">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;file name&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="openout">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}=${2:&lt;file name&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="output">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="outputpenalty"/>
+	    <completion string="read">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}${2:&lt;control sequence&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="shipout">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;box&gt;})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="special">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:{${1:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="write">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <transform-into>(?1:$0:${1:&lt;number&gt;}{${2:&lt;token list&gt;}})</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+</codesense>

@@ -92,13 +92,6 @@
 	
 	</recipe>
 	
-	
-<!--control block-->
-	<recipe name="context.container.control.if">
-		<class>ESJSControlBlockItem</class>
-		<selector>context.keyword.control.if:capture(name)</selector>
-	</recipe>
-	
 <!--metapost control block-->	
 	<recipe name="metapost.container.control.for">
 		<class>ESJSControlBlockItem</class>
@@ -115,11 +108,6 @@
 		<subrecipes>
 			<include recipe="metapost.container.control.for"/>
 		</subrecipes>
-	</recipe>
-<!--comment-->
-	<recipe name="context.comment">
-		<class>ESCommentItem</class>
-		<selector>comment.line</selector>
 	</recipe>
 	
 <!--define/def...-->	

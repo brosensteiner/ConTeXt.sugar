@@ -2,13 +2,14 @@
 
 <codesense version="1.0">
 	
-	<set name="com.context.commands">
+	<set name="com.context.commands" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
+	    
 	    <completion string="installlanguage">
 	        <behavior>
 	            <append-dynamic>
@@ -497,22 +498,6 @@
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
-	    <completion string="character">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
-	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="Character">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
-	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
 	    <completion string="characters">
 	        <behavior>
 	            <append-dynamic>
@@ -958,14 +943,6 @@
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="textrule">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
-	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -4247,6 +4224,5 @@
 		<completion string="middlegray" />    
 		<completion string="lightgray" /> 
     </set>
-
 	
 </codesense>

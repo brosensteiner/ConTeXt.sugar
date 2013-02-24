@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--TODO: TeX code completion is here direct in ConTeXt.sugar, because the code completion injection does not work (but Lua.sugar´s does - why!!!). Another fact which is strange is that syntax highlighting, itemizers and so on  injection of the TeX sugar works perfect, so obviously some things get injected ...-->
+<codesense>
+	
+	<provider>
+	    <selector>language-root.context, language-root.context *</selector>
+	    <completions>com.tex.Character</completions>
+	    <completions>com.tex.Hyphenation</completions>
+	    <completions>com.tex.Fonts</completions>
+	    <completions>com.tex.Math</completions>
+	    <completions>com.tex.Glue</completions>
+	    <completions>com.tex.Paragraph</completions>
+	    <completions>com.tex.Registers</completions>
+	    <completions>com.tex.Macro</completions>
+	    <completions>com.tex.Box</completions>
+	    <completions>com.tex.Debugging</completions>
+	    <completions>com.tex.Penalties</completions>
+	    <completions>com.tex.Marks</completions>
+	    <completions>com.tex.FileIO</completions>
+	    <completions>com.tex.Tables</completions>
+	    <completions>com.tex.Job</completions>
+	    <completions>com.tex.Logic</completions>
+	    <completions>com.tex.Page</completions>
+	    <completions>com.tex.Inserts</completions>
+	    <completions>com.tex.Kern</completions>
+	    <complete-match capture="1">\\([a-zA-Z\\]*)</complete-match>
+	</provider>
+		
+</codesense> 

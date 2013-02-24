@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <injections>
-	
-	<injection name="injection.LuaTeX.ConTeXt" selector="language-root.context context.container.injection.language-root.lua" action="insert-before-children">
+	<!--TEX-->
+	<injection name="injection.TeX-ConTeXt" selector="language-root.context *" action="attach-after-target">
+		<include syntax="language-root.TeXConTeXt"/>
+	</injection>
+	<!--Lua-->
+	<injection name="injection.LuaTeX-ConTeXt" selector="language-root.context container.language-root.lua" action="insert-before-children">
 		<include syntax="language-root.LuaTeX"/>
 	</injection>
-		
-    <injection name="injection.MetaFun-ConTeXt" selector="language-root.context context.container.injection.language-root.metafun" action="insert-before-children">
+	<!--MetaFun-->
+    <injection name="injection.MetaFun-ConTeXt" selector="language-root.context container.language-root.metafun" action="insert-before-children">
     	<include syntax="language-root.MetaFun"/>
     </injection>
       
