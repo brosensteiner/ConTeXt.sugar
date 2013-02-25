@@ -2,7 +2,7 @@
 
 this Espresso Sugar for the ConTeXt typesetting system by Pragma ADE (complete code-sense, navigator view, code folding and syntax highlighting). If someone has suggestions or questions please let me know and [email me](mailto:brosensteiner@gmail.com)
 
--**IMPORTANT:** when the TeX.sugar is installed all TeX commands work as well.
+-**IMPORTANT:** ConTeXt.sugar needs TeX.sugar for TeX commands syntax-highlighting and code-completion: [TeX.sugar](https://github.com/brosensteiner/TeX.sugar)
 
 
 ## Installation
