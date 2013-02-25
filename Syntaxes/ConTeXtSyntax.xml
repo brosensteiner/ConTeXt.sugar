@@ -349,7 +349,7 @@
             <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined-->
             <zone name="context.support.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])\s*((?:\#{1,9}[A-Za-z_@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.open-bracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -367,7 +367,7 @@
             	</subzones>
             </zone> 	
             <zone name="context.support.function.define">
-				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))?\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
+				<expression>(\\(?:g|e|x)?def|\\define)\s*(?:(\[)(\d)(\]))\s*(\\[A-Za-z@!?:_]*[A-Za-z@!?:_;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
@@ -547,8 +547,7 @@
 				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
-					<include syntax="EscapecharacterDollar"/>
-					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="EscapecharacterDollar"/>
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
@@ -562,8 +561,7 @@
 				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
-					<include syntax="EscapecharacterDollar"/>
-					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="EscapecharacterDollar"/>
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
@@ -577,8 +575,7 @@
 				<capture number="0" name="context.end.math"/>
 			</ends-with>
 				<subzones>
-					<include syntax="EscapecharacterDollar"/>
-					<include syntax="text.TeX.math.ConTeXt"/>
+					<include collection="EscapecharacterDollar"/>
 					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
@@ -592,8 +589,7 @@
         	        <capture number="0" name="context.end.math"/>
         	    </ends-with>
         	    <subzones>
-        	        <include syntax="EscapecharacterDollar"/>
-        	        <include syntax="text.TeX.math.ConTeXt"/>
+        	        <include collection="EscapecharacterDollar"/>
         	        <include collection="Default_Order_of_Zones"/>
         	    </subzones>
         	</zone>
@@ -607,8 +603,7 @@
                     <capture number="0" name="context.end.math"/>
                 </ends-with>
                 <subzones>
-                    <include syntax="EscapecharacterDollar"/>
-                    <include syntax="text.TeX.math.ConTeXt"/>
+                    <include collection="EscapecharacterDollar"/>
                     <include collection="Default_Order_of_Zones"/>
                 </subzones>
             </zone>
