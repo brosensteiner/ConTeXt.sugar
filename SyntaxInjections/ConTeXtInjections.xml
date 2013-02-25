@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <injections>
-	<!--ConTeXt-->
-	<injection name="injection.ConTeXt" selector="language-root.context tex.function.command-define" action="insert-after-children">
-		<include syntax="language-root.context"/>
-	</injection>
-	<!--TEX-->
-	<!--"*:not(tex)" because there are some direct TeX.sugar injections (see ConTeXtSyntax.xml)-->
-	<injection name="injection.TeX-ConTeXt" selector="language-root.context *:not(tex)" action="attach-before-target">
-		<include syntax="language-root.TeXConTeXt"/>
-	</injection>
+
+	<!--TeX: gets direct injected (see ConTeXtSyntax.xml) - syntax of ConTeXt/TeX are nested to complex to make simple injections here-->
 	<!--Lua-->
 	<injection name="injection.LuaTeX-ConTeXt" selector="language-root.context container.language-root.lua" action="insert-before-children">
 		<include syntax="language-root.LuaTeX"/>

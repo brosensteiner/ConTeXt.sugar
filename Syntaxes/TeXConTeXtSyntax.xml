@@ -4,7 +4,6 @@
 <syntax name="language-root.TeXConTeXt">
 
 	<zones>
-		<include syntax="language-root.context" collection="Define"/><!--ConTeXt special def´s before TeX´s own-->
         <include syntax="language-root.tex"/>
 	</zones>
 	
