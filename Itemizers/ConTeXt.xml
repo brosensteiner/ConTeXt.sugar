@@ -74,10 +74,11 @@
 	
 	</recipe>
 	
-	<recipe name="context.container.lua-code-block-single-liner">
+	<recipe name="context.container.lua-code-block-single-line">
 		<class>ESCodeClassItem</class>
-		<selector>context.support.function.general.lua:capture(name)</selector>
+		<selector>context.container.language-root.lua.oneline:has-child(oneline-lua:capture(name))</selector>
 	</recipe>
+	
 <!--\start... \stop...-->		 
 	<recipe name="context.container.environment">
 	
