@@ -15,6 +15,7 @@
         	<include syntax="language-root.tex" /><!--TeX syntax-->
         	<include collection="Environments"/>
             <include collection="Sectioning"/>
+            <include collection="SpecialTableCommands" />
             <include collection="BalancedBraces"/>
         	<include collection="BalancedBrackets"/>
         	<include collection="BalancedParenthesis"/>
@@ -160,7 +161,7 @@
         <collection name="BalancedBrackets">
             <zone name="context.balanced.bracket">
                 <starts-with>
-                    <expression>(\\[A-Za-z@!?:_]*[A-Za-z@!?:_])\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
+                    <expression>(?:(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:]))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -171,10 +172,6 @@
                     <capture number="0" name="context.close-bracket.level0"/>
                 </ends-with>
                 <subzones name="context.between.brackets">
-                	<!--for ConTeXt tables:-->
-                	<zone name="context.keyword.other.table">
-                	    <expression>\|</expression>
-                	</zone>
                     <include collection="Between_Brackets"/>
                 </subzones>
             </zone>
@@ -391,48 +388,6 @@
             
         </collection>
         
-        <collection name="TableCells">
-            <zone name="context.container.table-cell">
-                <starts-with>
-                    <expression>\\(?:b(TD|TC|TH))\b</expression>
-                    <capture number="0" name="context.support.function.table.cell.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\\(e(\1))\b</expression>
-                    <capture number="0" name="context.support.function.table.cell.end"/>
-                </ends-with>
-                <subzones>
-                    <include collection="Default_Order_of_Zones"/>
-                </subzones>
-            </zone>
-        </collection>
-        
-         <collection name="TableRows">
-         
-            <zone name="context.support.function.table.row.end">
-                <expression>\\(HL|TB|NR|SR|FR|MR|LR|AR)\b</expression>
-            </zone>
-            
-            <zone name="context.support.function.table.cell.begin">
-                <expression>\\(NC|VL|NC|VL)\b</expression>
-            </zone>
-            
-            <zone name="context.container.table-row">
-            <starts-with>
-                    <expression>\\bTR\b</expression>
-                    <capture number="0" name="context.support.function.table.row.begin"/>
-            </starts-with>
-            <ends-with>
-                    <expression>\\eTR\b</expression>
-                    <capture number="0" name="context.support.function.table.row.end"/>
-            </ends-with>
-                <subzones>
-                    <include collection="TableCells"/>
-                </subzones>
-            </zone>
-            
-        </collection>
-        
         <collection name="Environments">
 			
 			<zone  name="context.balanced.structural.float">
@@ -467,24 +422,28 @@
             	</ends-with>
             	<subzones>
             		<include collection="Define"/>
-            		<include collection="TableRows"/>
             		<include collection="Default_Order_of_Zones"/>
             	</subzones>
             </zone>
-            <zone name="context.container.table.float">
-            	<starts-with>
-            		<expression>(?:\\start(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
-            		<capture number="0" name="context.support.function.start-table"/>
-            	</starts-with>
-            	<ends-with>
-            		<expression>\\stop\1</expression>
-            		<capture number="0" name="context.support.function.stop-table"/>
-            	</ends-with>
-            	<subzones>
-            		<include collection="Define"/>
-            		<include collection="TableRows"/>
-            		<include collection="Default_Order_of_Zones"/>
-            	</subzones>
+            
+            <zone  name="context.balanced.structural.start-table">
+                <starts-with>
+                    <expression>(\\start(?:TABLE|table(?:head|tail)?|tabulate|linetable))\s*(\[)</expression>
+                    <capture number="1" name="context.support.function.table"/>
+                    <capture number="2" name="context.open-bracket.level0"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\]</expression>
+                    <capture number="0" name="context.close-bracket.level0"/>
+                </ends-with>
+                <subzones name="context.between.brackets">
+                    <include collection="Between_Brackets"/>
+                </subzones>
+            </zone>
+            
+            <zone name="context.structural.stop-table">
+            	<expression>(?:\\stop(TABLE|table(head|tail)?|tabulate|linetable))\b</expression>
+            	<capture number="0" name="context.support.function.table"/>
             </zone>
 
 			<zone name="context.support.function.start-protect">
@@ -494,6 +453,34 @@
 				<expression>\\protect\b</expression>
 			</zone>
 
+        </collection>
+        
+        <collection name="SpecialTableCommands">
+			
+			<zone name="context.support.function.table.cell.begin">
+			    <expression>\\(?:b(TD|TC|TH))\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.table.cell.end">
+			    <expression>\\(?:e(TD|TC|TH))\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.table.row.end">
+			    <expression>\\(HL|TB|NR|SR|FR|MR|LR|AR)\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.table.cell.begin">
+			    <expression>\\(NC|VL|NC|VL)\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.table.row.begin">
+			    <expression>\\bTR\b</expression>
+			</zone>
+			
+			<zone name="context.support.function.table.row.end">
+			    <expression>\\eTR\b</expression>
+			</zone>
+        
         </collection>
                 
         <collection name="Lua">
@@ -697,7 +684,7 @@
         	</zone>
         	
         	<zone name="context.keyword.other.wordboundary">
-        	    <expression>--{2,3}|\\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
+        	    <expression>-{2,3}|\\/|\|\||\\\s|\\-|\|-\||\|/\||~|\|&lt;\||\|&gt;\|</expression>
         	</zone>
         	
             <zone name="context.keyword-other-misc">

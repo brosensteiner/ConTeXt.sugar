@@ -2,7 +2,7 @@
 
 <itemizer>
 
-<!--docunent blocks (starttext, startsection...)-->	
+<!--docunent blocks (starttext, startsection, table ...)-->	
 	
 	<recipe name="context.structural.startsections">
 	
@@ -19,6 +19,17 @@
 	
 		<class>ESXMLItem</class>
 		<selector>context.structural.section:capture(itemizer-firstused) + balanced.brace:capture(name)</selector>
+		
+	</recipe>
+	
+	<recipe name="context.structural.table">
+	
+		<class>ESXMLItem</class>
+		<start-selector>context.structural.start-table:capture(name)</start-selector>
+		<end-selector>context.structural.stop-table</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
 		
 	</recipe>
 	
@@ -127,7 +138,18 @@
 	<recipe name="context.container.support.function">
 		<selector>context.support.function.define > support.function.name:capture(name)</selector>
 	</recipe>
-	
+
+<!--math: math is really special in TeX so it deserves a place in the Navigator :)-->
+<recipe name="tex.container.math">
+
+	<class>ESCodeClassItem</class>
+	<start-selector>tex.math > begin.math:capture(name)</start-selector>
+	<end-selector>tex.math > end.math</end-selector>
+	<subrecipes>
+		<include-root-recipes />
+	</subrecipes>
+
+</recipe>
 	
 </itemizer>
 
