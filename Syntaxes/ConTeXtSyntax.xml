@@ -10,6 +10,7 @@
     <library>
     
 		<collection name="Default_Order_of_Zones">
+			<include collection="InertSyntax" />
         	<include collection="Lua"/>
         	<include collection="Metafun"/>
         	<include collection="OverwriteTeXSugar" /><!--some things ConTeXt needs prescendence-->
@@ -720,6 +721,22 @@
             </zone>
             
         </collection>
+        
+        <!--there are times when no syntax highlighting is desirable:-->
+        <collection name="InertSyntax">
+        	
+        	<zone name="context.container.inert.starttyping">
+        		<starts-with>
+        			<expression>\\starttyping(?=(\b|(?=\d)))</expression>
+        			<capture number="0" name="context.support.function.general"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>\\stoptyping(?=(\b|(?=\d)))</expression>
+        			<capture number="0" name="context.support.function.general"/>
+        		</ends-with>
+        	</zone>
+        	
+		</collection>
         
         <collection name="OverwriteTeXSugar">
         	
