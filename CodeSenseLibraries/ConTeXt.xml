@@ -5,7 +5,7 @@
 	<set name="com.context.commands" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
-	            <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	            <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
@@ -13,7 +13,7 @@
 	    <completion string="installlanguage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -21,7 +21,7 @@
 	    <completion string="setuplanguage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -29,7 +29,7 @@
 	    <completion string="language">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -37,7 +37,7 @@
 	    <completion string="mainlanguage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -45,7 +45,7 @@
 	    <completion string="translate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -53,7 +53,7 @@
 	    <completion string="useencoding">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -61,7 +61,7 @@
 	    <completion string="usespecials">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -69,7 +69,7 @@
 	    <completion string="defineoutput">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -77,7 +77,7 @@
 	    <completion string="setupoutput">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -85,7 +85,7 @@
 	    <completion string="definebodyfontenvironment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -93,7 +93,7 @@
 	    <completion string="setupbodyfontenvironment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -101,7 +101,7 @@
 	    <completion string="showbodyfontenvironment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -109,7 +109,7 @@
 	    <completion string="definebodyfont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -117,7 +117,7 @@
 	    <completion string="definebodyfontDEF">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -125,7 +125,7 @@
 	    <completion string="definebodyfontREF">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -133,7 +133,7 @@
 	    <completion string="showbodyfont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -141,7 +141,7 @@
 	    <completion string="setupbodyfont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -149,7 +149,7 @@
 	    <completion string="switchtobodyfont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -157,7 +157,7 @@
 	    <completion string="definefont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -165,7 +165,7 @@
 	    <completion string="setupcolor">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -173,7 +173,7 @@
 	    <completion string="setupcolors">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -181,7 +181,7 @@
 	    <completion string="definecolor">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -189,7 +189,7 @@
 	    <completion string="color">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -197,7 +197,7 @@
 	    <completion string="color">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -205,7 +205,7 @@
 	    <completion string="graycolor">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -213,7 +213,7 @@
 	    <completion string="showcolor">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -221,7 +221,7 @@
 	    <completion string="definepalet">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -229,7 +229,7 @@
 	    <completion string="setuppalet">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -237,7 +237,7 @@
 	    <completion string="definecolorgroup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -245,7 +245,7 @@
 	    <completion string="showpalet">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -253,7 +253,7 @@
 	    <completion string="showcolorgroup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -261,7 +261,7 @@
 	    <completion string="comparepalet">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -269,7 +269,7 @@
 	    <completion string="comparecolorgroup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -277,7 +277,7 @@
 	    <completion string="showmakeup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -285,7 +285,7 @@
 	    <completion string="definetype">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -293,7 +293,7 @@
 	    <completion string="setuptype">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -301,7 +301,7 @@
 	    <completion string="type">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -309,7 +309,7 @@
 	    <completion string="typ">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -317,7 +317,7 @@
 	    <completion string="tex">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -325,7 +325,7 @@
 	    <completion string="definetyping">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -333,7 +333,7 @@
 	    <completion string="setuptyping">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -341,7 +341,7 @@
 	    <completion string="typing">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -349,7 +349,7 @@
 	    <completion string="typefile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -357,7 +357,7 @@
 	    <completion string="setupfootnotes">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -365,7 +365,7 @@
 	    <completion string="setupfootnotedefinition">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -373,7 +373,7 @@
 	    <completion string="footnote">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -381,7 +381,7 @@
 	    <completion string="footnotetext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -389,7 +389,7 @@
 	    <completion string="note">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -397,7 +397,7 @@
 	    <completion string="localfootnotes">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -405,7 +405,7 @@
 	    <completion string="placelocalfootnotes">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -413,7 +413,7 @@
 	    <completion string="placefootnotes">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -421,7 +421,7 @@
 	    <completion string="setupunderbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -429,7 +429,7 @@
 	    <completion string="underbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -437,7 +437,7 @@
 	    <completion string="underbars">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -445,7 +445,7 @@
 	    <completion string="overbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -453,7 +453,7 @@
 	    <completion string="overbars">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -461,7 +461,7 @@
 	    <completion string="overstrike">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -469,7 +469,7 @@
 	    <completion string="overstrikes">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -477,7 +477,7 @@
 	    <completion string="romannumerals">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -485,7 +485,7 @@
 	    <completion string="Romannumerals">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -493,7 +493,7 @@
 	    <completion string="numbers">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -501,7 +501,7 @@
 	    <completion string="characters">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -509,7 +509,7 @@
 	    <completion string="Characters">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -517,7 +517,7 @@
 	    <completion string="mediaeval">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -525,7 +525,7 @@
 	    <completion string="month">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -533,7 +533,7 @@
 	    <completion string="MONTH">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -541,7 +541,7 @@
 	    <completion string="weekday">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -549,7 +549,7 @@
 	    <completion string="WEEKDAY">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -557,7 +557,7 @@
 	    <completion string="setupcapitals">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -565,7 +565,7 @@
 	    <completion string="cap">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -573,7 +573,7 @@
 	    <completion string="nocap">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -581,7 +581,7 @@
 	    <completion string="CAP">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -589,7 +589,7 @@
 	    <completion string="Cap">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -597,7 +597,7 @@
 	    <completion string="Caps">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -605,7 +605,7 @@
 	    <completion string="WORD">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -613,7 +613,7 @@
 	    <completion string="WORDS">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -621,7 +621,7 @@
 	    <completion string="Word">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -629,7 +629,7 @@
 	    <completion string="Words">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -637,7 +637,7 @@
 	    <completion string="stretched">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -645,7 +645,7 @@
 	    <completion string="definesymbol">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -653,7 +653,7 @@
 	    <completion string="definefiguresymbol">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -661,7 +661,7 @@
 	    <completion string="symbol">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -669,7 +669,7 @@
 	    <completion string="symbolset">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -677,7 +677,7 @@
 	    <completion string="setupsymbolset">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -685,7 +685,7 @@
 	    <completion string="usesymbols">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -693,7 +693,7 @@
 	    <completion string="showsymbolset">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -701,7 +701,7 @@
 	    <completion string="defineconversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -709,7 +709,7 @@
 	    <completion string="convertnumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -717,7 +717,7 @@
 	    <completion string="setupheadtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -725,7 +725,7 @@
 	    <completion string="setuplabeltext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -733,7 +733,7 @@
 	    <completion string="headtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -741,7 +741,7 @@
 	    <completion string="labeltext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -749,7 +749,7 @@
 	    <completion string="setupmarginrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -757,7 +757,7 @@
 	    <completion string="marginrule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -765,7 +765,7 @@
 	    <completion string="marginrule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -773,7 +773,7 @@
 	    <completion string="setuplinewidth">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -781,7 +781,7 @@
 	    <completion string="setupframed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -789,7 +789,7 @@
 	    <completion string="framed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -797,7 +797,7 @@
 	    <completion string="inframed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -805,7 +805,7 @@
 	    <completion string="thinrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -813,7 +813,7 @@
 	    <completion string="setupthinrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -821,7 +821,7 @@
 	    <completion string="hairline">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -829,7 +829,7 @@
 	    <completion string="thinrule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -837,7 +837,7 @@
 	    <completion string="defineframedtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -845,7 +845,7 @@
 	    <completion string="defineframed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -853,7 +853,7 @@
 	    <completion string="setupframedtexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -861,7 +861,7 @@
 	    <completion string="framedtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -869,7 +869,7 @@
 	    <completion string="framedtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -877,7 +877,7 @@
 	    <completion string="background">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -885,7 +885,7 @@
 	    <completion string="background">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -893,7 +893,7 @@
 	    <completion string="setupbackground">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -901,7 +901,7 @@
 	    <completion string="fillinrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -909,7 +909,7 @@
 	    <completion string="fillintext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -917,7 +917,7 @@
 	    <completion string="setupfillinrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -925,7 +925,7 @@
 	    <completion string="fillinline">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -933,7 +933,7 @@
 	    <completion string="setupfillinlines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -941,7 +941,7 @@
 	    <completion string="setuptextrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -949,7 +949,7 @@
 	    <completion string="textrule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -957,7 +957,7 @@
 	    <completion string="blackrule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -965,7 +965,7 @@
 	    <completion string="blackrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -973,7 +973,7 @@
 	    <completion string="setupblackrules">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -981,7 +981,7 @@
 	    <completion string="defineoverlay">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -989,7 +989,7 @@
 	    <completion string="usemodule">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -997,7 +997,7 @@
 	    <completion string="reset">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1005,7 +1005,7 @@
 	    <completion string="localenvironment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1013,7 +1013,7 @@
 	    <completion string="setupsystem">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1021,7 +1021,7 @@
 	    <completion string="usedirectory">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1029,7 +1029,7 @@
 	    <completion string="low">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1037,7 +1037,7 @@
 	    <completion string="high">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1045,7 +1045,7 @@
 	    <completion string="lohi">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1053,7 +1053,7 @@
 	    <completion string="showframe">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1061,7 +1061,7 @@
 	    <completion string="leftaligned">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1069,7 +1069,7 @@
 	    <completion string="rightaligned">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1077,7 +1077,7 @@
 	    <completion string="midaligned">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1085,7 +1085,7 @@
 	    <completion string="wordright">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1093,7 +1093,7 @@
 	    <completion string="inmargin">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1101,7 +1101,7 @@
 	    <completion string="inothermargin">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1109,7 +1109,7 @@
 	    <completion string="inleft">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1117,7 +1117,7 @@
 	    <completion string="inright">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1125,7 +1125,7 @@
 	    <completion string="ininner">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1133,7 +1133,7 @@
 	    <completion string="inouter">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1141,7 +1141,7 @@
 	    <completion string="column">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1149,7 +1149,7 @@
 	    <completion string="showstruts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1157,7 +1157,7 @@
 	    <completion string="showsetups">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1165,7 +1165,7 @@
 	    <completion string="showlayout">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1173,7 +1173,7 @@
 	    <completion string="margintext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1181,7 +1181,7 @@
 	    <completion string="setupmarginblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1189,7 +1189,7 @@
 	    <completion string="marginblock">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1197,7 +1197,7 @@
 	    <completion string="part">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1205,7 +1205,7 @@
 	    <completion string="title">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1213,7 +1213,7 @@
 	    <completion string="chapter">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1221,7 +1221,7 @@
 	    <completion string="section">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1229,7 +1229,7 @@
 	    <completion string="subsection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1237,7 +1237,7 @@
 	    <completion string="subsubsection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1245,7 +1245,7 @@
 	    <completion string="subject">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1253,7 +1253,7 @@
 	    <completion string="subsubject">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1261,7 +1261,7 @@
 	    <completion string="subsubsubject">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1269,7 +1269,7 @@
 	    <completion string="appendix">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1277,7 +1277,7 @@
 	    <completion string="in">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1285,7 +1285,7 @@
 	    <completion string="at">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1293,7 +1293,7 @@
 	    <completion string="about">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1301,7 +1301,7 @@
 	    <completion string="somewhere">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1309,7 +1309,7 @@
 	    <completion string="atpage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1317,7 +1317,7 @@
 	    <completion string="ref">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1325,7 +1325,7 @@
 	    <completion string="textreference">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1333,7 +1333,7 @@
 	    <completion string="pagereference">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1341,7 +1341,7 @@
 	    <completion string="reference">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1349,7 +1349,7 @@
 	    <completion string="usereferences">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1357,7 +1357,7 @@
 	    <completion string="definereference">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1365,7 +1365,7 @@
 	    <completion string="definereferenceformat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1373,7 +1373,7 @@
 	    <completion string="hl">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1381,7 +1381,7 @@
 	    <completion string="vl">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1389,7 +1389,7 @@
 	    <completion string="godown">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1397,7 +1397,7 @@
 	    <completion string="whitespace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1405,7 +1405,7 @@
 	    <completion string="nowhitespace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1413,7 +1413,7 @@
 	    <completion string="crlf">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1421,7 +1421,7 @@
 	    <completion string="space">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1429,7 +1429,7 @@
 	    <completion string="fixedspaces">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1437,7 +1437,7 @@
 	    <completion string="emptylines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1445,7 +1445,7 @@
 	    <completion string="nospace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1453,7 +1453,7 @@
 	    <completion string="packed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1461,7 +1461,7 @@
 	    <completion string="setupdescriptions">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1469,7 +1469,7 @@
 	    <completion string="setupenumerations">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1477,7 +1477,7 @@
 	    <completion string="defineenumeration">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1485,7 +1485,7 @@
 	    <completion string="enumeration">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1493,7 +1493,7 @@
 	    <completion string="enumeration">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1501,7 +1501,7 @@
 	    <completion string="definedescription">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1509,7 +1509,7 @@
 	    <completion string="description">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1517,7 +1517,7 @@
 	    <completion string="description">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1525,7 +1525,7 @@
 	    <completion string="setupindentedtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1533,7 +1533,7 @@
 	    <completion string="defineindentedtext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1541,7 +1541,7 @@
 	    <completion string="indentation">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1549,7 +1549,7 @@
 	    <completion string="definelabel">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1557,7 +1557,7 @@
 	    <completion string="labeling">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1565,7 +1565,7 @@
 	    <completion string="setupcolumns">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1573,7 +1573,7 @@
 	    <completion string="columns">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1581,7 +1581,7 @@
 	    <completion string="definetext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]${4:\[$5\]}${6:\[$7\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1589,7 +1589,7 @@
 	    <completion string="setupheader">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1597,7 +1597,7 @@
 	    <completion string="setupfooter">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1605,7 +1605,7 @@
 	    <completion string="setuptext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1613,7 +1613,7 @@
 	    <completion string="setuptop">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1621,7 +1621,7 @@
 	    <completion string="setupbottom">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1629,7 +1629,7 @@
 	    <completion string="noheaderandfooterlines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1637,7 +1637,7 @@
 	    <completion string="notopandbottomlines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1645,7 +1645,7 @@
 	    <completion string="setupheadertexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1653,7 +1653,7 @@
 	    <completion string="setupfootertexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1661,7 +1661,7 @@
 	    <completion string="setuptexttexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1669,7 +1669,7 @@
 	    <completion string="setuptoptexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1677,7 +1677,7 @@
 	    <completion string="setupbottomtexts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1685,7 +1685,7 @@
 	    <completion string="settextcontent">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}${5:\[$6\]}${7:\[$8\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1693,7 +1693,7 @@
 	    <completion string="resettextcontent">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1701,7 +1701,7 @@
 	    <completion string="definemarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1709,7 +1709,7 @@
 	    <completion string="couplemarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1717,7 +1717,7 @@
 	    <completion string="decouplemarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1725,7 +1725,7 @@
 	    <completion string="resetmarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1733,7 +1733,7 @@
 	    <completion string="setupmarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1741,7 +1741,7 @@
 	    <completion string="marking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1749,7 +1749,7 @@
 	    <completion string="getmarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1757,7 +1757,7 @@
 	    <completion string="nomarking">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1765,7 +1765,7 @@
 	    <completion string="setuplayout">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1773,7 +1773,7 @@
 	    <completion string="adaptlayout">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1781,7 +1781,7 @@
 	    <completion string="showgrid">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1789,7 +1789,7 @@
 	    <completion string="placeongrid">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1797,7 +1797,7 @@
 	    <completion string="moveongrid">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1805,7 +1805,7 @@
 	    <completion string="project">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1813,7 +1813,7 @@
 	    <completion string="environment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1821,7 +1821,7 @@
 	    <completion string="product">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1829,7 +1829,7 @@
 	    <completion string="component">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1837,7 +1837,7 @@
 	    <completion string="nomorefiles">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1845,7 +1845,7 @@
 	    <completion string="setupinterlinespace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1853,7 +1853,7 @@
 	    <completion string="setupinterlinespace2">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1861,7 +1861,7 @@
 	    <completion string="setuppagenumbering">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1869,7 +1869,7 @@
 	    <completion string="setupnarrower">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1877,7 +1877,7 @@
 	    <completion string="define">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1885,7 +1885,7 @@
 	    <completion string="usecommands">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1893,7 +1893,7 @@
 	    <completion string="definestartstop">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1901,7 +1901,7 @@
 	    <completion string="setupheads">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1909,7 +1909,7 @@
 	    <completion string="setupcaptions">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1917,7 +1917,7 @@
 	    <completion string="setupcaption">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1925,7 +1925,7 @@
 	    <completion string="setupfloats">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1933,7 +1933,7 @@
 	    <completion string="setupfloatsplitting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1941,7 +1941,7 @@
 	    <completion string="splitfloat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1949,7 +1949,7 @@
 	    <completion string="setupoppositeplacing">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1957,7 +1957,7 @@
 	    <completion string="opposite">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1965,7 +1965,7 @@
 	    <completion string="setuphyphenmark">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1973,7 +1973,7 @@
 	    <completion string="setuppositioning">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1981,7 +1981,7 @@
 	    <completion string="positioning">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1989,7 +1989,7 @@
 	    <completion string="grid">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -1997,7 +1997,7 @@
 	    <completion string="page">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2005,7 +2005,7 @@
 	    <completion string="setupreferencing">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2013,7 +2013,7 @@
 	    <completion string="setupurl">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2021,7 +2021,7 @@
 	    <completion string="writetoreferencelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2029,7 +2029,7 @@
 	    <completion string="placereferencelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2037,7 +2037,7 @@
 	    <completion string="definereferencelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2045,7 +2045,7 @@
 	    <completion string="setupreferencelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2053,7 +2053,7 @@
 	    <completion string="writetolist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2061,7 +2061,7 @@
 	    <completion string="writebetweenlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2069,7 +2069,7 @@
 	    <completion string="nolist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2077,7 +2077,7 @@
 	    <completion string="listsymbol">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2085,7 +2085,7 @@
 	    <completion string="placelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2093,7 +2093,7 @@
 	    <completion string="determinelistcharacteristics">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2101,7 +2101,7 @@
 	    <completion string="placecombinedlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2109,7 +2109,7 @@
 	    <completion string="definelist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2117,7 +2117,7 @@
 	    <completion string="setuplist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2125,7 +2125,7 @@
 	    <completion string="setuplistalternative">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2133,7 +2133,7 @@
 	    <completion string="definecombinedlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2141,7 +2141,7 @@
 	    <completion string="setupcombinedlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2149,7 +2149,7 @@
 	    <completion string="placecombinedlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2157,7 +2157,7 @@
 	    <completion string="completecombinedlist">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2165,7 +2165,7 @@
 	    <completion string="setupnumbering">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2173,7 +2173,7 @@
 	    <completion string="setupformulas">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2181,7 +2181,7 @@
 	    <completion string="publication">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2189,7 +2189,7 @@
 	    <completion string="setuppublications">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2197,7 +2197,7 @@
 	    <completion string="setuplines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2205,7 +2205,7 @@
 	    <completion string="lines">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2213,7 +2213,7 @@
 	    <completion string="setupparagraphnumbering">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2221,7 +2221,7 @@
 	    <completion string="setuplinenumbering">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2229,7 +2229,7 @@
 	    <completion string="linenumbering">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2237,7 +2237,7 @@
 	    <completion string="line">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2245,7 +2245,7 @@
 	    <completion string="someline">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2253,7 +2253,7 @@
 	    <completion string="inline">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2261,7 +2261,7 @@
 	    <completion string="setupinmargin">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2269,7 +2269,7 @@
 	    <completion string="setuppagenumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2277,7 +2277,7 @@
 	    <completion string="setupsubpagenumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2285,7 +2285,7 @@
 	    <completion string="setupblank">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2293,7 +2293,7 @@
 	    <completion string="defineblank">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2301,7 +2301,7 @@
 	    <completion string="definepapersize">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2309,7 +2309,7 @@
 	    <completion string="setuppaper">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2317,7 +2317,7 @@
 	    <completion string="setuppapersize">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2325,7 +2325,7 @@
 	    <completion string="setuparranging">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2333,7 +2333,7 @@
 	    <completion string="showprint">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2341,7 +2341,7 @@
 	    <completion string="definelogo">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2349,7 +2349,7 @@
 	    <completion string="placelogos">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2357,7 +2357,7 @@
 	    <completion string="setupwhitespace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2365,7 +2365,7 @@
 	    <completion string="setupindenting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2373,7 +2373,7 @@
 	    <completion string="definesectionblock">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2381,7 +2381,7 @@
 	    <completion string="setupsectionblock">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2389,7 +2389,7 @@
 	    <completion string="definesection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2397,7 +2397,7 @@
 	    <completion string="setupsection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2405,7 +2405,7 @@
 	    <completion string="setuphead">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2413,7 +2413,7 @@
 	    <completion string="setupheadnumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2421,7 +2421,7 @@
 	    <completion string="headnumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2429,7 +2429,7 @@
 	    <completion string="determineheadnumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2437,7 +2437,7 @@
 	    <completion string="currentheadnumber">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2445,7 +2445,7 @@
 	    <completion string="nextsection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2453,7 +2453,7 @@
 	    <completion string="definehead">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2461,7 +2461,7 @@
 	    <completion string="setupitemgroup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}${6:\[$7\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2469,7 +2469,7 @@
 	    <completion string="itemgroup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2477,7 +2477,7 @@
 	    <completion string="item">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2485,7 +2485,7 @@
 	    <completion string="but">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2493,7 +2493,7 @@
 	    <completion string="its">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2501,7 +2501,7 @@
 	    <completion string="ran">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2509,7 +2509,7 @@
 	    <completion string="head">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2517,7 +2517,7 @@
 	    <completion string="mar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2525,7 +2525,7 @@
 	    <completion string="sub">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2533,7 +2533,7 @@
 	    <completion string="sym">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2541,7 +2541,7 @@
 	    <completion string="nop">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2549,7 +2549,7 @@
 	    <completion string="defineregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2557,7 +2557,7 @@
 	    <completion string="setupregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2565,7 +2565,7 @@
 	    <completion string="register">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2573,7 +2573,7 @@
 	    <completion string="startregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2581,7 +2581,7 @@
 	    <completion string="writetoregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2589,7 +2589,7 @@
 	    <completion string="coupledregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2597,7 +2597,7 @@
 	    <completion string="coupleregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2605,7 +2605,7 @@
 	    <completion string="placeregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2613,7 +2613,7 @@
 	    <completion string="seeregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2621,7 +2621,7 @@
 	    <completion string="completeregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2629,7 +2629,7 @@
 	    <completion string="placeregister">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2637,7 +2637,7 @@
 	    <completion string="definesynonyms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2645,7 +2645,7 @@
 	    <completion string="setupsynonyms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2653,7 +2653,7 @@
 	    <completion string="synonym">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2661,7 +2661,7 @@
 	    <completion string="completelistofsynonyms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2669,7 +2669,7 @@
 	    <completion string="placelistofsynonyms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2677,7 +2677,7 @@
 	    <completion string="loadsynonyms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2685,7 +2685,7 @@
 	    <completion string="definesorting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2693,7 +2693,7 @@
 	    <completion string="setupsorting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2701,7 +2701,7 @@
 	    <completion string="sort">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2709,7 +2709,7 @@
 	    <completion string="completelistofsorts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2717,7 +2717,7 @@
 	    <completion string="placelistofsorts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2725,7 +2725,7 @@
 	    <completion string="loadsorts">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2733,7 +2733,7 @@
 	    <completion string="definemakeup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2741,7 +2741,7 @@
 	    <completion string="makeup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2749,7 +2749,7 @@
 	    <completion string="setupmakeup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2757,7 +2757,7 @@
 	    <completion string="namemakeup">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2765,7 +2765,7 @@
 	    <completion string="version">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2773,7 +2773,7 @@
 	    <completion string="currentdate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2781,7 +2781,7 @@
 	    <completion string="date">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2789,7 +2789,7 @@
 	    <completion string="referraldate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2797,7 +2797,7 @@
 	    <completion string="indenting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2805,7 +2805,7 @@
 	    <completion string="noindenting">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2813,7 +2813,7 @@
 	    <completion string="blank">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2821,7 +2821,7 @@
 	    <completion string="packed">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2829,7 +2829,7 @@
 	    <completion string="unpacked">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2837,7 +2837,7 @@
 	    <completion string="linecorrection">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2845,7 +2845,7 @@
 	    <completion string="correctwhitespace">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2853,7 +2853,7 @@
 	    <completion string="postponing">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2861,7 +2861,7 @@
 	    <completion string="local">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2869,7 +2869,7 @@
 	    <completion string="narrower">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2877,7 +2877,7 @@
 	    <completion string="hiding">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2885,7 +2885,7 @@
 	    <completion string="setupalign">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2893,7 +2893,7 @@
 	    <completion string="alignment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2901,7 +2901,7 @@
 	    <completion string="setupspacing">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2909,7 +2909,7 @@
 	    <completion string="setuptolerance">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2917,7 +2917,7 @@
 	    <completion string="processpage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2925,7 +2925,7 @@
 	    <completion string="couplepage">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2933,7 +2933,7 @@
 	    <completion string="position">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2941,7 +2941,7 @@
 	    <completion string="setupscreens">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2949,7 +2949,7 @@
 	    <completion string="setupbackgrounds">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2957,7 +2957,7 @@
 	    <completion string="buffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2965,7 +2965,7 @@
 	    <completion string="buffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2973,7 +2973,7 @@
 	    <completion string="getbuffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2981,7 +2981,7 @@
 	    <completion string="typebuffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2989,7 +2989,7 @@
 	    <completion string="definebuffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -2997,7 +2997,7 @@
 	    <completion string="setupbuffer">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3005,7 +3005,7 @@
 	    <completion string="defineblock">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3013,7 +3013,7 @@
 	    <completion string="nomoreblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3021,7 +3021,7 @@
 	    <completion string="hideblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3029,7 +3029,7 @@
 	    <completion string="keepblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3037,7 +3037,7 @@
 	    <completion string="useblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3045,7 +3045,7 @@
 	    <completion string="processblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3053,7 +3053,7 @@
 	    <completion string="bypassblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3061,7 +3061,7 @@
 	    <completion string="forceblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3069,7 +3069,7 @@
 	    <completion string="selectblocks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3077,7 +3077,7 @@
 	    <completion string="setupblock">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3085,7 +3085,7 @@
 	    <completion string="formula">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3093,7 +3093,7 @@
 	    <completion string="mathematics">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3101,7 +3101,7 @@
 	    <completion string="placeformula">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3109,7 +3109,7 @@
 	    <completion string="placesubformula">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3117,7 +3117,7 @@
 	    <completion string="placefloat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]\[$6\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3125,7 +3125,7 @@
 	    <completion string="reservefloat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}${5:\[$6\]}\[$7\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3133,7 +3133,7 @@
 	    <completion string="definefloat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3141,7 +3141,7 @@
 	    <completion string="setupfloat">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3149,7 +3149,7 @@
 	    <completion string="floattext">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]\[$6\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3157,7 +3157,7 @@
 	    <completion string="placelistoffloats">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3165,7 +3165,7 @@
 	    <completion string="completelistoffloats">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3173,7 +3173,7 @@
 	    <completion string="referral">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3181,7 +3181,7 @@
 	    <completion string="selectpaper">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3189,7 +3189,7 @@
 	    <completion string="couplepaper">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3197,7 +3197,7 @@
 	    <completion string="chem">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3205,7 +3205,7 @@
 	    <completion string="fraction">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3213,7 +3213,7 @@
 	    <completion string="periods">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3221,7 +3221,7 @@
 	    <completion string="items">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3229,7 +3229,7 @@
 	    <completion string="setupitems">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3237,7 +3237,7 @@
 	    <completion string="quotation">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3245,7 +3245,7 @@
 	    <completion string="quotation">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3253,7 +3253,7 @@
 	    <completion string="quote">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3261,7 +3261,7 @@
 	    <completion string="setupquote">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3269,7 +3269,7 @@
 	    <completion string="defineparagraphs">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3277,7 +3277,7 @@
 	    <completion string="paragraph">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3285,7 +3285,7 @@
 	    <completion string="paragraph">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3293,7 +3293,7 @@
 	    <completion string="setupparagraphs">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3301,7 +3301,7 @@
 	    <completion string="setuptab">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3309,7 +3309,7 @@
 	    <completion string="tab">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3317,7 +3317,7 @@
 	    <completion string="document">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3325,7 +3325,7 @@
 	    <completion string="labels">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3333,7 +3333,7 @@
 	    <completion string="definetabulate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3341,7 +3341,7 @@
 	    <completion string="tabulate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3349,7 +3349,7 @@
 	    <completion string="setuptabulate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3357,7 +3357,7 @@
 	    <completion string="setuptables">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3365,7 +3365,7 @@
 	    <completion string="table">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3373,7 +3373,7 @@
 	    <completion string="tables">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3381,7 +3381,7 @@
 	    <completion string="definetabletemplate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}${5:\[$6\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3389,7 +3389,7 @@
 	    <completion string="useexternalfiles">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3397,7 +3397,7 @@
 	    <completion string="useexternalfile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3405,7 +3405,7 @@
 	    <completion string="useexternalfigure">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]${4:\[$5\]}${6:\[$7\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3413,7 +3413,7 @@
 	    <completion string="externalfigure">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3421,7 +3421,7 @@
 	    <completion string="setupexternalfigures">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3429,7 +3429,7 @@
 	    <completion string="showexternalfigures">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3437,7 +3437,7 @@
 	    <completion string="useexternalsoundtrack">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3445,7 +3445,7 @@
 	    <completion string="name">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3453,7 +3453,7 @@
 	    <completion string="legend">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]\[$5\]\[$6\]\[$7\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3461,7 +3461,7 @@
 	    <completion string="fact">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3469,7 +3469,7 @@
 	    <completion string="rotate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3477,7 +3477,7 @@
 	    <completion string="setuprotate">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3485,7 +3485,7 @@
 	    <completion string="mirror">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3493,7 +3493,7 @@
 	    <completion string="scale">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3501,7 +3501,7 @@
 	    <completion string="setupcombinations">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3509,7 +3509,7 @@
 	    <completion string="combination">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3517,7 +3517,7 @@
 	    <completion string="placesidebyside">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3525,7 +3525,7 @@
 	    <completion string="placeontopofeachother">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3533,7 +3533,7 @@
 	    <completion string="overlay">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3541,7 +3541,7 @@
 	    <completion string="overview">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3549,7 +3549,7 @@
 	    <completion string="setupinteractionscreen">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3557,7 +3557,7 @@
 	    <completion string="screen">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3565,7 +3565,7 @@
 	    <completion string="setuppagetransitions">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3573,7 +3573,7 @@
 	    <completion string="setupinteraction">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3581,7 +3581,7 @@
 	    <completion string="setupinteractionmenu">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3589,7 +3589,7 @@
 	    <completion string="defineinteractionmenu">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3597,7 +3597,7 @@
 	    <completion string="defineinteractionmenu">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3605,7 +3605,7 @@
 	    <completion string="interactionmenu">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3613,7 +3613,7 @@
 	    <completion string="disableinteractionmenu">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3621,7 +3621,7 @@
 	    <completion string="useexternaldocument">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3629,7 +3629,7 @@
 	    <completion string="useURL">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3637,7 +3637,7 @@
 	    <completion string="coupledocument">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3645,7 +3645,7 @@
 	    <completion string="from">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3653,7 +3653,7 @@
 	    <completion string="interactionbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3661,7 +3661,7 @@
 	    <completion string="interactionbuttons">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3669,7 +3669,7 @@
 	    <completion string="setupinteractionbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3677,7 +3677,7 @@
 	    <completion string="synchronize">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3685,7 +3685,7 @@
 	    <completion string="synchronization">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3693,7 +3693,7 @@
 	    <completion string="setupsynchronizationbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3701,7 +3701,7 @@
 	    <completion string="synchronizationbar">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3709,7 +3709,7 @@
 	    <completion string="setupsynchronization">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3717,7 +3717,7 @@
 	    <completion string="defineprofile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3725,7 +3725,7 @@
 	    <completion string="setupprofiles">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3733,7 +3733,7 @@
 	    <completion string="profile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3741,7 +3741,7 @@
 	    <completion string="followprofile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3749,7 +3749,7 @@
 	    <completion string="placebookmarks">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}${5:\[$6\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3757,7 +3757,7 @@
 	    <completion string="bookmark">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3765,7 +3765,7 @@
 	    <completion string="version">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3773,7 +3773,7 @@
 	    <completion string="setupversions">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3781,7 +3781,7 @@
 	    <completion string="markversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3789,7 +3789,7 @@
 	    <completion string="selectversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3797,7 +3797,7 @@
 	    <completion string="defineversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3805,7 +3805,7 @@
 	    <completion string="followversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3813,7 +3813,7 @@
 	    <completion string="followprofileversion">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3821,7 +3821,7 @@
 	    <completion string="defineprogram">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3829,7 +3829,7 @@
 	    <completion string="setupprograms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3837,7 +3837,7 @@
 	    <completion string="program">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3845,7 +3845,7 @@
 	    <completion string="figure">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3853,7 +3853,7 @@
 	    <completion string="goto">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3861,7 +3861,7 @@
 	    <completion string="gotobox">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3869,7 +3869,7 @@
 	    <completion string="button">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3877,7 +3877,7 @@
 	    <completion string="setupbuttons">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3885,7 +3885,7 @@
 	    <completion string="setupcomment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3893,7 +3893,7 @@
 	    <completion string="comment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3901,7 +3901,7 @@
 	    <completion string="comment">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}${3:\[$4\]}\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3909,7 +3909,7 @@
 	    <completion string="definefield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]${5:\[$6\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3917,7 +3917,7 @@
 	    <completion string="definesubfield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3925,7 +3925,7 @@
 	    <completion string="copyfield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3933,7 +3933,7 @@
 	    <completion string="clonefield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3941,7 +3941,7 @@
 	    <completion string="field">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3949,7 +3949,7 @@
 	    <completion string="fitfield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3957,7 +3957,7 @@
 	    <completion string="fillinfield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3965,7 +3965,7 @@
 	    <completion string="tooltip">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3973,7 +3973,7 @@
 	    <completion string="showfields">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3981,7 +3981,7 @@
 	    <completion string="logfields">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3989,7 +3989,7 @@
 	    <completion string="setupfield">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]\[$5\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -3997,7 +3997,7 @@
 	    <completion string="setupfields">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4005,7 +4005,7 @@
 	    <completion string="setupforms">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4013,7 +4013,7 @@
 	    <completion string="definefieldstack">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4021,7 +4021,7 @@
 	    <completion string="fieldstack">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4029,7 +4029,7 @@
 	    <completion string="clip">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:${1:\[$2\]}\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4037,7 +4037,7 @@
 	    <completion string="setupclipping">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4045,7 +4045,7 @@
 	    <completion string="placelegend">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4053,7 +4053,7 @@
 	    <completion string="setuplegend">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4061,7 +4061,7 @@
 	    <completion string="setupstrut">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4069,7 +4069,7 @@
 	    <completion string="usetypescriptfile">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4077,7 +4077,7 @@
 	    <completion string="usetypescript">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}${4:\[$5\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4085,7 +4085,7 @@
 	    <completion string="definetypeface">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]\[$4\]${5:\[$6\]}${7:\[$8\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4093,7 +4093,7 @@
 	    <completion string="definefontfeature">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]${2:\[$3\]}\[$4\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4101,7 +4101,7 @@
 	    <completion string="definefonthandling">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]\[$3\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4109,7 +4109,7 @@
 	    <completion string="setupfonthandling">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4117,7 +4117,7 @@
 	    <completion string="definefontsynonym">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]${3:\[$4\]}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4125,7 +4125,7 @@
 	    <completion string="setupfontsynonym">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4133,7 +4133,7 @@
 	    <completion string="mapfontsize">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]\[$2\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
@@ -4141,7 +4141,7 @@
 	    <completion string="definedfont">
 	        <behavior>
 	            <append-dynamic>
-	                <matched-suffix>(\s+\S)|\s*([^\S])</matched-suffix>
+	                <matched-suffix>(\s*\[)|\s*([^\[])</matched-suffix>
 	                <transform-into>(?1:$0:\[$1\]$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>

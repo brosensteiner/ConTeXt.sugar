@@ -6,7 +6,7 @@
 	<provider>
 	    <selector>language-root.context, language-root.context *</selector>
 	    <completions>com.context.commands</completions>
-	    <complete-match>(?&lt;=\\)[a-zA-Z@!\?\\]*</complete-match>
+	    <complete-match capture="1">\\([a-zA-Z@!\?]*)</complete-match>
 	</provider>
 	
 <!--values-->

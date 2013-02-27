@@ -22,7 +22,7 @@
         	<include collection="BalancedBrackets"/>
         	<include collection="BalancedParenthesis"/>
             <include collection="Math"/>
-            <include collection="Keywords"/>
+            <include collection="Keywords"/>            
             <include collection="General"/>
             <include collection="Escapecharacter"/>
         </collection>
@@ -313,9 +313,10 @@
             <include collection="Default_Order_of_Zones"/>
         </collection>
         
+        <!--maybe some differetiation between TeX and ConTeXt ...-->
         <collection name="Escapecharacter">
             <zone name="context.escape.character">
-                <expression>\\[^0-9a-zA-Z@?!\[\]\(\)]</expression>
+                <expression>\\[^[:alnum:]@?!\[\]\(\)^´°‘*+^=]</expression>
             </zone>
         </collection>
         
@@ -384,7 +385,7 @@
             </zone>
             
             <zone name="context.support.function.new">
-                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\s*(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:])?(?=(\b|(?=\d)))</expression>
+                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\s*(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:])?</expression>
                 <capture number="1" name="context.support.function.name"/>
             </zone>
             
@@ -548,7 +549,6 @@
 			</ends-with>
 				<subzones>
 					<include collection="Between_Math" />
-					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
 			
@@ -564,7 +564,6 @@
 			</ends-with>
 				<subzones>
 					<include collection="Between_Math" />
-					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
 			
@@ -579,47 +578,34 @@
 			</ends-with>
 				<subzones>
 					<include collection="Between_Math" />
-					<include collection="Default_Order_of_Zones"/>
 				</subzones>
 			</zone>
 			
 			<!--TeX style math-->
-			<zone name="tex.math.displaystyle">
+			<zone name="tex.math">
 			    <starts-with>
-			        <expression>\$\$</expression>
+			        <expression>(\$\$?)</expression>
 			        <capture number="0" name="tex.begin.math"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>\$\$</expression>
+			        <expression>\1</expression>
 			        <capture number="0" name="tex.end.math"/>
 			    </ends-with>
 			    <subzones name="tex.math-subzone">
 			    	<include collection="Between_Math" />
-			        <include syntax="language-root.context"/>
-			    </subzones>
-			</zone>
-			
-			<zone name="tex.math.textstyle">
-			    <starts-with>
-			        <expression>\$(?!\$)</expression>
-			        <capture number="0" name="tex.begin.math"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>\$(?!\$)</expression>
-			        <capture number="0" name="tex.end.math"/>
-			    </ends-with>
-			    <subzones name="tex.math-subzone">
-			    	<include collection="Between_Math" />
-			        <include syntax="language-root.context"/>
 			    </subzones>
 			</zone>
         	
         </collection>
         
         <collection name="Between_Math">
+        	
         	<zone name="context.escape.character.dollar">
         	    <expression>\\\$</expression>
         	</zone>
+        	
+        	<include collection="Default_Order_of_Zones" />
+        	        	        	
         </collection>
         
         <collection name="Keys">
@@ -667,9 +653,12 @@
         </collection>
         
         <collection name="General">
-        
+        	
+        	<!--some tradeoffs:-->
+        	<!--digits produce an extra line in pdf output so i want not allow them in commands-->
+        	<!--'$' at the end of command breaks math environment so not allow-->
         	<zone name="context.support.function.general">
-        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[[:alpha:]_@!?:]*[[:alpha:]_@!?:]</expression>
+        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}%]*[^\]\\\d$\s\{\}%]</expression>
         	    <capture number="1" name="context.support.function.scratchvariable"/>
         	</zone>
         	
@@ -733,6 +722,19 @@
         		<ends-with>
         			<expression>\\stoptyping(?=(\b|(?=\d)))</expression>
         			<capture number="0" name="context.support.function.general"/>
+        		</ends-with>
+        	</zone>
+        	
+        	<!--can actually have options [...], but this is the best i can do and will work 99% of the time-->
+        	<zone name="context.container.inert.typing">
+        		<starts-with>
+        			<expression>(\\type?)\s*(\{)</expression>
+        			<capture number="1" name="context.support.function.general"/>
+        			<capture number="2" name="context.open-brace.level0"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>\}</expression>
+        			<capture number="0" name="context.close-brace.level0"/>
         		</ends-with>
         	</zone>
         	
