@@ -163,7 +163,7 @@
         <collection name="BalancedBrackets">
             <zone name="context.balanced.bracket">
                 <starts-with>
-                    <expression>(?:(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:]))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
+                    <expression>(?:(\\[\w@!?:]*[\w@!?:]))\s*(\[)|^\s*(\[)|(?&lt;=\]|\})\s*(\[)</expression>
                     <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                     <capture number="3" name="context.open-bracket.level0"/>
@@ -182,7 +182,7 @@
         <collection name="BalancedParenthesis">
             <zone name="context.balanced.parenthesis">
                 <starts-with>
-                    <expression>(\\(?:num|dim|glue|mue)expr)\s*(\()</expression>
+                    <expression>(\\(?:(?:nu|di)m|(?:glu|mu)e)expr)\s*(\()</expression>
                     <capture number="1" name="context.support.function.general"/>
                     <capture number="2" name="context.close-parenthesis.level0"/>
                 </starts-with>
@@ -340,7 +340,7 @@
             <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined-->
             <zone name="context.function.define">
             	<starts-with>
-            		<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[[:alpha:]_@!?:_]*[[:alpha:]_@!?:_;,\.])\s*((?:\#+[[:alpha:]_@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:_]*[\w@!?:_;,\.])\s*((?:\#+[\w@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.open-bracket.level0"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -360,7 +360,7 @@
             
             <zone name="context.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def)\s*(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:;,\.])\s*((?:\#+[[:alpha:]_@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def)\s*(\\[\w@!?:]*[\w@!?:;,\.])\s*((?:\#+[\w@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.support.function.name"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -376,7 +376,7 @@
             </zone>
             
             <zone name="context.function.define">
-				<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:;,\.])</expression>
+				<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
@@ -385,7 +385,7 @@
             </zone>
             
             <zone name="context.support.function.new">
-                <expression>\\new(?:if|conditional|every|counter|signal|box|count|dimen|fam|insert|language|muskip|read|skip|toks|write)\s*(\\[[:alpha:]_@!?:]*[[:alpha:]_@!?:])?</expression>
+                <expression>\\new(?:i(?:f|nsert)|co(?:nditional|unt(?:er)?)|every|s(?:ignal|kip)|box|dimen|fam|language|muskip|read|toks|write)\s*(\\[\w@!?:]*[\w@!?:])?</expression>
                 <capture number="1" name="context.support.function.name"/>
             </zone>
             
@@ -395,7 +395,7 @@
 			
 			<zone  name="context.balanced.structural.float">
 			    <starts-with>
-			        <expression>(\\(?:place|complete)[0-9A-Za-z_@!?:]+)\s*(\[)</expression>
+			        <expression>(\\(?:place|complete)[\w@!?:]+)\s*(\[)</expression>
 			        <capture number="1" name="context.support.function.place-complete"/>
 			        <capture number="2" name="context.open-bracket.level0"/>
 			    </starts-with>
@@ -409,7 +409,7 @@
 			</zone>
 			
             <zone name="context.structural.float">
-                    <expression>\\(place|complete)[0-9A-Za-z_@!?:]+(?=(\b|(?=\d)))</expression>
+                    <expression>\\(place|complete)[\w@!?:]+(?=(\b|(?=\d)))</expression>
                     <capture number="0" name="context.support.function.place-complete"/>
             </zone>
             
@@ -461,11 +461,11 @@
         <collection name="SpecialTableCommands">
 			
 			<zone name="context.support.function.table.cell.begin">
-			    <expression>\\(?:b(TD|TC|TH))(?=(\b|(?=\d)))</expression>
+			    <expression>\\(?:bT(D|C|H))(?=(\b|(?=\d)))</expression>
 			</zone>
 			
 			<zone name="context.support.function.table.cell.end">
-			    <expression>\\(?:e(TD|TC|TH))(?=(\b|(?=\d)))</expression>
+			    <expression>\\(?:eT(D|C|H))(?=(\b|(?=\d)))</expression>
 			</zone>
 			
 			<zone name="context.support.function.table.row.end">
@@ -473,7 +473,7 @@
 			</zone>
 			
 			<zone name="context.support.function.table.cell.begin">
-			    <expression>\\(NC|VL|NC|VL)(?=(\b|(?=\d)))</expression>
+			    <expression>\\(NC|VL)(?=(\b|(?=\d)))</expression>
 			</zone>
 			
 			<zone name="context.support.function.table.row.begin">
@@ -504,7 +504,7 @@
             
             <zone name="context.container.language-root.lua.oneline">
                 <starts-with>
-                    <expression>((?:\\(?:ctx|direct|late)lua|\\ctxsprint|(?:luaescapestring))|\\ctxcommand|\\usercode)\s*(\{)</expression>
+                    <expression>(\\(?:(?:ctx|direct|late)lua|ctx(?:sprint|command)))\s*(\{)</expression>
                     <capture number="1" name="context.support.function.oneline-lua"/>
                     <capture number="2" name="context.open-brace.level0"/>
                 </starts-with>
@@ -522,7 +522,7 @@
         <collection name="Metafun">
             <zone name="context.container.language-root.metafun">
                 <starts-with>
-                    <expression>(\\start(unique|reusable|use|static)?MP)(code|inclusions|extensions|initializations|definitions|drawing|run|clip|(position)?graphic|environment|page|figure)(?=(\b|(?=\d)))</expression>
+                    <expression>(\\start(u(?:nique|se)|reusable|static)?MP)(c(?:ode|lip)|in(?:(?:clus|itializat)ions)|extensions|d(?:efinitions|rawing)|run|(position)?graphic|environment|page|figure)(?=(\b|(?=\d)))</expression>
                     <capture number="0" name="context.support.function.start.metafun"/>
                 </starts-with>
                 <ends-with>
@@ -536,10 +536,10 @@
         </collection>
         
         <collection name="Math">
-        
-			<zone name="context.math.textstyle">
+			
+			<zone name="context.math">
 				<starts-with>
-					<expression>(\\(?:mathematics|inlinemath|math|inlinemathematics))\s*(\{)</expression>
+					<expression>(\\(?:(?:display)?(?:math|mathematics)|automathematics|inline(?:math|mathematics)))\s*(\{)</expression>
 					<capture number="1" name="context.support.function.begin.math"/>
 					<capture number="2" name="context.open-brace.level0"/>
 				</starts-with>
@@ -552,22 +552,7 @@
 				</subzones>
 			</zone>
 			
-			<zone name="context.math.displaystyle">
-				<starts-with>
-					<expression>(\\(?:displaymath|displaymathematics|automathematics))\s*(\{)</expression>
-					<capture number="1" name="context.support.function.begin.math"/>
-					<capture number="2" name="context.open-brace.level0"/>
-				</starts-with>
-			<ends-with>
-				<expression>\}</expression>
-				<capture number="0" name="context.close-brace.level0"/>
-			</ends-with>
-				<subzones>
-					<include collection="Between_Math" />
-				</subzones>
-			</zone>
-			
-			<zone name="context.math.displaystyle">
+			<zone name="context.math">
 				<starts-with>
 					<expression>\\startformula(?=(\b|(?=\d)))</expression>
 					<capture number="0" name="context.support.function.begin.math"/>
@@ -610,7 +595,7 @@
         
         <collection name="Keys">
             <zone>
-				<expression>(\\?)(s!|c!|v!|\?\?(?:\?\?)?|@@)?([0-9A-Za-z_@!?:]+)\s*(=)</expression>
+				<expression>(\\?)(s!|c!|v!|\?\?(?:\?\?)?|@@)?([0-9\w@!?:]+)\s*(=)</expression>
 				<capture number="1" name="context.support.key-name"/>
 				<capture number="2" name="context.support.key-name.scratchvariable"/>
 				<capture number="3" name="context.support.key-name"/>
@@ -627,7 +612,7 @@
             
             <zone  name="context.balanced.structural.start-section">
                 <starts-with>
-                    <expression>(\\start(?:text|project|product|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\s*(\[)</expression>
+                    <expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\s*(\[)</expression>
                     <capture number="1" name="context.support.function.section"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                 </starts-with>
@@ -641,7 +626,7 @@
             </zone>
             
             <zone name="context.structural.start-section">
-            	<expression>(\\start(?:text|project|product|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\b</expression>
+            	<expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\b</expression>
             	<capture number="0" name="context.support.function.section"/>
             </zone>
             
@@ -684,7 +669,7 @@
         	
             <zone name="context.keyword-other-misc.fontscale">
                 <starts-with>
-                    <expression>(?&lt;=(\b|(?=\d)))(sa|at|scaled|mo|mu)\s+(?=[\d#\\\*])</expression>
+                    <expression>(?&lt;=(\b|(?=\d)))(s(?:a|caled)|at|m(?:o|u))\s+(?=[\d#\\\*])</expression>
                     <capture number="1" name="context.keyword.other.misc"/>
                 </starts-with>
                 <ends-with>
@@ -697,7 +682,7 @@
             </zone>
             
             <zone name="context.keyword-other-misc.blank">
-                <expression>(\d+)\s*(\*)\s*(broad|small|medium|big|hang|line|halfline|formula)</expression>
+                <expression>(\d+)\s*(\*)\s*(b(?:road|ig)|small|medium|hang|(?:half)?line|formula)</expression>
                 <capture number="1" name="context.numeric"/>
                 <capture number="2" name="context.keyword.other.misc.multiplier"/>
                 <capture number="3" name="context.keyword.other.misc.blank"/>
