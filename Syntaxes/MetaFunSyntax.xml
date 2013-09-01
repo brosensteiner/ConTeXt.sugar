@@ -3,36 +3,31 @@
 <syntax name="language-root.MetaFun">
     <zones>
     	
-        <zone name="metafun.delimiter.balanced.parentheses_and_braces">
+        <zone name="metafun.delimiter.balanced.parentheses">
             <starts-with>
-                <expression>(\()|(\[)</expression>
-                <capture number="1" name="metafun.open-parenthesis"/>
-                <capture number="2" name="metafun.open-brace"/>
+                <expression>\(</expression>
+                <capture number="0" name="metafun.open-parenthesis.level0"/>
             </starts-with>
             <ends-with>
-                <expression>(\))|(\])</expression>
-                <capture number="1" name="metafun.close-parenthesis"/>
-                <capture number="2" name="metafun.close-brace"/>
+                <expression>\)</expression>
+                <capture number="0" name="metafun.close-parenthesis.level0"/>
             </ends-with>
             <subzones>
-                <zone name="metafun.delimiter.balanced.quotes">
-                    <starts-with>
-                        <expression>(?&lt;!\\)(")</expression>
-                        <capture number="1" name="metafun.string.quoted.double"/>
-                    </starts-with>
-                    <ends-with>
-                        <expression>(?&lt;!\\)(")</expression>
-                        <capture number="1" name="metafun.string.quoted.double"/>
-                    </ends-with>
-                    <subzones>
-                        <include syntax="language-root.context"/>
-                    </subzones>
-                </zone>
-                <zone name="metafun.punctuation.delimiter.comma">
-                    <expression>,</expression>
-                </zone>
-                <include syntax="language-root.context"/>
-                <include syntax="language-root.MetaFun"/>
+                <include collection="BetweenParenthesesAndBrackets" />
+            </subzones>
+        </zone>
+        
+        <zone name="metafun.delimiter.balanced.bracktes">
+            <starts-with>
+                <expression>\[</expression>
+                <capture number="0" name="metafun.open-bracket.level0"/>
+            </starts-with>
+            <ends-with>
+                <expression>\]</expression>
+                <capture number="0" name="metafun.close-bracket.level0"/>
+            </ends-with>
+            <subzones>
+                <include collection="BetweenParenthesisAndBrackets" />
             </subzones>
         </zone>
         
@@ -204,7 +199,7 @@
             </subzones>
         </zone>
         
-        <!--copy from ConTeXt syntax, but MetaFun needs it too, except the comma!:-->
+        <!--copy from ConTeXt syntax, but MetaFun needs it too!:-->
         <zone name="metafun.numeric.unit">
             <expression>((?:\+|\-)?[0-9]*(\.)?[0-9]+)\s*(true)?\s*(mu|cm|mm|in|pt|bp|em|ex|pc|sp|cc|dd)</expression>
             <capture number="1" name="metafun.numeric"/>
@@ -217,5 +212,32 @@
         </zone>
         
     </zones>
+    
+    <library>
+    
+    	<collection name="BetweenParenthesesAndBrackets">
+    	
+    		<zone name="metafun.string.quoted">
+    		    <starts-with>
+    		        <expression>(?&lt;!\\)(")</expression>
+    		        <capture number="1" name="metafun.punctuation.doublequote.string.quoted.begin"/>
+    		    </starts-with>
+    		    <ends-with>
+    		        <expression>(?&lt;!\\)(")</expression>
+    		        <capture number="1" name="metafun.punctuation.doublequote.string.quoted.end"/>
+    		    </ends-with>
+    		    <subzones>
+    		        <include syntax="language-root.context"/>
+    		    </subzones>
+    		</zone>
+    		<zone name="metafun.punctuation.delimiter.comma">
+    		    <expression>,</expression>
+    		</zone>
+    		<include syntax="language-root.context"/>
+    		<include syntax="language-root.MetaFun"/>
+    	
+    	</collection>
+    
+    </library>
     
 </syntax>

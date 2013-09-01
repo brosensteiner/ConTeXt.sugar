@@ -376,7 +376,7 @@
             </zone>
             
             <zone name="context.function.define">
-				<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
+				<expression>(\\(?:define|defineexpandable))\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
@@ -413,25 +413,9 @@
                     <capture number="0" name="context.support.function.place-complete"/>
             </zone>
             
-            <!--table-->
-            <zone name="context.container.table.float">
-            	<starts-with>
-            		<expression>(?:\\bTABLE(head|foot|body|next)?)(?=(\b|(?=\d)))</expression>
-            		<capture number="0" name="context.support.function.start-table"/>
-            	</starts-with>
-            	<ends-with>
-            		<expression>\\eTABLE\1</expression>
-            		<capture number="0" name="context.support.function.stop-table"/>
-            	</ends-with>
-            	<subzones>
-            		<include collection="Define"/>
-            		<include collection="Default_Order_of_Zones"/>
-            	</subzones>
-            </zone>
-            
             <zone  name="context.balanced.structural.start-table">
                 <starts-with>
-                    <expression>(\\start(?:TABLE|table(?:head|tail)?|tabulate|linetable))\s*(\[)</expression>
+                    <expression>(\\bTABLE(?:head|foot|body|next)?|\\start(?:TABLE|table(?:head|tail)?|tabulate|linetable))\s*(\[)</expression>
                     <capture number="1" name="context.support.function.table"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                 </starts-with>
@@ -445,7 +429,7 @@
             </zone>
             
             <zone name="context.structural.stop-table">
-            	<expression>(?:\\stop(TABLE|table(head|tail)?|tabulate|linetable))(?=(\b|(?=\d)))</expression>
+            	<expression>(?:\\eTABLE(?:head|foot|body|next)?|\\stop(TABLE|table(head|tail)?|tabulate|linetable))(?=(\b|(?=\d)))</expression>
             	<capture number="0" name="context.support.function.table"/>
             </zone>
 
@@ -595,7 +579,7 @@
         
         <collection name="Keys">
             <zone>
-				<expression>(\\?)(s!|c!|v!|\?\?(?:\?\?)?|@@)?([0-9\w@!?:]+)\s*(=)</expression>
+				<expression>(?:(\\)(s!|c!|v!|\?\?(?:\?\?)?|@@))?([\w@!?:]+)\s*(=)</expression>
 				<capture number="1" name="context.support.key-name"/>
 				<capture number="2" name="context.support.key-name.scratchvariable"/>
 				<capture number="3" name="context.support.key-name"/>
@@ -612,7 +596,7 @@
             
             <zone  name="context.balanced.structural.start-section">
                 <starts-with>
-                    <expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\s*(\[)</expression>
+                    <expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle|letter)|\\start(?:sub)*(?:section|subject))\s*(\[)</expression>
                     <capture number="1" name="context.support.function.section"/>
                     <capture number="2" name="context.open-bracket.level0"/>
                 </starts-with>
@@ -626,12 +610,12 @@
             </zone>
             
             <zone name="context.structural.start-section">
-            	<expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle)|\\start(?:sub)*(?:section|subject))\b</expression>
+            	<expression>(\\start(?:text|pro(?:ject|duct)|component|part|title|chapter|SlideTitle|letter)|\\start(?:sub)*(?:section|subject))\b</expression>
             	<capture number="0" name="context.support.function.section"/>
             </zone>
             
             <zone name="context.structural.stop-section">
-            	<expression>(\\stop(?:text|project|product|component|part|title|chapter|SlideTitle)|\\stop(?:sub)*(?:section|subject))\b</expression>
+            	<expression>(\\stop(?:text|project|product|component|part|title|chapter|SlideTitle|letter)|\\stop(?:sub)*(?:section|subject))\b</expression>
             	<capture number="0" name="context.support.function.section"/>
             </zone>
             
@@ -639,11 +623,14 @@
         
         <collection name="General">
         	
-        	<!--some tradeoffs:-->
-        	<!--digits produce an extra line in pdf output so i want not allow them in commands-->
-        	<!--'$' at the end of command breaks math environment so not allow-->
+        	<!--some tradeoffs, but who uses '$' and ',' in ConTeX variable anyway:-->
+        	<!--digits produce an extra line in pdf output so not allowed-->
+        	<!--'[' and ']' can also make problems, so not allowed-->
+        	<!--'$' at the end of command breaks math environment so not allowed-->
+        	<!--',' at end would break 'comma' in ConTeXt´s key=value pairs-->
+        	<!--')' at end would break \dimexpr() and '(' looks shitty in commands :)-->
         	<zone name="context.support.function.general">
-        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}%]*[^\]\\\d$\s\{\}%]</expression>
+        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}\(\)\[\]%,]*[^\]\\\d$\s\{\}%,#\.)]</expression>
         	    <capture number="1" name="context.support.function.scratchvariable"/>
         	</zone>
         	

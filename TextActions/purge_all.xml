@@ -2,32 +2,23 @@
 
 <action-recipes>
     <action id="actions.snippets.context.purgeall" category="actions.snippets.context">
-        <class>TEALoader</class>
+        <class>OCShellAction</class>
         <title>purge all</title>
         <key-equivalent>cmd option P</key-equivalent>
         <setup>
             <script>purge_all.sh</script>
-            <input>document</input>
-            <!--<alternate>line</alternate>-->
-            <!--<output>text</output>-->
-
+            <input>nothing</input>
             <syntax-context>language-root.context,language-root.context *</syntax-context>
-            <!--<selection-context>none</selection-context>-->
         </setup>
     </action>
     
     <action id="actions.snippets.context.purgeall" category="tools.Snippets">
-            <class>TEALoader</class>
+            <class>OCShellAction</class>
             <title>purge all</title>
             <setup>
                 <script>purge_all.sh</script>
-                <input>none</input>
-                <!--<alternate>line</alternate>-->
-                <!--<output>text</output>-->
-    
-                <undo_name>purge all</undo_name>
+                <input>nothing</input>
              <syntax-context>language-root.context,language-root.context *</syntax-context>
-              <!--<selection-context>none</selection-context>-->
           </setup>
       </action>
         

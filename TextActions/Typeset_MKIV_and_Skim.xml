@@ -1,33 +1,42 @@
 <action-recipes>
+
     <action id="actions.snippets.context.typesetMKIV" category="actions.snippets.context/actions.snippets.context.separated">
-        <class>TEALoader</class>
+        <class>OCShellAction</class>
         <title>Typeset MKIV and View</title>
         <key-equivalent>cmd option r</key-equivalent>
+        
         <setup>
             <script>Typeset_MKIV.sh</script>
             <input>document</input>
             <!--<alternate>line</alternate>-->
-            <!--<output>text</output>-->
-
+            <output>log</output>
+            <!--<output-format>text</output-format>-->
+			<!--<multiple-selections>true</multiple-selections>-->
+			<!--<single-selection>true</single-selection>-->
+			<!--<selection-context>none</selection-context>-->
+			<suppress-errors>false</suppress-errors>
             <!--<undo_name>My Action</undo_name>-->
             <syntax-context>language-root.context,language-root.context *</syntax-context>
-            <!--<selection-context>none</selection-context>-->
         </setup>
     </action>
     
     <action id="actions.snippets.context.typesetMKIV" category="tools.Snippets">
-            <class>TEALoader</class>
+            <class>OCShellAction</class>
             <title>Typeset MKIV and View</title>
+            
             <setup>
                 <script>Typeset_MKIV.sh</script>
                 <input>document</input>
                 <!--<alternate>line</alternate>-->
-                <!--<output>text</output>-->
-    
+                <output>log</output>
+                <!--<output-format>text</output-format>-->
+            	<!--<multiple-selections>true</multiple-selections>-->
+            	<!--<single-selection>true</single-selection>-->
+            	<!--<selection-context>none</selection-context>-->
+            	<suppress-errors>false</suppress-errors>
                 <!--<undo_name>My Action</undo_name>-->
-             <syntax-context>language-root.context,language-root.context *</syntax-context>
-              <!--<selection-context>none</selection-context>-->
-          </setup>
+                <syntax-context>language-root.context,language-root.context *</syntax-context>
+            </setup>
       </action>
         
 </action-recipes>

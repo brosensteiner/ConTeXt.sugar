@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd $E_DIRECTORY;
+cd $EDITOR_DIRECTORY_PATH;
 rm -f {*.aux,*.blg,*.log,*.synctex.gz,*.tuc,*.top};
