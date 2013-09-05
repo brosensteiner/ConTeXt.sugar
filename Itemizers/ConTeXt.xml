@@ -43,6 +43,17 @@
 	</recipe>-->
 	
 <!--floats-->
+	<recipe name="context.structural.startfloats">
+	
+		<class>ESXMLItem</class>
+		<start-selector>context.structural.start-float:capture(name)</start-selector>
+		<end-selector>context.structural.stop-float</end-selector>
+		<subrecipes>	
+			<include-root-recipes />
+		</subrecipes>
+		
+	</recipe>
+	
 	<recipe name="context.float">
 		<class>ESXMLItem</class>
 		<selector>context.float:capture(name)</selector>
@@ -137,7 +148,7 @@
 	
 <!--define/def...-->	
 	<recipe name="context.container.support.function">
-		<selector>context.support.function.define > support.function.name:capture(name)</selector>
+		<selector>context.function.define > support.function.name:capture(name)</selector>
 	</recipe>
 
 <!--math: math is really special in TeX so it deserves a place in the Navigator :)-->

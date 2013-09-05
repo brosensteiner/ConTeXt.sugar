@@ -337,7 +337,7 @@
         </collection>-->
         
         <collection name="Define">
-            <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined-->
+            <!--[A-Za-z@!?:_;,\.] instead of the usual [A-Za-z@!?:_] because there exists \; and \. and they can theoretically be redefined and this makes it a little more specific-->
             <zone name="context.function.define">
             	<starts-with>
             		<expression>(\\define)\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:_]*[\w@!?:_;,\.])\s*((?:\#+[\w@!?:1-9]+)+)?\s*(\[)</expression>
@@ -376,12 +376,18 @@
             </zone>
             
             <zone name="context.function.define">
-				<expression>(\\(?:define|defineexpandable))\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
+				<expression>(\\define(?:expandable)?)\s*(?:(\[)(\d+)(\]))\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
 				<capture number="1" name="context.support.function.general.def"/>
 				<capture number="2" name="context.open-bracket.level0"/>
 				<capture number="3" name="context.support.variable.define"/>
 				<capture number="4" name="context.close-bracket.level0"/>
 				<capture number="5" name="context.support.function.name"/>
+            </zone>
+            <!--the simplest define in ConTeXt:-->
+            <zone name="context.function.define">
+            	<expression>(\\define(?:expandable)?)\s*(\\[\w@!?:]*[\w@!?:;,\.])</expression>
+            	<capture number="1" name="context.support.function.general.def"/>
+            	<capture number="2" name="context.support.function.name"/>
             </zone>
             
             <zone name="context.support.function.new">
@@ -392,6 +398,31 @@
         </collection>
         
         <collection name="Environments">
+        
+        	<zone  name="context.balanced.structural.start-float">
+        	    <starts-with>
+        	        <expression>(\\startplace\w+)\s*(\[)</expression>
+        	        <capture number="1" name="context.support.function.place-complete"/>
+        	        <capture number="2" name="context.open-bracket.level0"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\]</expression>
+        	        <capture number="0" name="context.close-bracket.level0"/>
+        	    </ends-with>
+        	    <subzones name="context.between.brackets">
+        	        <include collection="Between_Brackets"/>
+        	    </subzones>
+        	</zone>
+        	
+        	<zone name="context.balanced.structural.start-float">
+        		<expression>\\startplace\w+(?=(\b|(?=\d)))</expression>
+        		<capture number="0" name="context.support.function.place-complete"/>
+        	</zone>
+        	
+        	<zone name="context.structural.stop-float">
+        		<expression>\\stopplace\w+(?=(\b|(?=\d)))</expression>
+        		<capture number="0" name="context.support.function.place-complete"/>
+        	</zone>
 			
 			<zone  name="context.balanced.structural.float">
 			    <starts-with>
@@ -630,16 +661,12 @@
         	<!--',' at end would break 'comma' in ConTeXt´s key=value pairs-->
         	<!--')' at end would break \dimexpr() and '(' looks shitty in commands :)-->
         	<zone name="context.support.function.general">
-        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}\(\)\[\]%,]*[^\]\\\d$\s\{\}%,#\.)]</expression>
+        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}\(\)\[\]%,]*[^\]\\\d$\s\{\}%,#\.\|\(\)]</expression>
         	    <capture number="1" name="context.support.function.scratchvariable"/>
         	</zone>
         	
         	<zone name="context.punctuation.delimiter.comma">
         	    <expression>,</expression>
-        	</zone>
-        	
-        	<zone name="context.punctuation.delimiter.colon"><!--(?!=), because of otherwise interference with MetaPost/MetaFun-->
-        	    <expression>:(?!=)</expression>
         	</zone>
         	
         </collection>
