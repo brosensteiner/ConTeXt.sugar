@@ -554,7 +554,7 @@
 			
 			<zone name="context.math">
 				<starts-with>
-					<expression>(\\(?:(?:display)?(?:math|mathematics)|automathematics|inline(?:math|mathematics)))\s*(\{)</expression>
+					<expression>(\\(?:(?:display)?(?:math|mathematics)|automathematics|m|math|mathematics|inline(?:math|mathematics)))\s*(\{)</expression>
 					<capture number="1" name="context.support.function.begin.math"/>
 					<capture number="2" name="context.open-brace.level0"/>
 				</starts-with>
@@ -654,7 +654,7 @@
         
         <collection name="General">
         	
-        	<!--some tradeoffs, but who uses '$' and ',' in ConTeX variable anyway:-->
+        	<!--some tradeoffs, but who uses '$' and ',' in ConTeX variables anyway:-->
         	<!--digits produce an extra line in pdf output so not allowed-->
         	<!--'[' and ']' can also make problems, so not allowed-->
         	<!--'$' at the end of command breaks math environment so not allowed-->

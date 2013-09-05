@@ -151,16 +151,10 @@
 		<selector>context.function.define > support.function.name:capture(name)</selector>
 	</recipe>
 
-<!--math: math is really special in TeX so it deserves a place in the Navigator :)-->
+<!--math: math is really special in TeX/ConTeXt so it deserves a place in the Navigator :)-->
 <recipe name="tex.container.math">
-
 	<class>ESCodeClassItem</class>
-	<start-selector>math > begin.math:capture(name)</start-selector>
-	<end-selector>math > end.math</end-selector>
-	<subrecipes>
-		<include-root-recipes />
-	</subrecipes>
-
+	<selector>math:capture(name)</selector>
 </recipe>
 	
 </itemizer>
