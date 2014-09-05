@@ -360,7 +360,7 @@
             
             <zone name="context.function.define">
             	<starts-with>
-            		<expression>(\\(?:g|e|x)?def)\s*(\\[\w@!?:]*[\w@!?:;,\.])\s*((?:\#+[\w@!?:1-9]+)+)?\s*(\[)</expression>
+            		<expression>(\\(?:g|e|x)?def)\s*(\\[\w@!?:_]*[\w@!?:_;,\.])\s*((?:\#+[\w@!?:1-9]+)+)?\s*(\[)</expression>
             		<capture number="1" name="context.support.function.general.def"/>
             		<capture number="2" name="context.support.function.name"/>
             		<capture number="3" name="context.support.variable.define"/>
@@ -604,6 +604,10 @@
         	    <expression>\\\$</expression>
         	</zone>
         	
+        	<zone name="context.keyword.low-high">
+        	    <expression>\_|^</expression>
+        	</zone>
+        	
         	<include collection="Default_Order_of_Zones" />
         	        	        	
         </collection>
@@ -661,7 +665,7 @@
         	<!--',' at end would break 'comma' in ConTeXt´s key=value pairs-->
         	<!--')' at end would break \dimexpr() and '(' looks shitty in commands :)-->
         	<zone name="context.support.function.general">
-        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}\(\)\[\]%,]*[^\]\\\d$\s\{\}%,#\.\|\(\)]</expression>
+        	    <expression>\\(s!|c!|v!|\?\?(?:\?\?)?|@@)?[^\\\d\s\{\}\(\)\[\]%,\|]*[^\]\\\d$\s\{\}%,#\.\|\(\)_^]</expression>
         	    <capture number="1" name="context.support.function.scratchvariable"/>
         	</zone>
         	
@@ -672,11 +676,7 @@
         </collection>
         
         <collection name="Keywords">
-        
-        	<zone name="context.keyword.other.spacefactorcodes">
-        	    <expression>\\\?(?!\?)|\\!(?!!)|\\\.|\\,|\\:|\\;</expression>
-        	</zone>
-        	
+                	
         	<zone name="context.keyword.other.wordboundary">
         	    <expression>-{2,3}|\|\||\\\s|\|-\||\|/\||\|&lt;\||\|&gt;\|</expression>
         	</zone>
