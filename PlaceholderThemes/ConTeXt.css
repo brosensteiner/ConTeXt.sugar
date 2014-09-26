@@ -1,10 +1,10 @@
 /*
     @theme ConTeXt Placeholder
-    @placeholder language-root.context
+    @placeholder ConTeXt
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
 */
 
-:not(context.comment, context.string) {
+:not(context.comment,context.string) {
 	spell-check: disabled;
 }
 
@@ -22,29 +22,29 @@ context.structural.container container.environment.table > support.function.star
 }
 
 context.level0 {
-	color: hsl(10, 80%, 10%);
+	color: #F06D61;
 }
 context.level1 {
-	color: hsl(29, 80%, 10%);
+	color: #DA825F;
 }
 context.level2 {
-	color: hsl(21, 50%, 40%);
+	color: #C4975C;
 }
 context.level3 {
-	color: hsl(21, 40%, 70%);
+	color: #A8AB7B;
 }
 context.level4 {
-	color: hsl(263, 60%, 30%);
+	color: #8CBF99;
 }
 context.level5 {
-	color: hsl(263, 30%, 40%);
+	color: #413E4A;
 }
 context.level6 {
-	color: hsl(263, 20%, 99%);
+	color: #73626E;
 }
 context.level7 {
-	color: hsl(500, 80%, 60%);
+	color: #B38184;
 }
 context.level8 {
-	color: hsl(500, 50%, 80%);
+	color: #F0B49E;
 }

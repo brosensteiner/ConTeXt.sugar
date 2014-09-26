@@ -1,25 +1,28 @@
 <!--clears the current working directory from unnecessary auxiliary files-->
 
 <action-recipes>
-    <action id="actions.snippets.context.purgeall" category="actions.snippets.context">
+
+    <action id="actions.snippets.context.purgeall" category="actions.snippets.context/actions.snippets.context.generalcommands">
         <class>OCShellAction</class>
         <title>purge all</title>
         <key-equivalent>cmd option P</key-equivalent>
+        <language-context>context</language-context>
         <setup>
             <script>purge_all.sh</script>
             <input>nothing</input>
-            <syntax-context>language-root.context,language-root.context *</syntax-context>
+            <!--<syntax-context>language-root.context,language-root.context *</syntax-context>-->
         </setup>
     </action>
     
     <action id="actions.snippets.context.purgeall" category="tools.Snippets">
             <class>OCShellAction</class>
             <title>purge all</title>
+            <language-context>context</language-context>
             <setup>
                 <script>purge_all.sh</script>
                 <input>nothing</input>
-             <syntax-context>language-root.context,language-root.context *</syntax-context>
-          </setup>
+             	<!--<syntax-context>language-root.context,language-root.context *</syntax-context>-->
+			</setup>
       </action>
         
 </action-recipes>

@@ -27,7 +27,6 @@
 		   	    <subzones name="lua.function-argument.format">
 		   	    	<include collection="Functionargument-format" />
 		   	    	<include syntax="language-root.LuaTeX"/>
-		   	    	<include syntax="language-root.Lua"/>
 		   	    </subzones>
 		   	</zone>
 		</collection>
@@ -56,7 +55,6 @@
 			    	</zone>
 			    	
 			    	<include syntax="language-root.LuaTeX" />
-			    	<include syntax="language-root.Lua" />
 			    	
 			    </subzones>
 			</zone>
@@ -87,7 +85,7 @@
 		   	</zone>
 		</collection>
 		
-		<collection name="Additional"><!--some keywords which are only valid in designated functions, so they syntax highlighting will be made in Lua.css, and in stings: see string zones-->
+		<collection name="Additional"><!--some keywords which are only valid in designated functions, so they syntax highlighting will be made in Lua.css, and in strings: see string zones-->
 		        
 			<zone name="lua.keyword.additional.PEG">
 				<expression>#|&amp;|!|/|&lt;-|->|=>|\{:[a-zA-Z0-9_]+:|\{(:|\~)?|(:|\~)?\}|\=[a-zA-Z0-9_]+</expression>

@@ -1,42 +1,38 @@
 <action-recipes>
 
-    <action id="actions.snippets.context.typesetMKIV" category="actions.snippets.context/actions.snippets.context.separated">
+    <action id="com.brosensteiner.textactions.context.typeset" category="actions.snippets.context/actions.snippets.context.separated">
         <class>OCShellAction</class>
-        <title>Typeset MKIV and View</title>
         <key-equivalent>cmd option r</key-equivalent>
-        
+        <language-context>context, tex</language-context>
         <setup>
             <script>Typeset_MKIV.sh</script>
             <input>nothing</input>
             <!--<alternate>line</alternate>-->
-            <output>log</output>
+            <output>nothing</output>
             <!--<output-format>text</output-format>-->
 			<!--<multiple-selections>true</multiple-selections>-->
 			<!--<single-selection>true</single-selection>-->
 			<!--<selection-context>none</selection-context>-->
 			<suppress-errors>false</suppress-errors>
             <!--<undo_name>My Action</undo_name>-->
-            <syntax-context>language-root.context,language-root.context *</syntax-context>
         </setup>
     </action>
     
-    <action id="actions.snippets.context.typesetMKIV" category="tools.Snippets">
+    <snippet id="com.brosensteiner.textactions.snippets.context.typeset" category="tools.Snippets">
             <class>OCShellAction</class>
-            <title>Typeset MKIV and View</title>
-            
+            <language-context>context, tex</language-context>
             <setup>
                 <script>Typeset_MKIV.sh</script>
                 <input>nothing</input>
                 <!--<alternate>line</alternate>-->
-                <output>log</output>
+                <output>nothing</output>
                 <!--<output-format>text</output-format>-->
             	<!--<multiple-selections>true</multiple-selections>-->
             	<!--<single-selection>true</single-selection>-->
             	<!--<selection-context>none</selection-context>-->
             	<suppress-errors>false</suppress-errors>
                 <!--<undo_name>My Action</undo_name>-->
-                <syntax-context>language-root.context,language-root.context *</syntax-context>
             </setup>
-      </action>
+      </snippet>
         
 </action-recipes>

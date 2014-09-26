@@ -27,6 +27,7 @@
 	
 	<!-- General Commands -->
 	<category id="actions.snippets.context.generalcommands" show="inline separated">
+		<title>General Commands</title>
 	</category>
 
 	<!-- Update ConTeXt Minimals -->

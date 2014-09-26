@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<action-recipes>
+	
+	<action id="com.brosensteiner.fileactions.context.typeset" category="context.typeset/1">
+		<class>OCShellAction</class>
+		<language-context>context, tex</language-context>
+		<syntax-context>context, context *, tex, tex *</syntax-context>
+		<when-disabled>hide</when-disabled>
+		
+		<setup>
+			<script>Typeset_MKIV.sh</script>
+			
+			<multiple-selections>false</multiple-selections>
+			<single-selection>true</single-selection>
+			<empty-selection>false</empty-selection>
+			
+			<input>nothing</input>
+			<output>nothing</output>
+		</setup>
+		
+	</action>
+	
+</action-recipes>

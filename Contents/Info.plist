@@ -6,7 +6,7 @@
     <key>CFBundleName</key>
     <string>ConTeXt.sugar</string>
     <key>CFBundleIdentifier</key>
-    <string>com.rosensteiner.Espresso.Sugar.ConTeXt</string>
+    <string>com.brosensteiner.Espresso.Sugar.ConTeXt</string>
     <key>CFBundleVersion</key>
     <string>1.0</string>
     <!--No need to modify these values-->

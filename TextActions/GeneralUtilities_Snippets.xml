@@ -24,7 +24,7 @@ $4</text>
             <text-trigger>def</text-trigger>
         </snippet>
         
-<!--  setup -->
+<!--  setup[]... -->
         
         <snippet id="actions.snippets.context.setup1" category="tools.Snippets">
             <title>setup 1 arguments</title>

@@ -2,24 +2,24 @@
 
 <settings>
         	
-    	<setting name="comment-multiline-start">
-    		<language-context>context</language-context>
-    		<no-value/>
-    	</setting>
-    		
-    	<setting name="comment-multiline-end">
-    		<language-context>context</language-context>
-    		<no-value/>
-    	</setting>
-    		
-    	<setting name="comment-multiline-end-inert">
-    		<language-context>context</language-context>
-    		<no-value/>
-    	</setting>
-    	
-    	<setting name="comment-singleline-start">
-    		<language-context>context</language-context>
-    		<value>%</value>
-    	</setting>
+	<setting name="comment-multiline-start">
+		<language-context>context</language-context>
+		<no-value/>
+	</setting>
+		
+	<setting name="comment-multiline-end">
+		<language-context>context</language-context>
+		<no-value/>
+	</setting>
+		
+	<setting name="comment-multiline-end-inert">
+		<language-context>context</language-context>
+		<no-value/>
+	</setting>
+	
+	<setting name="comment-singleline-start">
+		<language-context>context</language-context>
+		<value>%</value>
+	</setting>
 
 </settings>

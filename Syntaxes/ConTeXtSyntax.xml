@@ -615,10 +615,10 @@
         <collection name="Keys">
             <zone>
 				<expression>(?:(\\)(s!|c!|v!|\?\?(?:\?\?)?|@@))?([\w@!?:]+)\s*(=)</expression>
-				<capture number="1" name="context.support.key-name"/>
-				<capture number="2" name="context.support.key-name.scratchvariable"/>
-				<capture number="3" name="context.support.key-name"/>
-				<capture number="4" name="punctuation.operator.assignment"/>
+				<capture number="1" name="context.support.property-name"/>
+				<capture number="2" name="context.support.property-name.scratchvariable"/>
+				<capture number="3" name="context.support.property-name"/>
+				<capture number="4" name="punctuation.separator.key-value"/>
             </zone>
         </collection>
         
@@ -705,7 +705,7 @@
             <zone name="context.keyword-other-misc.spec-name-file">
                 <expression>((\\s!)?(spec|name|file):)\b</expression>
                 <capture number="1" name="context.keyword.other.misc.spec-name-file"/>
-                <capture number="2" name="context.support.key-name.scratchvariable"/>
+                <capture number="2" name="context.support.property-name.scratchvariable"/>
             </zone>
             
         </collection>
@@ -743,7 +743,7 @@
         	
         	<zone name="context.balanced.bracket">
         	    <starts-with>
-        	        <expression>(\\(?:language|(?:setup|define)[[:alpha:]_@!?:]+))\s*(\[)</expression>
+        	        <expression>(\\(?:blackrule|language|(?:setup|define)[[:alpha:]_@!?:]+))\s*(\[)</expression>
         	        <capture number="1" name="context.support.function.general"/>
         	        <capture number="2" name="context.open-bracket.level0"/>
         	    </starts-with>

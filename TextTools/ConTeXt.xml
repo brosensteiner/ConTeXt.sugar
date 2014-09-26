@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <tool-recipes>
 	
-	<tool type="toolbar" id="com.rosensteiner.text-tools.context.new-tag" category="macrabbit">
+	<tool type="toolbar" id="com.brosensteiner.toolactions.context.typeset" category="macrabbit">
 	
 		<class>ESTextActionToolbarTool</class>
 		<setup>
-			<main-action-selector>context, context *</main-action-selector>
-			<image>ToolNewTag</image>
+			<main-action-selector>com.brosensteiner.actions.snippets.context.typeset</main-action-selector>
+			<image>ConTeXt_logo_II_small</image>
 		</setup>
 		
 	</tool>
