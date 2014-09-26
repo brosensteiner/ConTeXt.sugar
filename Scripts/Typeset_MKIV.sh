@@ -13,6 +13,12 @@ export BSTINPUTS=/Applications/ConTeXt/tex/texmf-context/bibtex/bst/context
 export TEXMFCACHE=/Applications/ConTeXt/tex/texmf-cache
 export pathToSkim=/Applications/Skim.app/Contents/SharedSupport/displayline
 
+# is needed for file actions (see ShellAction.sugar description: https://github.com/onecrayon/ShellActions-sugar)
+if [ -z ${linenumber}  ]
+then
+linenumber=1
+fi
+
 # cd $projectPath
 # context $path
 # $pathToSkim -r -b $linenumber $pdfer $path
